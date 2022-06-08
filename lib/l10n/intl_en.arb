@@ -1,0 +1,10 @@
+{
+    "@@locale": "en",
+    "@@last_modified": "2021-01-26T22:23:56-0600",
+    "test": "Test",
+    "@test": {
+        "type": "text",
+        "source_text": "Test"
+    }
+}
+
