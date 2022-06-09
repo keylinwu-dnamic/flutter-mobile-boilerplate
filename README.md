@@ -283,17 +283,6 @@ Reviewed set of libraries by category.
 | Library | Usage | URL | License |  
 | :---: | :-: | :-: | :-: |  
 | webview_flutter| embeded webview|https://pub.dev/packages/webview_flutter||    
-| just_the_tooltip| tooltip |https://pub.dev/packages/just_the_tooltip||
-| mime | File type |https://pub.dev/packages/mime||
-| clippy_flutter | custom shapes |https://pub.dev/packages/clippy_flutter||
-| custom_info_window | custom widget based on google_maps_flutter|https://pub.dev/packages/custom_info_window||
-| carousel_slider | carousel slider widget |https://pub.dev/packages/carousel_slider||
-| image_picker | image picker |https://pub.dev/packages/image_picker||
-
-## Maps
-| Library | Usage | URL | License |  
-| :---: | :-: | :-: | :-: |  
-|google_maps_flutter | google maps |https://pub.dev/packages/google_maps_flutter||
 
 ## Navigation
 | Library | Usage | URL | License |  
@@ -315,12 +304,6 @@ Reviewed set of libraries by category.
 | Library | Usage | URL | License |  
 | :---: | :-: | :-: | :-: |  
 | connectivity| online/offline check|https://pub.dev/packages/connectivity||  
-| package_info|read package info|https://pub.dev/packages/package_info||  
-| device_info_plus| device info|https://pub.dev/packages/device_info_plus||  
-| http | making HTTP requests |https://pub.dev/packages/http||
-| geolocator | location utilities |https://pub.dev/packages/geolocator||
-| permission_handler| handles device permissions |https://pub.dev/packages/permission_handler||
-| uuid | generates unique id |https://pub.dev/packages/uuid||
 
 ## Dev dependencies  
 | Library | Usage | URL | License |  
@@ -330,18 +313,3 @@ Reviewed set of libraries by category.
 | freezed| immutable state|https://pub.dev/packages/freezed||
 | auto_route_generator| navigation |https://pub.dev/packages/auto_route||
 | flutter_lints | clean code |https://pub.dev/packages/flutter_lints|||
-
-## Analytics
-| Library | Usage | URL | License |  
-| :---: | :-: | :-: | :-: |  
-| flutter_new_relic_agent| New Relic |||  
-| amplitude_flutter| Amplitud|https://pub.dev/packages/amplitude_flutter|| 
-
-## Custom Packages
-| Library | Usage | URL | License |  
-| :---: | :-: | :-: | :-: |  
-| OKTA| User authorization|https://github.com/wmg-ae/flutter_okta|| 
-| flutter_new_relic_agent| app analytics and crash reporting|https://github.com/wmgdsp/flutter-newrelic-agent||  
-| amp_api| DV api communication|https://github.com/wmg-ae/amp_api|| 
-| amp_ui| AMP common widget|https://github.com/wmg-ae/amp_ui|| 
-| amp_foundation| AMP common extensions and helpers|https://github.com/wmg-ae/amp_foundation|| 

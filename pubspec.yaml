@@ -35,7 +35,7 @@ dependencies:
   # Internationalization
   intl: ^0.17.0
   # State management
-  flutter_riverpod: ^1.0.3
+  flutter_riverpod: ^1.0.4
   # Immutable classes for state management
   freezed_annotation: ^1.1.0
   # Navigation routing

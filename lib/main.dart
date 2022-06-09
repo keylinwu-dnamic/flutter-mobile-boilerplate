@@ -32,7 +32,7 @@ class _AppState extends ConsumerState<App> {
   }
 
   Future<void> openAppLink(Uri uri) async {
-    WidgetsBinding.instance?.addPostFrameCallback(
+    WidgetsBinding.instance.addPostFrameCallback(
       (_) async {
         try {
           _appRouter.pushNamed(uri.path);
