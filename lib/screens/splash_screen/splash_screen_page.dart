@@ -15,11 +15,11 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   void continueTo() {
     final router = AutoRouter.of(context);
-    router.replaceAll([HomeRoute(title: 'My Flutter Boilerplate')]);
+    router.replaceAll([const HomeRoute()]);
   }
 
   _startTime() async {
-    return Timer(const Duration(milliseconds: 4500), continueTo);
+    return Timer(const Duration(milliseconds: 2000), continueTo);
   }
 
   @override

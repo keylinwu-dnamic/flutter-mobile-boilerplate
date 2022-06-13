@@ -50,10 +50,20 @@ class AppStrings {
     return Localizations.of<AppStrings>(context, AppStrings);
   }
 
-  /// `Test`
+  /// `Welcome, this is a Cocktails App`
+  String get welcome {
+    return Intl.message(
+      'Welcome, this is a Cocktails App',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `another text`
   String get test {
     return Intl.message(
-      'Test',
+      'another text',
       name: 'test',
       desc: '',
       args: [],
