@@ -9,7 +9,7 @@ class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> {
@@ -38,7 +38,7 @@ class SplashVideo extends StatefulWidget {
   const SplashVideo({Key? key}) : super(key: key);
 
   @override
-  _SplashVideoState createState() => _SplashVideoState();
+  State<SplashVideo> createState() => _SplashVideoState();
 }
 
 class _SplashVideoState extends State<SplashVideo> {

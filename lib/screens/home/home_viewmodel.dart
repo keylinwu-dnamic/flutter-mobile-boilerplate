@@ -1,4 +1,4 @@
-import 'package:boilerplate/models/cocktail.dart';
+import 'package:boilerplate/classes/models/cocktail.dart';
 import 'package:boilerplate/screens/home/states/home_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
