@@ -59,16 +59,6 @@ class AppStrings {
       args: [],
     );
   }
-
-  /// `another text`
-  String get test {
-    return Intl.message(
-      'another text',
-      name: 'test',
-      desc: '',
-      args: [],
-    );
-  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppStrings> {
