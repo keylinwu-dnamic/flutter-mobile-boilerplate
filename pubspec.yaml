@@ -52,6 +52,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   #webview
   webview_flutter: ^3.0.0
+  #dio
+  dio: ^4.0.6
+  #dio logger
+  pretty_dio_logger: ^1.1.1
 
 dev_dependencies:
   flutter_test:
