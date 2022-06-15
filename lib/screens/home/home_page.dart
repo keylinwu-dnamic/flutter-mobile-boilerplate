@@ -1,5 +1,3 @@
-import 'package:boilerplate/generated/l10n.dart';
-import 'package:boilerplate/models/cocktail.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,7 +6,7 @@ class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  ConsumerState createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends ConsumerState<HomePage>
@@ -20,7 +18,7 @@ class _HomePageState extends ConsumerState<HomePage>
     _setupController();
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await ref.read(homeViewModelProvider.notifier).mockAPICall();
+      await ref.read(homeViewModelProvider.notifier).initialize();
     });
   }
 
@@ -44,6 +42,7 @@ class _HomePageState extends ConsumerState<HomePage>
     return Scaffold(
       appBar: _buildAppBar(),
       body: buildAccordingToState(),
+      bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
@@ -58,7 +57,7 @@ class _HomePageState extends ConsumerState<HomePage>
       homeViewModelProvider.select(
         (viewModel) => viewModel.when(
           loading: () => _buildLoader(),
-          success: (cocktails) => _buildCocktailScreen(cocktails),
+          success: () => _buildCategoriesMenu(),
           failure: (error) => Text('Error $error'),
         ),
       ),
@@ -74,18 +73,61 @@ class _HomePageState extends ConsumerState<HomePage>
     );
   }
 
-  Widget _buildCocktailScreen(List<Cocktail> cocktails) {
+  Widget _buildCategoriesMenu() {
+    final gridTile = ref
+        .read(homeViewModelProvider.notifier)
+        .cocktailMenuTiles
+        .map((tile) => _buildGridTile(withName: tile.name))
+        .toList();
+
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            AppStrings.current.welcome,
-            style: Theme.of(context).textTheme.headline4,
-            textAlign: TextAlign.center,
-          ),
-        ],
+        child: GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(20),
+      crossAxisSpacing: 10,
+      mainAxisSpacing: 10,
+      crossAxisCount: 2,
+      children: gridTile,
+    ));
+  }
+
+  Widget _buildGridTile({required String withName}) {
+    return GridTile(
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        color: Colors.teal,
+        child: Text(withName),
       ),
+    );
+  }
+
+  BottomNavigationBar _buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+          backgroundColor: Colors.red,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.business),
+          label: 'Business',
+          backgroundColor: Colors.green,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.school),
+          label: 'School',
+          backgroundColor: Colors.purple,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: 'Settings',
+          backgroundColor: Colors.pink,
+        ),
+      ],
+      currentIndex: 0,
+      selectedItemColor: Colors.amber[800],
+      onTap: (index) => print('Nav Bar clicked  - change to autoroute $index'),
     );
   }
 }

@@ -1,20 +1,28 @@
-import 'package:boilerplate/models/cocktail.dart';
 import 'package:boilerplate/screens/home/states/home_state.dart';
+import 'package:boilerplate/services/cocktail_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+enum CocktailMenu {
+  categories(name: 'Category'),
+  typeOfGlass(name: 'Type of Glass'),
+  ingredient(name: 'Ingredient'),
+  alcoholic(name: 'Alcoholic/Non Alcoholic');
+
+  final String name;
+  const CocktailMenu({required this.name});
+}
+
 class HomeViewModel extends StateNotifier<HomeState> {
-  List<Cocktail> cocktails = [
-    Cocktail('111', 'Mojito', 'Soy un mojito'),
-    Cocktail('222', 'Long Island', 'Soy un Long Island'),
-    Cocktail('333', 'Bizcocho', 'Soy un bizcocho'),
-  ];
+  final String title = 'Cocktails App';
+  final List<CocktailMenu> cocktailMenuTiles = CocktailMenu.values;
+  final CocktailService cocktailService;
 
-  final String title = 'My Flutter Boilerplate';
+  HomeViewModel(super.state, {required this.cocktailService});
 
-  HomeViewModel(super.state);
-
-  Future<void> mockAPICall() async {
-    await Future.delayed(const Duration(seconds: 5));
-    state = HomeState.success(cocktails);
+  Future<void> initialize() async {
+    //TODO: Here we should add the first api call to prepare your views like this:
+    // final glasses = await cocktailService.getTypeOfGlasses();
+    // and assigned it thru success if the screen requires it.
+    state = const HomeState.success();
   }
 }

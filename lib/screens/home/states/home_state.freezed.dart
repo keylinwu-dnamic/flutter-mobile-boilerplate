@@ -19,21 +19,21 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Cocktail> cocktails) success,
+    required TResult Function() success,
     required TResult Function(String error) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
+    TResult Function()? success,
     TResult Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
+    TResult Function()? success,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$_HomeStateLoading implements _HomeStateLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Cocktail> cocktails) success,
+    required TResult Function() success,
     required TResult Function(String error) failure,
   }) {
     return loading();
@@ -129,7 +129,7 @@ class _$_HomeStateLoading implements _HomeStateLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
+    TResult Function()? success,
     TResult Function(String error)? failure,
   }) {
     return loading?.call();
@@ -139,7 +139,7 @@ class _$_HomeStateLoading implements _HomeStateLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
+    TResult Function()? success,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
@@ -193,7 +193,6 @@ abstract class _$$_HomeStateSuccessCopyWith<$Res> {
   factory _$$_HomeStateSuccessCopyWith(
           _$_HomeStateSuccess value, $Res Function(_$_HomeStateSuccess) then) =
       __$$_HomeStateSuccessCopyWithImpl<$Res>;
-  $Res call({List<Cocktail> cocktails});
 }
 
 /// @nodoc
@@ -206,86 +205,57 @@ class __$$_HomeStateSuccessCopyWithImpl<$Res>
 
   @override
   _$_HomeStateSuccess get _value => super._value as _$_HomeStateSuccess;
-
-  @override
-  $Res call({
-    Object? cocktails = freezed,
-  }) {
-    return _then(_$_HomeStateSuccess(
-      cocktails == freezed
-          ? _value._cocktails
-          : cocktails // ignore: cast_nullable_to_non_nullable
-              as List<Cocktail>,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_HomeStateSuccess implements _HomeStateSuccess {
-  const _$_HomeStateSuccess(final List<Cocktail> cocktails)
-      : _cocktails = cocktails;
-
-  final List<Cocktail> _cocktails;
-  @override
-  List<Cocktail> get cocktails {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_cocktails);
-  }
+  const _$_HomeStateSuccess();
 
   @override
   String toString() {
-    return 'HomeState.success(cocktails: $cocktails)';
+    return 'HomeState.success()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_HomeStateSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._cocktails, _cocktails));
+        (other.runtimeType == runtimeType && other is _$_HomeStateSuccess);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cocktails));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_HomeStateSuccessCopyWith<_$_HomeStateSuccess> get copyWith =>
-      __$$_HomeStateSuccessCopyWithImpl<_$_HomeStateSuccess>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Cocktail> cocktails) success,
+    required TResult Function() success,
     required TResult Function(String error) failure,
   }) {
-    return success(cocktails);
+    return success();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
+    TResult Function()? success,
     TResult Function(String error)? failure,
   }) {
-    return success?.call(cocktails);
+    return success?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
+    TResult Function()? success,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(cocktails);
+      return success();
     }
     return orElse();
   }
@@ -326,13 +296,7 @@ class _$_HomeStateSuccess implements _HomeStateSuccess {
 }
 
 abstract class _HomeStateSuccess implements HomeState {
-  const factory _HomeStateSuccess(final List<Cocktail> cocktails) =
-      _$_HomeStateSuccess;
-
-  List<Cocktail> get cocktails => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_HomeStateSuccessCopyWith<_$_HomeStateSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _HomeStateSuccess() = _$_HomeStateSuccess;
 }
 
 /// @nodoc
@@ -401,7 +365,7 @@ class _$_HomeStateFailure implements _HomeStateFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Cocktail> cocktails) success,
+    required TResult Function() success,
     required TResult Function(String error) failure,
   }) {
     return failure(error);
@@ -411,7 +375,7 @@ class _$_HomeStateFailure implements _HomeStateFailure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
+    TResult Function()? success,
     TResult Function(String error)? failure,
   }) {
     return failure?.call(error);
@@ -421,7 +385,7 @@ class _$_HomeStateFailure implements _HomeStateFailure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
+    TResult Function()? success,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
