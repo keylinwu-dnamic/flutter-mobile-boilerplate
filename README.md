@@ -100,16 +100,7 @@ For more information, see  [Dart Parameters](https://dart.dev/guides/language/la
 │  ├── repositories  
 │  ├── router  
 │  ├── screens
-│  │  ├── coordinator
-│  │  ├── gps_permission
-│  │  ├── homes
-│  │  ├── languages
-│  │  ├── prepare_app
-│  │  ├── profile
-│  │  ├── rewards_detail
-│  │  ├── rewards
-│  │  ├── setting_pages
-│  │  ├── sign_in
+│  │  ├── home
 │  │  ├── splash_screen
 │  ├── services  
 └── test  
