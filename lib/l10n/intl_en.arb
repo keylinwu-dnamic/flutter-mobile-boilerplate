@@ -6,8 +6,21 @@
         "type": "text",
         "source_text": "Test Welcome"
     },
-
-
+    "home": "Home",
+    "@home": {
+        "type": "text",
+        "source_text": "Home"
+    },
+    "search": "Search",
+    "@search": {
+        "type": "text",
+        "source_text": "Search"
+    },
+    "about": "About",
+    "@about": {
+        "type": "text",
+        "source_text": "About"
+    }
 }
 
 

@@ -19,10 +19,20 @@ class HomeViewModel extends StateNotifier<HomeState> {
 
   HomeViewModel(super.state, {required this.cocktailService});
 
+  int _currentNavigationIndex = 0;
+  int get currentNavigationIndex => _currentNavigationIndex;
+  set currentNavigationIndex(int index) {
+    _currentNavigationIndex = index;
+    state = HomeState.success(
+      currentNavigationIndex: _currentNavigationIndex,
+    );
+  }
+
   Future<void> initialize() async {
     //TODO: Here we should add the first api call to prepare your views like this:
     // final glasses = await cocktailService.getTypeOfGlasses();
     // and assigned it thru success if the screen requires it.
-    state = const HomeState.success();
+    // another way: state = const HomeState.success(currentNavigationIndex);
+    currentNavigationIndex = 0;
   }
 }

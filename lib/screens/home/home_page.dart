@@ -1,4 +1,6 @@
 import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
+import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,6 +14,12 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage>
     with TickerProviderStateMixin {
   AnimationController? animationController;
+
+  final mainScreens = [
+    const CategoryMainMenu(),
+    const OtherScreen(title: 'Search Screen'),
+    const OtherScreen(title: 'About Screen'),
+  ];
 
   @override
   void initState() {
@@ -42,13 +50,17 @@ class _HomePageState extends ConsumerState<HomePage>
     return Scaffold(
       appBar: _buildAppBar(),
       body: buildAccordingToState(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: const CocktailBottomNavigation(),
     );
   }
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Text(ref.read(homeViewModelProvider.notifier).title),
+      title: Text(
+        ref.read(homeViewModelProvider.notifier).title,
+        style: const TextStyle(color: Colors.black54),
+      ),
+      backgroundColor: Colors.amber.shade100,
     );
   }
 
@@ -57,11 +69,17 @@ class _HomePageState extends ConsumerState<HomePage>
       homeViewModelProvider.select(
         (viewModel) => viewModel.when(
           loading: () => _buildLoader(),
-          success: () => _buildCategoriesMenu(),
+          success: (currentNavigationIndex) => buildNavigationWidget(
+            currentNavigationIndex,
+          ),
           failure: (error) => Text('Error $error'),
         ),
       ),
     );
+  }
+
+  Widget buildNavigationWidget(int withIndex) {
+    return mainScreens[withIndex];
   }
 
   Widget _buildLoader() {
@@ -72,62 +90,16 @@ class _HomePageState extends ConsumerState<HomePage>
       ),
     );
   }
+}
 
-  Widget _buildCategoriesMenu() {
-    final gridTile = ref
-        .read(homeViewModelProvider.notifier)
-        .cocktailMenuTiles
-        .map((tile) => _buildGridTile(withName: tile.name))
-        .toList();
+class OtherScreen extends StatelessWidget {
+  const OtherScreen({Key? key, required this.title}) : super(key: key);
+  final String title;
 
+  @override
+  Widget build(BuildContext context) {
     return Center(
-        child: GridView.count(
-      primary: false,
-      padding: const EdgeInsets.all(20),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      crossAxisCount: 2,
-      children: gridTile,
-    ));
-  }
-
-  Widget _buildGridTile({required String withName}) {
-    return GridTile(
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        color: Colors.teal,
-        child: Text(withName),
-      ),
-    );
-  }
-
-  BottomNavigationBar _buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-          backgroundColor: Colors.red,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.business),
-          label: 'Business',
-          backgroundColor: Colors.green,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.school),
-          label: 'School',
-          backgroundColor: Colors.purple,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
-          backgroundColor: Colors.pink,
-        ),
-      ],
-      currentIndex: 0,
-      selectedItemColor: Colors.amber[800],
-      onTap: (index) => print('Nav Bar clicked  - change to autoroute $index'),
+      child: Text(title),
     );
   }
 }
