@@ -10,7 +10,8 @@ final configurationServiceProvider = Provider<ConfigurationService>((ref) {
   throw UnimplementedError();
 });
 
-final connectivityServiceProvider = Provider<ConnectivityService>((ref) {
+final connectivityServiceProvider =
+    Provider<ConnectivityServiceInterface>((ref) {
   return ConnectivityService();
 });
 
@@ -19,7 +20,7 @@ final dataRepositoryProvider = Provider<DataRepositoryInterface>((ref) {
   return DataRepository(networkService);
 });
 
-final cocktailServiceProvider = Provider<CocktailService>((ref) {
+final cocktailServiceProvider = Provider<CocktailServiceInterface>((ref) {
   final repository = ref.read(dataRepositoryProvider);
   return CocktailService(repository);
 });

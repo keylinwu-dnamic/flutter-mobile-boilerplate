@@ -7,7 +7,7 @@ import 'package:connectivity/connectivity.dart';
 
 enum ConnectivityStatus { cellular, wifi, offline }
 
-abstract class IConnectivityService {
+abstract class ConnectivityServiceInterface {
   Stream<ConnectivityStatus?> get connectionStatusStream;
   ConnectivityStatus? get status;
   bool get isOffline;
@@ -16,7 +16,7 @@ abstract class IConnectivityService {
   Future<bool> checkInternetConnection();
 }
 
-class ConnectivityService implements IConnectivityService {
+class ConnectivityService implements ConnectivityServiceInterface {
   final StreamController<ConnectivityStatus?> _connectionStatusController =
       StreamController<ConnectivityStatus?>.broadcast();
 
