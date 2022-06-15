@@ -1,6 +1,6 @@
-import 'package:boilerplate/classes/models/cocktail.dart';
-import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
+import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,19 +8,26 @@ class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  ConsumerState createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends ConsumerState<HomePage>
     with TickerProviderStateMixin {
   AnimationController? animationController;
 
+  final mainScreens = [
+    const CategoryMainMenu(),
+    const OtherScreen(title: 'Search Screen'),
+    const OtherScreen(title: 'About Screen'),
+  ];
+
   @override
   void initState() {
     _setupController();
     super.initState();
+
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await ref.read(homeViewModelProvider.notifier).mockAPICall();
+      await ref.read(homeViewModelProvider.notifier).initialize();
     });
   }
 
@@ -43,26 +50,37 @@ class _HomePageState extends ConsumerState<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: buildAccordingToState(),
+      body: _buildAccordingToState(),
+      bottomNavigationBar: const CocktailBottomNavigation(),
     );
   }
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Text(ref.read(homeViewModelProvider.notifier).title),
+      title: Text(
+        ref.read(homeViewModelProvider.notifier).title,
+        style: const TextStyle(color: Colors.black54),
+      ),
+      backgroundColor: Colors.amber.shade100,
     );
   }
 
-  Widget buildAccordingToState() {
+  Widget _buildAccordingToState() {
     return ref.watch(
       homeViewModelProvider.select(
         (viewModel) => viewModel.when(
           loading: () => _buildLoader(),
-          success: (cocktails) => _buildCocktailScreen(cocktails),
+          success: (currentNavigationIndex) => _buildNavigationWidget(
+            currentNavigationIndex,
+          ),
           failure: (error) => Text('Error $error'),
         ),
       ),
     );
+  }
+
+  Widget _buildNavigationWidget(int withIndex) {
+    return mainScreens[withIndex];
   }
 
   Widget _buildLoader() {
@@ -73,19 +91,16 @@ class _HomePageState extends ConsumerState<HomePage>
       ),
     );
   }
+}
 
-  Widget _buildCocktailScreen(List<Cocktail> cocktails) {
+class OtherScreen extends StatelessWidget {
+  const OtherScreen({Key? key, required this.title}) : super(key: key);
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            AppStrings.current.welcome,
-            style: Theme.of(context).textTheme.headline4,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+      child: Text(title),
     );
   }
 }

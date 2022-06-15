@@ -38,10 +38,10 @@ class SplashVideo extends StatefulWidget {
   const SplashVideo({Key? key}) : super(key: key);
 
   @override
-  State<SplashVideo> createState() => _SplashVideoState();
+  SplashVideoState createState() => SplashVideoState();
 }
 
-class _SplashVideoState extends State<SplashVideo> {
+class SplashVideoState extends State<SplashVideo> {
   // static const double aspectRatio = 1114 / 1080;
 
   @override

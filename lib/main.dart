@@ -13,10 +13,10 @@ class App extends ConsumerStatefulWidget {
   const App({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<App> createState() => _AppState();
+  AppState createState() => AppState();
 }
 
-class _AppState extends ConsumerState<App> {
+class AppState extends ConsumerState<App> {
   late AppRouter _appRouter;
   late Locale _appLocale;
 
