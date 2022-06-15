@@ -6,11 +6,8 @@
         "type": "text",
         "source_text": "Test Welcome"
     },
-    "test": "another text",
-    "@test": {
-        "type": "text",
-        "source_text": "Test"
-    }
+
+
 }
 
 
