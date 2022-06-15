@@ -25,6 +25,7 @@ class _HomePageState extends ConsumerState<HomePage>
   void initState() {
     _setupController();
     super.initState();
+
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await ref.read(homeViewModelProvider.notifier).initialize();
     });
@@ -49,7 +50,7 @@ class _HomePageState extends ConsumerState<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: buildAccordingToState(),
+      body: _buildAccordingToState(),
       bottomNavigationBar: const CocktailBottomNavigation(),
     );
   }
@@ -64,12 +65,12 @@ class _HomePageState extends ConsumerState<HomePage>
     );
   }
 
-  Widget buildAccordingToState() {
+  Widget _buildAccordingToState() {
     return ref.watch(
       homeViewModelProvider.select(
         (viewModel) => viewModel.when(
           loading: () => _buildLoader(),
-          success: (currentNavigationIndex) => buildNavigationWidget(
+          success: (currentNavigationIndex) => _buildNavigationWidget(
             currentNavigationIndex,
           ),
           failure: (error) => Text('Error $error'),
@@ -78,7 +79,7 @@ class _HomePageState extends ConsumerState<HomePage>
     );
   }
 
-  Widget buildNavigationWidget(int withIndex) {
+  Widget _buildNavigationWidget(int withIndex) {
     return mainScreens[withIndex];
   }
 

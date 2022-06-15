@@ -1,7 +1,11 @@
 import 'package:boilerplate/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-enum CocktailBottomNavigationType { home, search, about }
+enum CocktailBottomNavigationType {
+  home,
+  search,
+  about,
+}
 
 extension CocktailBottomNavigationTypeExtension
     on CocktailBottomNavigationType {
