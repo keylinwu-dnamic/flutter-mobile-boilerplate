@@ -13,7 +13,7 @@ class App extends ConsumerStatefulWidget {
   const App({Key? key}) : super(key: key);
 
   @override
-  _AppState createState() => _AppState();
+  ConsumerState<App> createState() => _AppState();
 }
 
 class _AppState extends ConsumerState<App> {
@@ -54,7 +54,6 @@ class _AppState extends ConsumerState<App> {
       supportedLocales: LocaleConfiguration.supportedLocales,
       locale: _appLocale,
       debugShowCheckedModeBanner: false,
-      // theme: AmpTheme.darkTheme,
     );
   }
 }
