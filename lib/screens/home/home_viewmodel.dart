@@ -1,16 +1,7 @@
+import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/states/home_state.dart';
 import 'package:boilerplate/services/cocktail_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-enum CocktailMenu {
-  categories(name: 'Category'),
-  typeOfGlass(name: 'Type of Glass'),
-  ingredient(name: 'Ingredient'),
-  alcoholic(name: 'Alcoholic/Non Alcoholic');
-
-  final String name;
-  const CocktailMenu({required this.name});
-}
 
 class HomeViewModel extends StateNotifier<HomeState> {
   final String title = 'Cocktails App';
@@ -23,9 +14,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
   int get currentNavigationIndex => _currentNavigationIndex;
   set currentNavigationIndex(int index) {
     _currentNavigationIndex = index;
-    state = HomeState.success(
-      currentNavigationIndex: _currentNavigationIndex,
-    );
+    state = HomeState.success(currentNavigationIndex: _currentNavigationIndex);
   }
 
   Future<void> initialize() async {
