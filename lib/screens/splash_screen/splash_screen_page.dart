@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/constants/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../router/router.gr.dart';
 
@@ -19,7 +21,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   _startTime() async {
-    return Timer(const Duration(milliseconds: 2000), continueTo);
+    return Timer(const Duration(milliseconds: 5000), continueTo);
   }
 
   @override
@@ -42,26 +44,19 @@ class SplashVideo extends StatefulWidget {
 }
 
 class SplashVideoState extends State<SplashVideo> {
-  // static const double aspectRatio = 1114 / 1080;
+  static const double aspectRatio = 1114 / 1080;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.greenAccent,
+    return Scaffold(
+      backgroundColor: Colors.yellow.shade100,
       body: SafeArea(
         child: Center(
-            child: Text(
-          'Splash',
-          style: TextStyle(
-            fontSize: 44,
+          child: AspectRatio(
+            aspectRatio: aspectRatio,
+            child: Lottie.asset(Assets.splashLottie),
           ),
-        )
-            //TODO: widget insert lottie or video here
-            // AspectRatio(
-            //   aspectRatio: aspectRatio,
-            //   child: Lottie.asset(ExclusiveSplash.intro),
-            // ),
-            ),
+        ),
       ),
     );
   }

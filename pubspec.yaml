@@ -56,6 +56,8 @@ dependencies:
   dio: ^4.0.6
   #dio logger
   pretty_dio_logger: ^1.1.1
+  #Lottie player
+  lottie: ^1.3.0
 
 dev_dependencies:
   flutter_test:
