@@ -80,11 +80,12 @@ class ConnectivityService implements ConnectivityServiceInterface {
   Future<bool> checkInternetConnection() async {
     bool hasConnection = false;
     try {
-      final result = await InternetAddress.lookup(Constants
-              .connectivityPingUrl) //TODO: change this to a centralized constant
-          .timeout(const Duration(milliseconds: 3000));
+      final result = await InternetAddress.lookup(
+        Constants.connectivityPingUrl,
+      ).timeout(const Duration(milliseconds: 3000));
       hasConnection = (result.isNotEmpty && result[0].rawAddress.isNotEmpty);
-    } on SocketException catch (_) {
+    } on SocketException catch (e) {
+      log('Socket Exception: $e');
       hasConnection = false;
     }
     return hasConnection;
