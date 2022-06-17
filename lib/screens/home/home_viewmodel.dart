@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class HomeViewModel extends StateNotifier<HomeState> {
   final String title = 'Cocktails App';
   final List<CocktailMenu> cocktailMenuTiles = CocktailMenu.values;
-  final CocktailService cocktailService;
+  final CocktailServiceInterface cocktailService;
 
   HomeViewModel(super.state, {required this.cocktailService});
 

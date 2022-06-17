@@ -93,6 +93,7 @@ class _HomePageState extends ConsumerState<HomePage>
   }
 }
 
+//TODO: This is temporal and can be remove when we make the proper widgets for each screen
 class OtherScreen extends StatelessWidget {
   const OtherScreen({Key? key, required this.title}) : super(key: key);
   final String title;
