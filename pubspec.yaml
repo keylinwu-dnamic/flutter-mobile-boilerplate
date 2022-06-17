@@ -44,6 +44,7 @@ dependencies:
   streaming_shared_preferences: ^2.0.0
   # connectivity
   connectivity: ^3.0.6
+#  connectivity_plus: ^2.3.4
   # Builders for handling JSON
   json_serializable: ^6.1.3
   # Equatable
@@ -52,6 +53,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   #webview
   webview_flutter: ^3.0.0
+  #dio
+  dio: ^4.0.6
+  #dio logger
+  pretty_dio_logger: ^1.1.1
+  #Lottie player
+  lottie: ^1.3.0
 
 dev_dependencies:
   flutter_test:

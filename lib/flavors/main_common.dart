@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:boilerplate/generated/l10n.dart';
-import 'package:boilerplate/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../flavors/flavor.dart';
+import '../main.dart';
 import '../providers/providers.dart';
 import '../services/configuration_service.dart';
 
