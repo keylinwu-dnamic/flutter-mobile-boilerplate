@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-
-import '../../services/auth_service.dart';
+import 'package:boilerplate/services/auth_service.dart';
 
 class AuthGuard extends AutoRouteGuard {
   AuthGuard({this.authService});

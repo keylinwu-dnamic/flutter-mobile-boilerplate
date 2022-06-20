@@ -7,7 +7,7 @@ import 'package:connectivity/connectivity.dart';
 
 enum ConnectivityStatus { cellular, wifi, offline }
 
-abstract class IConnectivityService {
+abstract class ConnectivityServiceInterface {
   Stream<ConnectivityStatus?> get connectionStatusStream;
   ConnectivityStatus? get status;
   bool get isOffline;
@@ -16,7 +16,7 @@ abstract class IConnectivityService {
   Future<bool> checkInternetConnection();
 }
 
-class ConnectivityService implements IConnectivityService {
+class ConnectivityService implements ConnectivityServiceInterface {
   final StreamController<ConnectivityStatus?> _connectionStatusController =
       StreamController<ConnectivityStatus?>.broadcast();
 
@@ -80,11 +80,12 @@ class ConnectivityService implements IConnectivityService {
   Future<bool> checkInternetConnection() async {
     bool hasConnection = false;
     try {
-      final result = await InternetAddress.lookup(Constants
-              .connectivityPingUrl) //TODO: change this to a centralized constant
-          .timeout(const Duration(milliseconds: 3000));
+      final result = await InternetAddress.lookup(
+        Constants.connectivityPingUrl,
+      ).timeout(const Duration(milliseconds: 3000));
       hasConnection = (result.isNotEmpty && result[0].rawAddress.isNotEmpty);
-    } on SocketException catch (_) {
+    } on SocketException catch (e) {
+      log('Socket Exception: $e');
       hasConnection = false;
     }
     return hasConnection;

@@ -50,11 +50,41 @@ class AppStrings {
     return Localizations.of<AppStrings>(context, AppStrings);
   }
 
-  /// `Test`
-  String get test {
+  /// `Welcome, this is a Cocktails App`
+  String get welcome {
     return Intl.message(
-      'Test',
-      name: 'test',
+      'Welcome, this is a Cocktails App',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message(
+      'About',
+      name: 'about',
       desc: '',
       args: [],
     );
