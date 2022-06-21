@@ -3,6 +3,21 @@
 # 👋 Welcome to Flutter Boilerplate Project 
 This readme file describes all elements necessary in order to understand the general structure of the project, as well as the required information to get started and collaborate.  
   
+# Before you start
+To run correctly this project, be sure to follow the next steps:
+ - Add the folder `config` [in this google drive](https://drive.google.com/drive/folders/1yhEkZ_-Q7FAqhR_JEb2IviF3RFPp1kGd?usp=sharing) in the root of the project `flutter_mobile_boileplate/config`
+ - To run in the project in __Android__ make sure to add this key `flutter.minSdkVersion=19` in the file located under `android/local.properties`. 
+ - When adding new images, make sure to add them under the folder `assets/images` located in the root as well. Each image should follow the next format of sizes (1x,2x,3x):
+  >if the image is 1x, it should live in 
+  `assets/images/file.png`
+
+  >if the image is 2x , it should live in
+  `images/2x/file.png`
+
+  >if the image is 3x , it should live in
+  `images/3x/file.png`
+Make sure to ask the designer for the 3 sizes to match different devices resolution correctly. Assets will work if you only add the first image, but it's resolution might not work well on all the devices.
+
 # 1) 📝 Name Convention and other rules.  
   
 This section defines some Flutter and Dart naming conventions, which are split into several sections.  
@@ -95,21 +110,10 @@ For more information, see  [Dart Parameters](https://dart.dev/guides/language/la
 │  ├── flavors  
 │  ├── generated (Strings Localization generated) 
 │  ├── l10n (Strings Localization)  
-│  ├── managers  
-│  ├── models  
 │  ├── repositories  
 │  ├── router  
 │  ├── screens
-│  │  ├── coordinator
-│  │  ├── gps_permission
 │  │  ├── homes
-│  │  ├── languages
-│  │  ├── prepare_app
-│  │  ├── profile
-│  │  ├── rewards_detail
-│  │  ├── rewards
-│  │  ├── setting_pages
-│  │  ├── sign_in
 │  │  ├── splash_screen
 │  ├── services  
 └── test  
@@ -128,20 +132,79 @@ For more information, see  [Dart Parameters](https://dart.dev/guides/language/la
     
 3. **Configurations:** Add configuration constants  inside `config/` such as `API urls`, `Private keys`, etc, app runs different flavors so each entry should be added to the 4 flavors files.  
 4. **Strings:** No literal strings, create literal string only as constants  
-- Global constants are defined inside **AmpConstants** that exist inside of the file`lib/classes/constants/constants.dart`.  
- 5. **Colors:** For HEX colors use long-form (10-chars) and keep it uppercase. All colors constants are defined inside **AmpColors** class that exist in our `amp_ui` package, followed by the file `amp_ui/lib/classes/amp_colors.dart`.  `. In order to keep consistency on the UI please double check with the Design and Tech leads before adding a new value in this class.  
-6. **Spacing:** General UI margins/spacing constants are defined inside **AmpSpacing** class that exist in our `amp_ui` package, followed by the file `amp_ui/lib/classes/amp_spacing.dart`.  . In order to keep consistency on the UI please double check with the Design and Tech leads before adding a new value in this class.  
-7. **Sizes:** General UI size constants are defined inside **AmpSizes** class that exist in our `amp_ui` package, followed by the file `amp_ui/lib/classes/amp_sizes.dart`.  
-8. **Fonts:** General font style constants are defined inside **AmpFonts** class that exist in our `amp_ui` package, followed by the file `amp_ui/lib/classes/amp_fonts.dart`.   In order to keep consistency on the UI please double check with the Design and Tech leads before adding a new value in this class.  
-9. **Styles:** General widgets styles constants are defined inside **AmpStyles** class that exist in our `amp_ui` package, followed by the file `amp_ui/lib/classes/amp_styles.dart`.  
-10. **Assets:** Relative paths to load images/videos/data any other asset file should be defined as a constant inside the corresponding class  that exist in our `amp_ui` package, followed by the file `amp_ui/lib/classes/amp_theme.dart`.  .  
-11. **Helpers:** Split render elements into smalls atomic helpers. General helper functions should be added to the corresponding class inside the files located at `amp_ui/lib/classes/amp_theme.dart`.  
-12. **Prints:** Remove any `print()` and use `log()` instead for important feedback, i.e on `catch` statements.  
-13. **Navigation:** Each Page should have it's own `AutoRoute` definition. That can be find under the file `lib/router/router.dart`
+- Global constants are defined inside **Constants** that exist inside of the file`lib/constants/constants.dart`.  
+ 5. **Colors:** For HEX colors use long-form (10-chars) and keep it uppercase. All colors constants are defined inside **CokctailColors** class should exist under **Styles** folder, if it doesn't exist, we can create the folder and the class there. Then create, followed by the file `lib/styles/cocktail_colors.dart`.
+```dart
+class CocktailColors {
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color lightGrayOne = Color(0xFFF2F2F2);
+  static const Color lightGrayTwo = Color(0xFFECECEC);
+  static const Color lightGrayThree = Color(0xFFE8E8E8);
+  static const Color lightGrayFour = Color(0xFFE0E0E0);
+}
+```
+ 6. **Spacing:** General UI margins/spacing constants are defined inside **Spacing** class. This should be defined inside **Styles** folder, if it doesn't exist, we can create the folder and followed by the file `/lib/styles/spacing.dart`.
+```dart
+ class Spacing {
+  static const spacingXXS = 5.0;
+  static const spacingXS = 10.0;
+  static const spacingSM = 15.0;
+  static const spacingMD = 20.0;
+  static const spacingLG = 25.0;
+}
+ ```
+ 7. **Sizes:** General UI size constants are defined inside **Sizes** class that should exist under the Styles folder followed by the file `/lib/styles/sizes.dart`.  
+ 8. **Fonts:** General font style constants are defined inside **Styles** folder, if it doesn't exist, we can create the folder. Then create **Fonts** class and standardized the font constants in an static class. In order to keep consistency on the UI please double check with the Design and Tech leads before adding a new value in this class.
+```dart
+class Fonts {
+  static const headline = const TextStyle(
+    fontFamily: 'Suisse',
+    fontWeight: FontWeight.bold,
+    fontSize: 26.0,
+  );
+  
+  static const listItem = const TextStyle(
+    fontFamily: 'Suisse',
+    fontWeight: FontWeight.bold,
+    fontSize: 24.0,
+  );
+}
+```
+ 9. **Styles:** General widgets styles constants are defined inside **Styles** folder, if it doesn't exist, we can create the folder followed by the file.
+```dart 
+class AmpStyles {
+
+  static ButtonStyle roundTextButtonStyle = ButtonStyle(
+    minimumSize:
+        MaterialStateProperty.resolveWith<Size>((states) => Size(0, 0)),
+    backgroundColor:
+        MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      return Colors.transparent;
+    }),
+    overlayColor:
+        MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.pressed)) return Colors.transparent;
+      return Colors.transparent;
+    }),
+    side: MaterialStateProperty.resolveWith((states) {
+      return BorderSide(color: AmpColors.white, width: 1);
+    }),
+    shape: MaterialStateProperty.resolveWith<OutlinedBorder>((_) {
+      return RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AmpSizes.buttonBorderRadius),
+      );
+    }),
+  );
+}
+```
+ 10. **Assets:** Relative paths to load images/videos/data any other asset file should be defined as a constant inside the corresponding class that should exist under `styles` folder, followed by the file `lib/classes/cocktail_theme.dart`.  .  
+ 11. **Helpers:** Split render elements into smalls atomic helpers. General helper functions should be added to the corresponding class inside the files located at `lib/classes/helper.dart`.  
+ 12. **Prints:** Remove any `print()` and use `log()` instead for important feedback, i.e on `catch` statements.  
+ 13. **Navigation:** Each Page should have it's own `AutoRoute` definition. That can be find under the file `lib/router/router.dart`
   Be sure of naming your pages correctly and always run 
   `flutter pub run build_runner build --delete-conflicting-outputs` to generate new changes on the routes.
 
-14. **Variables:**  
+ 14. **Variables:**  
   * Use meaningful variable names  
       * For readability avoid using acronyms  
 15. **MVVM:** This project implements the MVVM pattern for screens or any complex widget. For more information visit the following links:  
