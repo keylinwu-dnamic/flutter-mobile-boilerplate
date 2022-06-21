@@ -10,6 +10,7 @@ class Ingredient {
   Ingredient({required this.name});
 
   factory Ingredient.fromJson(Map<String, dynamic> json) =>
-      Ingredient(name: json["strIngredient1"]);
-  Map<String, dynamic> toJson() => {"strIngredient1": name};
+      _$IngredientFromJson(json);
+
+  Map<String, dynamic> toJson() => _$IngredientToJson(this);
 }
