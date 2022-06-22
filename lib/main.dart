@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:boilerplate/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -46,6 +47,7 @@ class AppState extends ConsumerState<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      // ignore: todo
       // TODO: Real application name on OS task manager
       title: 'Mobile Boilerplate',
       routerDelegate: _appRouter.delegate(),
@@ -54,7 +56,7 @@ class AppState extends ConsumerState<App> {
       supportedLocales: LocaleConfiguration.supportedLocales,
       locale: _appLocale,
       debugShowCheckedModeBanner: false,
-      // theme: AmpTheme.darkTheme,
+      theme: AppTheme.lightTheme,
     );
   }
 }

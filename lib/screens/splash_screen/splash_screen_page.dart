@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:boilerplate/constants/assets.dart';
+import 'package:boilerplate/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -21,7 +22,8 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   _startTime() async {
-    return Timer(const Duration(milliseconds: 5000), continueTo);
+    return Timer(
+        const Duration(milliseconds: Constants.splashDuration), continueTo);
   }
 
   @override
@@ -44,16 +46,13 @@ class SplashVideo extends StatefulWidget {
 }
 
 class SplashVideoState extends State<SplashVideo> {
-  static const double aspectRatio = 1114 / 1080;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow.shade100,
       body: SafeArea(
         child: Center(
           child: AspectRatio(
-            aspectRatio: aspectRatio,
+            aspectRatio: Constants.aspectRatio,
             child: Lottie.asset(Assets.splashLottie),
           ),
         ),

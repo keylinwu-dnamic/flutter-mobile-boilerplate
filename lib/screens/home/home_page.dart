@@ -1,8 +1,9 @@
-import 'package:boilerplate/screens/home/home_provider.dart';
-import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
-import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
+// import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,11 +16,7 @@ class _HomePageState extends ConsumerState<HomePage>
     with TickerProviderStateMixin {
   AnimationController? animationController;
 
-  final mainScreens = [
-    const CategoryMainMenu(),
-    const OtherScreen(title: 'Search Screen'),
-    const OtherScreen(title: 'About Screen'),
-  ];
+  final mainScreens = [const CategoryMainMenu()];
 
   @override
   void initState() {
@@ -49,19 +46,7 @@ class _HomePageState extends ConsumerState<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
       body: _buildAccordingToState(),
-      bottomNavigationBar: const CocktailBottomNavigation(),
-    );
-  }
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      title: Text(
-        ref.read(homeViewModelProvider.notifier).title,
-        style: const TextStyle(color: Colors.black54),
-      ),
-      backgroundColor: Colors.amber.shade100,
     );
   }
 
@@ -89,19 +74,6 @@ class _HomePageState extends ConsumerState<HomePage>
         value: animationController?.value,
         semanticsLabel: 'Linear progress indicator',
       ),
-    );
-  }
-}
-
-//TODO: This is temporal and can be remove when we make the proper widgets for each screen
-class OtherScreen extends StatelessWidget {
-  const OtherScreen({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(title),
     );
   }
 }

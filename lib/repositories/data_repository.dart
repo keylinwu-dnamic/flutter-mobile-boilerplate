@@ -1,3 +1,4 @@
+// ignore: todo
 //TODO: This should implement an APIOutput Interface.
 
 import 'dart:developer';

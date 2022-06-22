@@ -32,6 +32,7 @@ Future<void>? mainCommon(Flavor flavor) {
       ),
     );
   }, (Object error, StackTrace stack) {
+    // ignore: todo
     // TODO: Implement crash reports
   });
 }
