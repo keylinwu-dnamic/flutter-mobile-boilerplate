@@ -1,9 +1,10 @@
 enum CocktailMenu {
-  categories(name: 'Category'),
-  typeOfGlass(name: 'Type of Glass'),
-  ingredient(name: 'Ingredient'),
-  alcoholic(name: 'Alcoholic/Non Alcoholic');
+  categories(name: 'Category', path: 'categories'),
+  typeOfGlass(name: 'Type of Glass', path: 'typeOfGlass'),
+  ingredient(name: 'Ingredient', path: 'ingredients'),
+  alcoholic(name: 'Alcoholic/Non Alcoholic', path: 'alcoholicNonAlcoholic');
 
   final String name;
-  const CocktailMenu({required this.name});
+  final String path;
+  const CocktailMenu({required this.name, required this.path});
 }
