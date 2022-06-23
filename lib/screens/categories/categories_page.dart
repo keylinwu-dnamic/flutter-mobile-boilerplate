@@ -1,4 +1,5 @@
-import 'package:boilerplate/common_widgets/list_cocktail.dart';
+import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/widgets/list_cocktail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import './categories_provider.dart';
@@ -22,7 +23,7 @@ class _CategoriesPageState extends ConsumerState<CategoriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: CocktailColors.background,
       appBar: AppBar(
         title: const Text('Categories'),
       ),
