@@ -38,8 +38,6 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
   Widget _buildGridTile(
       {required String withName, required PageRouteInfo path}) {
     void goTo() {
-      print(path);
-      final router = AutoRouter.of(context);
       context.router.push(path);
     }
 
