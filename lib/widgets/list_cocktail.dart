@@ -1,3 +1,5 @@
+import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
 
@@ -34,12 +36,12 @@ class ListCocktail extends StatelessWidget {
                 children: [
                   const Icon(
                     Icons.local_bar_outlined,
-                    size: 55.0,
+                    size: Sizes.sizeXXL,
                   ),
                   const SizedBox(
-                    height: 50.0,
+                    height: Sizes.sizeXXL,
                     child: VerticalDivider(
-                      color: Color(0xFF39E6D5),
+                      color: CocktailColors.divider,
                       thickness: 1,
                     ),
                   ),

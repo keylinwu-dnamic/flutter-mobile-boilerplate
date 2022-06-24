@@ -1,3 +1,4 @@
+import 'package:boilerplate/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class AlcoholicNonAlcoholicPage extends StatelessWidget {
@@ -7,10 +8,10 @@ class AlcoholicNonAlcoholicPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Alcoholic/Non Alcoholic'),
+        title: Text(AppStrings.current.alcoholicNonAlcoholic),
       ),
       body: const Center(
-        child: Text('Alcoholic/Non Alcoholic'),
+        child: null,
       ),
     );
   }

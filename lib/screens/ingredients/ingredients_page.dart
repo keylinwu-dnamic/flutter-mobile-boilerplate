@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:boilerplate/generated/l10n.dart';
 
 class IngredientsPage extends StatelessWidget {
   const IngredientsPage({Key? key}) : super(key: key);
@@ -7,10 +8,10 @@ class IngredientsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ingredients'),
+        title: Text(AppStrings.current.ingredients),
       ),
       body: const Center(
-        child: Text('Ingredients'),
+        child: null,
       ),
     );
   }

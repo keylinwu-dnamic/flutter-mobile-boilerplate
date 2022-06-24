@@ -3,6 +3,7 @@ import 'package:boilerplate/widgets/list_cocktail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import './categories_provider.dart';
+import 'package:boilerplate/generated/l10n.dart';
 
 class CategoriesPage extends ConsumerStatefulWidget {
   const CategoriesPage({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _CategoriesPageState extends ConsumerState<CategoriesPage> {
     return Scaffold(
       backgroundColor: CocktailColors.background,
       appBar: AppBar(
-        title: const Text('Categories'),
+        title: Text(AppStrings.current.categories),
       ),
       body: Column(
         children: [
