@@ -1,4 +1,5 @@
 import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/widgets/item_cocktail.dart';
 import 'package:boilerplate/widgets/list_cocktail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -48,9 +49,14 @@ class _CategoriesConsumer extends ConsumerWidget {
                 child: CircularProgressIndicator(),
               ),
             ),
-        success: (categories) => ListCocktail(
-              list: categories,
-            ),
+        success: (categories) {
+          final categoriesItems = categories
+              .map(
+                (category) => CocktailItem(name: category.name),
+              )
+              .toList();
+          return ListCocktail(list: categoriesItems);
+        },
         failure: (error) => Text(error));
   }
 }
