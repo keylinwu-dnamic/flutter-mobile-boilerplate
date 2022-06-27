@@ -2,6 +2,7 @@
 
 import 'dart:developer';
 
+import 'package:boilerplate/classes/entities/alcohol.dart';
 import 'package:boilerplate/classes/entities/category.dart';
 import 'package:boilerplate/classes/entities/glass.dart';
 import 'package:boilerplate/classes/entities/ingredient.dart';
@@ -11,6 +12,7 @@ abstract class DataRepositoryInterface {
   Future<List<Category>> getCocktailsCategories();
   Future<List<Glass>> getCocktailsGlasses();
   Future<List<Ingredient>> getCocktailsIngredients();
+  Future<List<Alcohol>> getAlcohol();
 }
 
 class DataRepository implements DataRepositoryInterface {
@@ -66,6 +68,22 @@ class DataRepository implements DataRepositoryInterface {
       return Future.error(e);
     }
   }
+
+  @override
+  Future<List<Alcohol>> getAlcohol() async {
+    try {
+      final result = await _networkService.getData(
+        path: APIPathConstant.alcoholEndpoint,
+      );
+      List<Alcohol> alcohol = (result['drinks'] as List)
+          .map((alcoholNonAlcohol) => Alcohol.fromJson(alcoholNonAlcohol))
+          .toList();
+      return alcohol;
+    } catch (e) {
+      log(e.toString());
+      return Future.error(e);
+    }
+  }
 }
 
 class APIPathConstant {
@@ -75,4 +93,6 @@ class APIPathConstant {
       'https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list';
   static const String ingredientsEndpoint =
       'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
+  static const String alcoholEndpoint =
+      'https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list';
 }
