@@ -1,6 +1,7 @@
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
 import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
+import 'package:boilerplate/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -49,12 +50,14 @@ class _HomePageState extends ConsumerState<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      //appBar: _buildAppBar(),
       body: _buildAccordingToState(),
+      backgroundColor: CocktailAppColors.lightMint,
       bottomNavigationBar: const CocktailBottomNavigation(),
     );
   }
 
+  /*
   AppBar _buildAppBar() {
     return AppBar(
       title: Text(
@@ -64,6 +67,7 @@ class _HomePageState extends ConsumerState<HomePage>
       backgroundColor: Colors.amber.shade100,
     );
   }
+  */
 
   Widget _buildAccordingToState() {
     return ref.watch(
