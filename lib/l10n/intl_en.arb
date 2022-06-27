@@ -20,6 +20,26 @@
     "@about": {
         "type": "text",
         "source_text": "About"
+    },
+    "categories": "Categories",
+    "@categories": {
+        "type": "text",
+        "source_text": "Categories"
+    },
+    "ingredients": "Ingredients",
+    "@ingredients": {
+        "type": "text",
+        "source_text": "Ingredients"
+    },
+    "alcoholicNonAlcoholic": "Alcoholic/Non Alcoholic",
+    "@alcoholicNonAlcoholic": {
+        "type": "text",
+        "source_text": "Alcoholic/Non Alcoholic"
+    },
+    "typeOfGlass": "Type of glass",
+    "@typeOfGlass": {
+        "type": "text",
+        "source_text": "Type of glass"
     }
 }
 
