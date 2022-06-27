@@ -26,8 +26,8 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
       child: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(Spacing.spacingMD),
-        crossAxisSpacing: 20,
-        mainAxisSpacing: 10,
+        crossAxisSpacing: Spacing.spacingMD,
+        mainAxisSpacing: Spacing.spacingXS,
         crossAxisCount: 2,
         children: gridTile,
       ),
