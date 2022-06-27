@@ -73,6 +73,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
     return GestureDetector(
       onTap: () {
         // ignore: avoid_print
+        //Enum value print
         print(cocktailMenu);
       },
       child: GridTile(
