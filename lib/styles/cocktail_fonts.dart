@@ -1,5 +1,6 @@
-import 'package:boilerplate/theme/styles/cocktail_color.dart';
 import 'package:flutter/material.dart';
+
+import 'package:boilerplate/styles/cocktail_color.dart';
 
 class CocktailsFonts {
   static final headTitle = TextStyle(

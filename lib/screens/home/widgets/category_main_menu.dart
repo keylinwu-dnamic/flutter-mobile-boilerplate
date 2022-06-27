@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:boilerplate/constants/assets.dart';
 import 'package:boilerplate/enums/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
-import 'package:boilerplate/theme/styles/cocktail_fonts.dart';
-import 'package:boilerplate/theme/styles/cocktail_color.dart';
+import 'package:boilerplate/styles/cocktail_color.dart';
+import 'package:boilerplate/styles/cocktail_fonts.dart';
 
 class CategoryMainMenu extends ConsumerStatefulWidget {
   const CategoryMainMenu({Key? key}) : super(key: key);

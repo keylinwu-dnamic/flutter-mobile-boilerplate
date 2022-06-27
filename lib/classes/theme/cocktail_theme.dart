@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:boilerplate/theme/styles/cocktail_color.dart';
+import 'package:boilerplate/styles/cocktail_color.dart';
 
-class AppTheme {
+class CocktailTheme {
   static final ThemeData lightTheme = ThemeData.light()
       .copyWith(scaffoldBackgroundColor: CocktailColors.lightBackground);
 }
