@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/constants/assets.dart';
+import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/screens/home/cocktail_app_home_menu_items.dart';
+import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/fonts.dart';
-import 'package:boilerplate/styles/images.dart';
+import 'package:boilerplate/styles/sizes.dart';
 import 'package:boilerplate/styles/spacings.dart';
 
 class CategoryMainMenu extends ConsumerStatefulWidget {
@@ -39,17 +41,17 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu>
   {
     return Container(
       decoration: const BoxDecoration(
-          color: CocktailAppColors.aquaGreen,
+          color: CocktailAppColors.mint,
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(90)),
-          image: DecorationImage(image: AssetImage(CocktailAppImages.homeScreenBackground), opacity: 0.68, fit: BoxFit.fill)
+          image: DecorationImage(image: AssetImage(Assets.homeScreenBackground), opacity: 0.68, fit: BoxFit.fill)
       ),
-      width: 393,
-      height: 440,
+      width: CocktailAppSizes.homeScreenImageWidth,
+      height: CocktailAppSizes.homeScreenImageHeight,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Text('COCKTAILS APP', textAlign: TextAlign.center, style: CocktailAppFonts.homeTitle),
-          Text('Be your own Bartender', textAlign: TextAlign.center, style: CocktailAppFonts.homeText)
+        children: [
+          Text(AppStrings.current.homeScreenTitle, textAlign: TextAlign.center, style: CocktailAppFonts.homeTitle),
+          Text(AppStrings.current.homeScreenText, textAlign: TextAlign.center, style: CocktailAppFonts.homeText)
         ],
       ),
     );
@@ -58,7 +60,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu>
   Container _homeScreenMenu(List<Widget> homeScreenMenuItems)
   {
     return Container(
-      padding: const EdgeInsets.only(top: 335),
+      padding: const EdgeInsets.only(top: CocktailAppSpacings.homeScreenMenuTopSM),
       child: Center(
           child: GridView.count(
             primary: false,
@@ -77,7 +79,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu>
       child: Container(
         decoration: BoxDecoration(
           color: CocktailAppColors.white,
-          border: Border.all(color: CocktailAppColors.aquaGreen.withOpacity(0.3), width: 2.0),
+          border: Border.all(color: CocktailAppColors.mint.withOpacity(0.3), width: CocktailAppSizes.homeScreenMenuItemCircleBorderWidth),
           borderRadius: const BorderRadius.all(Radius.circular(20))
         ),
         child: Column(
@@ -85,11 +87,11 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu>
           children:
           [
             Container(
-              height: 100,
-              width: 100,
-              decoration: const BoxDecoration(shape: BoxShape.circle, color: CocktailAppColors.aquaGreen),
+              height: CocktailAppSizes.homeScreenMenuItemCircleSize,
+              width: CocktailAppSizes.homeScreenMenuItemCircleSize,
+              decoration: const BoxDecoration(shape: BoxShape.circle, color: CocktailAppColors.mint),
               child: Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.all(CocktailAppSpacings.homeScreenMenuItemImagePaddingSM),
                 child: CircleAvatar(
                   backgroundImage: AssetImage(cocktailAppHomeMenuItem.imageFileName),
                 ),
@@ -97,7 +99,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu>
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, bottom: 0.0),
+                padding: const EdgeInsets.only(top: CocktailAppSpacings.homeScreenMenuItemTextPaddingSM),
                 child: Text(cocktailAppHomeMenuItem.name, style: CocktailAppFonts.menuItemLabel, textAlign: TextAlign.center),
               ),
             )

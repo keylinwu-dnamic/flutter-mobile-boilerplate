@@ -9,4 +9,9 @@ class CocktailAppSpacings
 
   static const homeMenuItemsPaddingSM = 20.0;
   static const homeMenuItemsAxisSpacingSM = 15.0;
+
+  static const homeScreenMenuItemImagePaddingSM = 5.0;
+  static const homeScreenMenuItemTextPaddingSM = 10.0;
+
+  static const homeScreenMenuTopSM = 335.0;
 }

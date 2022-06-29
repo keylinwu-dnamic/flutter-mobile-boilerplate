@@ -1,34 +1,50 @@
-import 'package:boilerplate/styles/images.dart';
+import 'package:boilerplate/constants/assets.dart';
+import 'package:boilerplate/generated/l10n.dart';
 
 enum CocktailAppHomeMenuItems
 {
-  category(name: 'Category'),
-  typeOfGlass(name: 'Type of glass'),
-  ingredient(name: 'Ingredient'),
-  alcoholic(name: 'Alcoholic (or not)');
-
-  final String name;
-  const CocktailAppHomeMenuItems({required this.name});
+  category,
+  typeOfGlass,
+  ingredient,
+  alcoholic
 }
 
-extension HomeItemsExt
+extension HomeItemsExtension
   on CocktailAppHomeMenuItems
 {
+  String get name
+  {
+    switch (this)
+    {
+      case CocktailAppHomeMenuItems.category:
+        return AppStrings.current.category;
+
+      case CocktailAppHomeMenuItems.typeOfGlass:
+        return AppStrings.current.typeOfGlass;
+
+      case CocktailAppHomeMenuItems.ingredient:
+        return AppStrings.current.ingredients;
+
+      case CocktailAppHomeMenuItems.alcoholic:
+        return AppStrings.current.alcoholOrNot;
+    }
+  }
+
   String get imageFileName
   {
     switch (this)
     {
       case CocktailAppHomeMenuItems.category:
-        return CocktailAppImages.homeScreenTileCategory;
+        return Assets.homeScreenTileCategory;
 
       case CocktailAppHomeMenuItems.typeOfGlass:
-        return CocktailAppImages.homeScreenTileTypeOfGlass;
+        return Assets.homeScreenTileTypeOfGlass;
 
       case CocktailAppHomeMenuItems.ingredient:
-        return CocktailAppImages.homeScreenTileIngredient;
+        return Assets.homeScreenTileIngredient;
 
       case CocktailAppHomeMenuItems.alcoholic:
-        return CocktailAppImages.homeScreenTileAlcoholOrNot;
+        return Assets.homeScreenTileAlcoholOrNot;
     }
   }
 }

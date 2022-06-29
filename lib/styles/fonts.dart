@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:boilerplate/styles/colors.dart';
 
 class CocktailAppFonts
@@ -13,7 +12,7 @@ class CocktailAppFonts
       Shadow(
         offset: Offset(3.0, 3.0),
         blurRadius: 10.0,
-        color: Color.fromARGB(160, 0, 0, 0),
+        color: CocktailAppColors.lightGray,
       )
     ],
   );
@@ -28,7 +27,7 @@ class CocktailAppFonts
       Shadow(
         offset: Offset(3.0, 3.0),
         blurRadius: 10.0,
-        color: Color.fromARGB(160, 0, 0, 0),
+        color: CocktailAppColors.lightGray,
       )
     ],
   );

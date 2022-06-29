@@ -50,24 +50,11 @@ class _HomePageState extends ConsumerState<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: _buildAppBar(),
       body: _buildAccordingToState(),
       backgroundColor: CocktailAppColors.lightMint,
       bottomNavigationBar: const CocktailBottomNavigation(),
     );
   }
-
-  /*
-  AppBar _buildAppBar() {
-    return AppBar(
-      title: Text(
-        ref.read(homeViewModelProvider.notifier).title,
-        style: const TextStyle(color: Colors.black54),
-      ),
-      backgroundColor: Colors.amber.shade100,
-    );
-  }
-  */
 
   Widget _buildAccordingToState() {
     return ref.watch(

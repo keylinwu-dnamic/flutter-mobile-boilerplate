@@ -23,8 +23,8 @@ class _CocktailBottomNavigationState
           .map((type) => _buildBottomNavigationItem(type: type))
           .toList(),
       currentIndex: _selectedIndex,
-      selectedItemColor: CocktailAppColors.white,
-      backgroundColor: CocktailAppColors.aquaGreen,
+      selectedItemColor: CocktailAppColors.aqua,
+      backgroundColor: CocktailAppColors.white,
       onTap: (index) => onNavigationItemTap(index),
     );
   }

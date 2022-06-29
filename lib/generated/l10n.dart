@@ -89,6 +89,66 @@ class AppStrings {
       args: [],
     );
   }
+
+  /// `COCKTAILS APP`
+  String get homeScreenTitle {
+    return Intl.message(
+      'COCKTAILS APP',
+      name: 'homeScreenTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Be your own Bartender...`
+  String get homeScreenText {
+    return Intl.message(
+      'Be your own Bartender...',
+      name: 'homeScreenText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get category {
+    return Intl.message(
+      'Category',
+      name: 'category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type of glass`
+  String get typeOfGlass {
+    return Intl.message(
+      'Type of glass',
+      name: 'typeOfGlass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients`
+  String get ingredients {
+    return Intl.message(
+      'Ingredients',
+      name: 'ingredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alcoholic (or not)`
+  String get alcoholOrNot {
+    return Intl.message(
+      'Alcoholic (or not)',
+      name: 'alcoholOrNot',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppStrings> {
