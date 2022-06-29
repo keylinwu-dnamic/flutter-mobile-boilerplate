@@ -18,7 +18,7 @@ import '../screens/categories/categories_page.dart' as _i3;
 import '../screens/home/home_page.dart' as _i2;
 import '../screens/ingredients/ingredients_page.dart' as _i5;
 import '../screens/splash_screen/splash_screen_page.dart' as _i1;
-import '../screens/type_of_glass/type_of_glass.dart' as _i6;
+import '../screens/type_of_glass/type_of_glass_page.dart' as _i6;
 import 'guards/auth_guard.dart' as _i9;
 
 class AppRouter extends _i7.RootStackRouter {
