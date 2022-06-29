@@ -110,10 +110,10 @@ class AppStrings {
     );
   }
 
-  /// `Alcoholic/Non Alcoholic`
+  /// `Alcohol or not?`
   String get alcoholicNonAlcoholic {
     return Intl.message(
-      'Alcoholic/Non Alcoholic',
+      'Alcohol or not?',
       name: 'alcoholicNonAlcoholic',
       desc: '',
       args: [],

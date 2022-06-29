@@ -1,5 +1,6 @@
 import 'package:boilerplate/screens/ingredients/ingredients_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/widgets/circular_progress.dart';
 import 'package:boilerplate/widgets/item_cocktail.dart';
 import 'package:boilerplate/widgets/list_cocktail.dart';
 import 'package:flutter/material.dart';
@@ -44,11 +45,7 @@ class _IngredientsConsumer extends ConsumerWidget {
     final state = ref.watch(ingredientsViewModelProvider);
 
     return state.when(
-      loading: () => const Expanded(
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
-      ),
+      loading: () => const CircularProgress(),
       success: (ingredients) {
         final ingredientsItems = ingredients
             .map(

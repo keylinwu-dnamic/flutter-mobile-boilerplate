@@ -37,7 +37,7 @@ class CocktailItem extends StatelessWidget {
           const SizedBox(
             height: Sizes.sizeXXL,
             child: VerticalDivider(
-              color: CocktailColors.divider,
+              color: CocktailColors.primary,
               thickness: 1,
             ),
           ),

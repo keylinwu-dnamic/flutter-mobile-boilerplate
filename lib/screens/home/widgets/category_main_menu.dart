@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,24 +21,35 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
     final gridTile = ref
         .read(homeViewModelProvider.notifier)
         .cocktailMenuTiles
-        .map((tile) => _buildGridTile(withName: tile.name, path: tile.path))
+        .map(
+          (tile) => _buildGridTile(
+              withName: tile.name, path: tile.path, image: tile.image),
+        )
         .toList();
 
-    return Center(
-      child: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(Spacing.spacingMD),
-        crossAxisSpacing: Spacing.spacingMD,
-        mainAxisSpacing: Spacing.spacingXS,
-        crossAxisCount: 2,
-        children: gridTile,
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        GridView.count(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          primary: false,
+          padding: const EdgeInsets.all(Spacing.spacingXXS),
+          crossAxisSpacing: Spacing.spacingXS,
+          mainAxisSpacing: Spacing.spacingXS,
+          crossAxisCount: 2,
+          children: gridTile,
+        ),
+      ],
     );
   }
 
   // add required String routeName
   Widget _buildGridTile(
-      {required String withName, required PageRouteInfo path}) {
+      {required String withName,
+      required PageRouteInfo path,
+      required String image}) {
     void goTo() {
       context.router.push(path);
     }
@@ -47,20 +60,49 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
           goTo();
         },
         child: Container(
-          padding: const EdgeInsets.all(Spacing.spacingXS),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.amberAccent, width: 5),
-            color: Colors.amber.shade100,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
+            decoration: BoxDecoration(
+              color: CocktailColors.white,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: const Offset(0, 2), // changes
+                ),
+              ],
             ),
-          ),
-          child: Center(
-              child: Text(
-            withName,
-            textAlign: TextAlign.center,
-          )),
-        ),
+            child: Padding(
+              padding: const EdgeInsets.all(Sizes.sizeXS),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: Sizes.sizeXS),
+                      decoration: BoxDecoration(
+                        color: CocktailColors.primary,
+                        borderRadius: BorderRadius.circular(Sizes.sizeXXXL),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(Sizes.sizeXXS),
+                        child: Image.asset(image),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      withName,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: CocktailColors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )),
       ),
     );
   }
