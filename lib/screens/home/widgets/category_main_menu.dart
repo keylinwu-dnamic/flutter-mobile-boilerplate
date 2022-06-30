@@ -7,6 +7,7 @@ import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:boilerplate/classes/extensions/box_shadow.dart';
 
 class CategoryMainMenu extends ConsumerStatefulWidget {
   const CategoryMainMenu({Key? key}) : super(key: key);
@@ -22,8 +23,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
         .read(homeViewModelProvider.notifier)
         .cocktailMenuTiles
         .map(
-          (tile) => _buildGridTile(
-              withName: tile.name, path: tile.path, image: tile.image),
+          (tile) => _buildGridTile(tile),
         )
         .toList();
 
@@ -46,12 +46,9 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
   }
 
   // add required String routeName
-  Widget _buildGridTile(
-      {required String withName,
-      required PageRouteInfo path,
-      required String image}) {
+  Widget _buildGridTile(CocktailMenu info) {
     void goTo() {
-      context.router.push(path);
+      context.router.push(info.path);
     }
 
     return GridTile(
@@ -66,12 +63,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
                 Radius.circular(20),
               ),
               boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: const Offset(0, 2), // changes
-                ),
+                const BoxShadow().defaultTileShadow(),
               ],
             ),
             child: Padding(
@@ -87,13 +79,13 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(Sizes.sizeXXS),
-                        child: Image.asset(image),
+                        child: Image.asset(info.image),
                       ),
                     ),
                   ),
                   Center(
                     child: Text(
-                      withName,
+                      info.name,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: CocktailColors.black,

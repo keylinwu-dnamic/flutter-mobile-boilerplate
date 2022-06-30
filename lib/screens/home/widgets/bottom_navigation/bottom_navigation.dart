@@ -1,3 +1,4 @@
+import 'package:boilerplate/classes/extensions/box_shadow.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/size.dart';
@@ -21,13 +22,13 @@ class _CocktailBottomNavigationState
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
           topRight: Radius.circular(Sizes.sizeXS),
           topLeft: Radius.circular(Sizes.sizeXS),
         ),
         boxShadow: [
-          BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 9),
+          const BoxShadow().defaultTileShadow(),
         ],
       ),
       child: ClipRRect(
