@@ -20,6 +20,36 @@
     "@about": {
         "type": "text",
         "source_text": "About"
+    },
+    "homeScreenTitle": "COCKTAILS APP",
+    "@homeScreenTitle": {
+        "type": "text",
+        "source_text": ""
+    },
+    "homeScreenText": "Be your own Bartender...",
+    "@homeScreenText": {
+        "type": "text",
+        "source_text": "Be your own Bartender..."
+    },
+    "category": "Category",
+    "@category": {
+        "type": "text",
+        "source_text": "Category"
+    },
+    "typeOfGlass": "Type of glass",
+    "@typeOfGlass": {
+        "type": "text",
+        "source_text": "Type of glass"
+    },
+    "ingredients": "Ingredients",
+    "@ingredients": {
+        "type": "text",
+        "source_text": "Ingredients"
+    },
+    "alcoholOrNot": "Alcoholic (or not)",
+    "@alcoholOrNot": {
+        "type": "text",
+        "source_text": "Alcoholic (or not)"
     }
 }
 

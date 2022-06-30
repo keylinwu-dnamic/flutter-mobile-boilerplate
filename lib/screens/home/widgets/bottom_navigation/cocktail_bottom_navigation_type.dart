@@ -23,11 +23,11 @@ extension CocktailBottomNavigationTypeExtension
   Icon get icon {
     switch (this) {
       case CocktailBottomNavigationType.home:
-        return const Icon(Icons.home);
+        return const Icon(Icons.home_outlined);
       case CocktailBottomNavigationType.search:
         return const Icon(Icons.search);
       case CocktailBottomNavigationType.about:
-        return const Icon(Icons.bolt);
+        return const Icon(Icons.account_circle_outlined);
     }
   }
 }

@@ -23,8 +23,17 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
+        "alcoholOrNot":
+            MessageLookupByLibrary.simpleMessage("Alcoholic (or not)"),
+        "category": MessageLookupByLibrary.simpleMessage("Category"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "homeScreenText":
+            MessageLookupByLibrary.simpleMessage("Be your own Bartender..."),
+        "homeScreenTitle":
+            MessageLookupByLibrary.simpleMessage("COCKTAILS APP"),
+        "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "typeOfGlass": MessageLookupByLibrary.simpleMessage("Type of glass"),
         "welcome": MessageLookupByLibrary.simpleMessage(
             "Welcome, this is a Cocktails App")
       };

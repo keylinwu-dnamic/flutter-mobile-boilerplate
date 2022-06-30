@@ -1,7 +1,7 @@
-import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/styles/colors.dart';
 import 'cocktail_bottom_navigation_type.dart';
 
 class CocktailBottomNavigation extends ConsumerStatefulWidget {
@@ -23,8 +23,8 @@ class _CocktailBottomNavigationState
           .map((type) => _buildBottomNavigationItem(type: type))
           .toList(),
       currentIndex: _selectedIndex,
-      selectedItemColor: Colors.purple.shade300,
-      backgroundColor: Colors.amber.shade100,
+      selectedItemColor: CocktailAppColors.aqua,
+      backgroundColor: CocktailAppColors.white,
       onTap: (index) => onNavigationItemTap(index),
     );
   }
