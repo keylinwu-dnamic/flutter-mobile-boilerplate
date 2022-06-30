@@ -1,16 +1,16 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:boilerplate/models/category_main_item.dart';
+
 part 'glass.g.dart';
 
 @JsonSerializable()
-class Glass {
+class Glass implements CategoryMainItem {
+  @override
   @JsonKey(name: 'strGlass')
   final String name;
 
   Glass({required this.name});
-
-  // factory Glass.fromRawJson(String str) => Glass.fromJson(json.decode(str));
-  // String toRawJson() => json.encode(toJson());
 
   factory Glass.fromJson(Map<String, dynamic> json) => _$GlassFromJson(json);
 

@@ -3,15 +3,20 @@
 
 import 'dart:developer';
 
+import 'package:boilerplate/api/api_routes.dart';
+import 'package:boilerplate/classes/entities/alcoholic.dart';
 import 'package:boilerplate/classes/entities/category.dart';
 import 'package:boilerplate/classes/entities/glass.dart';
 import 'package:boilerplate/classes/entities/ingredient.dart';
+import 'package:boilerplate/enums/cocktail_menu_type.dart';
+
 import 'package:boilerplate/services/network_service.dart';
 
 abstract class DataRepositoryInterface {
   Future<List<Category>> getCocktailsCategories();
-  Future<List<Glass>> getCocktailsGlasses();
+  Future<List<Glass>> getCocktailsTypeOfGlasses();
   Future<List<Ingredient>> getCocktailsIngredients();
+  Future<List<Alcoholic>> getCocktailsAlcoholicOrNot();
 }
 
 class DataRepository implements DataRepositoryInterface {
@@ -22,7 +27,7 @@ class DataRepository implements DataRepositoryInterface {
   Future<List<Category>> getCocktailsCategories() async {
     try {
       final result = await _networkService.getData(
-        path: APIPathConstant.categoriesEndpoint,
+        path: ApiRoutes.geApiRouteEndpoints(CocktailMenuType.categories),
       );
       List<Category> categories = (result['drinks'] as List)
           .map((category) => Category.fromJson(category))
@@ -35,10 +40,26 @@ class DataRepository implements DataRepositoryInterface {
   }
 
   @override
+  Future<List<Glass>> getCocktailsTypeOfGlasses() async {
+    try {
+      final result = await _networkService.getData(
+        path: ApiRoutes.geApiRouteEndpoints(CocktailMenuType.typeOfGlass),
+      );
+      List<Glass> glasses = (result['drinks'] as List)
+          .map((typeOfGlass) => Glass.fromJson(typeOfGlass))
+          .toList();
+      return glasses;
+    } catch (e) {
+      log(e.toString());
+      return Future.error(e);
+    }
+  }
+
+  @override
   Future<List<Ingredient>> getCocktailsIngredients() async {
     try {
       final result = await _networkService.getData(
-        path: APIPathConstant.ingredientsEndpoint,
+        path: ApiRoutes.geApiRouteEndpoints(CocktailMenuType.ingredient),
       );
 
       List<Ingredient> ingredients = (result['drinks'] as List)
@@ -53,27 +74,18 @@ class DataRepository implements DataRepositoryInterface {
   }
 
   @override
-  Future<List<Glass>> getCocktailsGlasses() async {
+  Future<List<Alcoholic>> getCocktailsAlcoholicOrNot() async {
     try {
       final result = await _networkService.getData(
-        path: APIPathConstant.glassesEndpoint,
+        path: ApiRoutes.geApiRouteEndpoints(CocktailMenuType.alcoholic),
       );
-      List<Glass> glasses = (result['drinks'] as List)
-          .map((typeOfGlass) => Glass.fromJson(typeOfGlass))
+      List<Alcoholic> alcoholic = (result['drinks'] as List)
+          .map((alcoholicOrNot) => Alcoholic.fromJson(alcoholicOrNot))
           .toList();
-      return glasses;
+      return alcoholic;
     } catch (e) {
       log(e.toString());
       return Future.error(e);
     }
   }
-}
-
-class APIPathConstant {
-  static const String categoriesEndpoint =
-      'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
-  static const String glassesEndpoint =
-      'https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list';
-  static const String ingredientsEndpoint =
-      'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
 }

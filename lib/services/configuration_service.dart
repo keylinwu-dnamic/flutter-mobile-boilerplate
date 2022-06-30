@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
-import '../flavors/flavor.dart';
+import 'package:boilerplate/flavors/flavor.dart';
 
 class ConfigurationService {
   static late Map<String, dynamic> _config;

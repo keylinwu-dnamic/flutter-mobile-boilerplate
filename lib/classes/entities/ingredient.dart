@@ -1,9 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:boilerplate/models/category_main_item.dart';
+
 part 'ingredient.g.dart';
 
 @JsonSerializable()
-class Ingredient {
+class Ingredient implements CategoryMainItem {
+  @override
   @JsonKey(name: 'strIngredient1')
   final String name;
 

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:boilerplate/styles/cocktail_color.dart';
 
-class CocktailsFonts {
+class CocktailFonts {
   static final headTitle = TextStyle(
-      fontFamily: 'Lato',
       fontWeight: FontWeight.w800,
       fontSize: 48,
       color: CocktailColors.lightTitle,
@@ -17,8 +16,25 @@ class CocktailsFonts {
       ]);
 
   static const menuTitle = TextStyle(
-      fontFamily: 'Lato',
       fontWeight: FontWeight.w500,
       fontSize: 16,
+      color: CocktailColors.menuTitleColor);
+
+  static const bottonNavigationLabel = TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 10,
+      color: CocktailColors.grayTitle);
+
+  static const bottonNavigationSelectedLabel = TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 10,
+      color: CocktailColors.primary);
+
+  static const appBartTitle = TextStyle(
+      fontWeight: FontWeight.w500, fontSize: 17, color: CocktailColors.black);
+
+  static const listItemTitle = TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: 20,
       color: CocktailColors.menuTitleColor);
 }

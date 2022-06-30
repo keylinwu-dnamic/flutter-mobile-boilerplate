@@ -27,7 +27,6 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -45,8 +44,6 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.flutter_mobile_boilerplate"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         minSdkVersion localProperties.getProperty('flutter.minSdkVersion')
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
@@ -60,7 +57,53 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+
+    flavorDimensions "flavor"
+    productFlavors {
+        dev {
+            dimension "flavor"
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "DEV AMP Exclusives"
+            manifestPlaceholders = [
+                    'appAuthRedirectScheme': 'com.wmg.exclusives.dev',
+                    exclusives_deep_link: 'wmg-exclusives'
+            ]
+//            buildConfigField("String", "NEWRELIC_TOKEN", newRelicToken_dev)
+        }
+        staging {
+            dimension "flavor"
+            applicationIdSuffix ".staging"
+            resValue "string", "app_name", "STG AMP Exclusives"
+            manifestPlaceholders = [
+                    'appAuthRedirectScheme': 'com.wmg.exclusives.staging',
+                    exclusives_deep_link: 'wmg-exclusives'
+            ]
+//            buildConfigField("String", "NEWRELIC_TOKEN", newRelicToken_stage)
+        }
+        preprod {
+            dimension "flavor"
+            applicationIdSuffix ".preprod"
+            resValue "string", "app_name", "PP AMP Exclusives"
+            manifestPlaceholders = [
+                    'appAuthRedirectScheme': 'com.wmg.exclusives.preprod',
+                    exclusives_deep_link: 'wmg-exclusives'
+            ]
+//            buildConfigField("String", "NEWRELIC_TOKEN", newRelicToken_preprod)
+        }
+        prod {
+            dimension "flavor"
+            resValue "string", "app_name", "AMP Exclusives"
+            manifestPlaceholders = [
+                    'appAuthRedirectScheme': 'com.wmg.exclusives',
+                    exclusives_deep_link: 'wmg-exclusives'
+            ]
+//            buildConfigField("String", "NEWRELIC_TOKEN", newRelicToken_prod)
+        }
+    }
 }
+
+
 
 flutter {
     source '../..'

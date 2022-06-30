@@ -1,9 +1,12 @@
 import 'package:auto_route/annotations.dart';
 
-import 'guards/auth_guard.dart';
+import 'package:boilerplate/router/guards/auth_guard.dart';
 
-import '../screens/home/home_page.dart';
-import '../screens/splash_screen/splash_screen_page.dart';
+import 'package:boilerplate/screens/about/about_page.dart';
+import 'package:boilerplate/screens/category_main_list/category_main_list_page.dart';
+import 'package:boilerplate/screens/home/home_page.dart';
+import 'package:boilerplate/screens/search/search_page.dart';
+import 'package:boilerplate/screens/splash_screen/splash_screen_page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -13,10 +16,18 @@ import '../screens/splash_screen/splash_screen_page.dart';
       path: '/splash',
       initial: true,
     ),
+    AutoRoute(page: HomePage, path: '/home', guards: [AuthGuard]),
     AutoRoute(
-      page: HomePage,
-      path: '/home',
-      guards: [AuthGuard],
+      page: SearchPage,
+      path: '/search',
+    ),
+    AutoRoute(
+      page: AboutPage,
+      path: '/about',
+    ),
+    AutoRoute(
+      page: CategoryMainListPage,
+      path: '/category-main-list',
     ),
   ],
 )
