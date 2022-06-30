@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
