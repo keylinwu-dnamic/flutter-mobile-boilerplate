@@ -1,6 +1,5 @@
 class CocktailAppSpacings
 {
-  // examples
   static const spacingXXS = 5.0;
   static const spacingXS = 10.0;
   static const spacingSM = 15.0;
@@ -14,4 +13,7 @@ class CocktailAppSpacings
   static const homeScreenMenuItemTextPaddingSM = 10.0;
 
   static const homeScreenMenuTopSM = 335.0;
+
+  static const homeScreenMenuItemBoxShadowOffsetX = 0.0;
+  static const homeScreenMenuItemBoxShadowOffsetY = 0.0;
 }

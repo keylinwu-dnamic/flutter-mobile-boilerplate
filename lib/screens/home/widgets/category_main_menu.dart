@@ -42,7 +42,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu>
     return Container(
       decoration: const BoxDecoration(
           color: CocktailAppColors.mint,
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(90)),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(CocktailAppSizes.homeScreenImageBottomRadius)),
           image: DecorationImage(image: AssetImage(Assets.homeScreenBackground), opacity: 0.68, fit: BoxFit.fill)
       ),
       width: CocktailAppSizes.homeScreenImageWidth,
@@ -79,8 +79,14 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu>
       child: Container(
         decoration: BoxDecoration(
           color: CocktailAppColors.white,
-          border: Border.all(color: CocktailAppColors.mint.withOpacity(0.3), width: CocktailAppSizes.homeScreenMenuItemCircleBorderWidth),
-          borderRadius: const BorderRadius.all(Radius.circular(20))
+          boxShadow: [
+            BoxShadow(
+              color: CocktailAppColors.black.withOpacity(0.2),
+              blurRadius: CocktailAppSizes.homeScreenMenuItemBoxShadowRadius,
+              offset: const Offset(CocktailAppSpacings.homeScreenMenuItemBoxShadowOffsetX, CocktailAppSpacings.homeScreenMenuItemBoxShadowOffsetY)
+            )
+          ],
+          borderRadius: const BorderRadius.all(Radius.circular(CocktailAppSizes.homeScreenMenuItemBoxRadius))
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

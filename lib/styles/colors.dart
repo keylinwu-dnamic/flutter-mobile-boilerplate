@@ -8,4 +8,5 @@ class CocktailAppColors
   static const Color lightMint = Color(0xFFF2FFFE);
   static const Color gray = Color(0xFF323232);
   static const Color lightGray = Color(0xFF505050);
+  static const Color black = Color(0xFF000000);
 }
