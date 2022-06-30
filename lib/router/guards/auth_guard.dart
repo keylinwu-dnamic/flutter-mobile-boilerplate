@@ -11,6 +11,7 @@ class AuthGuard extends AutoRouteGuard {
     StackRouter router,
   ) async {
     if (await authService?.isAuthenticated() ?? false) {
+      // ignore: todo
       //TODO: do something
       resolver.next(true);
     } else {

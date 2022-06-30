@@ -17,6 +17,7 @@ class LocaleConfiguration {
   ];
 
   static const List<String> localeNames = [
+    // ignore: todo
     'English', //TODO: re-add when we have multi-language
     // 'Čeština',
     // 'Dansk',
@@ -44,6 +45,7 @@ class LocaleConfiguration {
 
 extension LocaleLanguages on LocaleConfiguration {
   static const Map<String, String> acceptedLanguagesIdentifiers = {
+    // ignore: todo
     "en": "en-US", //TODO: re-add when we have multi-language
     // "en-GB": "en-GB",
     // "es-ES": "es-ES",

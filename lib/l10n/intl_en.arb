@@ -1,26 +1,44 @@
 {
-    "@@locale": "en",
-    "@@last_modified": "2021-01-26T22:23:56-0600",
-    "welcome": "Welcome, this is a Cocktails App",
-    "@welcome": {
-        "type": "text",
-        "source_text": "Test Welcome"
-    },
-    "home": "Home",
-    "@home": {
-        "type": "text",
-        "source_text": "Home"
-    },
-    "search": "Search",
-    "@search": {
-        "type": "text",
-        "source_text": "Search"
-    },
-    "about": "About",
-    "@about": {
-        "type": "text",
-        "source_text": "About"
-    }
+  "@@locale": "en",
+  "@@last_modified": "2021-01-26T22:23:56-0600",
+  "welcome": "Welcome, this is a Cocktails App",
+  "@welcome": {
+    "type": "text",
+    "source_text": "Test Welcome"
+  },
+  "home": "Home",
+  "@home": {
+    "type": "text",
+    "source_text": "Home"
+  },
+  "search": "Search",
+  "@search": {
+    "type": "text",
+    "source_text": "Search"
+  },
+  "about": "About",
+  "@about": {
+    "type": "text",
+    "source_text": "About"
+  },
+  "category": "Category",
+  "@category": {
+    "type": "text",
+    "source_text": "Category"
+  },
+  "ingredients": "Ingredients",
+  "@ingredients": {
+    "type": "text",
+    "source_text": "Ingredients"
+  },
+  "typeOfGlass": "Type of Glass",
+  "@typeOfGlass": {
+    "type": "text",
+    "source_text": "Type of Glass"
+  },
+  "alcoholOrNot": "Alcohol or not?",
+  "@alcoholOrNot": {
+    "type": "text",
+    "source_text": "Alcohol or not?"
+  }
 }
-
-

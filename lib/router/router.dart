@@ -1,8 +1,9 @@
 import 'package:auto_route/annotations.dart';
 
+import 'guards/auth_guard.dart';
+
 import '../screens/home/home_page.dart';
 import '../screens/splash_screen/splash_screen_page.dart';
-import 'guards/auth_guard.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',

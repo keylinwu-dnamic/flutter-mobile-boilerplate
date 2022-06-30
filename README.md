@@ -113,7 +113,7 @@ For more information, see  [Dart Parameters](https://dart.dev/guides/language/la
 │  ├── repositories  
 │  ├── router  
 │  ├── screens
-│  │  ├── homes
+│  │  ├── home
 │  │  ├── splash_screen
 │  ├── services  
 └── test  

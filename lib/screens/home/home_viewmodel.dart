@@ -1,7 +1,8 @@
-import 'package:boilerplate/screens/home/cocktail_menu.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:boilerplate/enums/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/states/home_state.dart';
 import 'package:boilerplate/services/cocktail_service.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeViewModel extends StateNotifier<HomeState> {
   final String title = 'Cocktails App';
@@ -18,6 +19,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
   }
 
   Future<void> initialize() async {
+    // ignore: todo
     //TODO: Here we should add the first api call to prepare your views like this:
     // final glasses = await cocktailService.getTypeOfGlasses();
     // and assigned it thru success if the screen requires it.
