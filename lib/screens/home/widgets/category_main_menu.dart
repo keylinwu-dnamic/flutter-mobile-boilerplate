@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/styles/fonts.dart';
 import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
@@ -86,9 +87,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
                     child: Text(
                       info.name,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: CocktailColors.black,
-                      ),
+                      style: Fonts.menuTitle,
                     ),
                   ),
                 ],
