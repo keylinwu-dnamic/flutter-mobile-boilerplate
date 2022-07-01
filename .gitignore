@@ -172,3 +172,7 @@ app.*.map.json
 /android/app/config-properties.gradle
 /ios/config/*.json
 launch.json
+linux/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugin_registrant.h
+linux/flutter/generated_plugins.cmake
+macos/Flutter/GeneratedPluginRegistrant.swift
