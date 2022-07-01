@@ -1,6 +1,9 @@
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
 import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
+import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/styles/size.dart';
+import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -49,19 +52,35 @@ class _HomePageState extends ConsumerState<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
-      body: _buildAccordingToState(),
+      body: _buildMain(),
       bottomNavigationBar: const CocktailBottomNavigation(),
     );
   }
 
-  AppBar _buildAppBar() {
-    return AppBar(
-      title: Text(
-        ref.read(homeViewModelProvider.notifier).title,
-        style: const TextStyle(color: Colors.black54),
+  Container _buildMain() {
+    return Container(
+      height: Sizes.backgroundImageSize,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/background.png'),
+          fit: BoxFit.fitWidth,
+          alignment: FractionalOffset.topCenter,
+          colorFilter: ColorFilter.mode(
+            CocktailColors.primary,
+            BlendMode.modulate,
+          ),
+        ),
       ),
-      backgroundColor: Colors.amber.shade100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            margin: const EdgeInsets.all(Spacing.spacingXXL),
+            child: Image.asset('assets/images/title.png'),
+          ),
+          _buildAccordingToState(),
+        ],
+      ),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/screens/type_of_glass/type_of_glass_provider.dart';
+import 'package:boilerplate/widgets/circular_progress.dart';
 import 'package:boilerplate/widgets/item_cocktail.dart';
 import 'package:boilerplate/widgets/list_cocktail.dart';
 import 'package:flutter/material.dart';
@@ -42,11 +43,7 @@ class _TypeOfGlassConsumer extends ConsumerWidget {
     final state = ref.watch(typeOfGlassViewModelProvider);
 
     return state.when(
-        loading: () => const Expanded(
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
+        loading: () => const CircularProgress(),
         success: (listGlass) {
           final categoriesItems = listGlass
               .map(

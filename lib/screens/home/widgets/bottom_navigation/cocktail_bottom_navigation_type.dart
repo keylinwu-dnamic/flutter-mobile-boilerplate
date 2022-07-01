@@ -27,7 +27,7 @@ extension CocktailBottomNavigationTypeExtension
       case CocktailBottomNavigationType.search:
         return const Icon(Icons.search);
       case CocktailBottomNavigationType.about:
-        return const Icon(Icons.bolt);
+        return const Icon(Icons.person_sharp);
     }
   }
 }

@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:boilerplate/classes/extensions/box_shadow.dart';
 
 class CategoryMainMenu extends ConsumerStatefulWidget {
   const CategoryMainMenu({Key? key}) : super(key: key);
@@ -19,26 +21,33 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
     final gridTile = ref
         .read(homeViewModelProvider.notifier)
         .cocktailMenuTiles
-        .map((tile) => _buildGridTile(withName: tile.name, path: tile.path))
+        .map(
+          (tile) => _buildGridTile(tile),
+        )
         .toList();
 
-    return Center(
-      child: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(Spacing.spacingMD),
-        crossAxisSpacing: Spacing.spacingMD,
-        mainAxisSpacing: Spacing.spacingXS,
-        crossAxisCount: 2,
-        children: gridTile,
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        GridView.count(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          primary: false,
+          padding: const EdgeInsets.all(Spacing.spacingXXS),
+          crossAxisSpacing: Spacing.spacingXS,
+          mainAxisSpacing: Spacing.spacingXS,
+          crossAxisCount: 2,
+          children: gridTile,
+        ),
+      ],
     );
   }
 
   // add required String routeName
-  Widget _buildGridTile(
-      {required String withName, required PageRouteInfo path}) {
+  Widget _buildGridTile(CocktailMenu info) {
     void goTo() {
-      context.router.push(path);
+      context.router.push(info.path);
     }
 
     return GridTile(
@@ -47,20 +56,44 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
           goTo();
         },
         child: Container(
-          padding: const EdgeInsets.all(Spacing.spacingXS),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.amberAccent, width: 5),
-            color: Colors.amber.shade100,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
+            decoration: BoxDecoration(
+              color: CocktailColors.white,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
+              ),
+              boxShadow: [
+                BoxShadowExtension.defaultTileShadow,
+              ],
             ),
-          ),
-          child: Center(
-              child: Text(
-            withName,
-            textAlign: TextAlign.center,
-          )),
-        ),
+            child: Padding(
+              padding: const EdgeInsets.all(Sizes.sizeXS),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: Sizes.sizeXS),
+                      decoration: BoxDecoration(
+                        color: CocktailColors.primary,
+                        borderRadius: BorderRadius.circular(Sizes.sizeXXXL),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(Sizes.sizeXXS),
+                        child: Image.asset(info.image),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      info.name,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: CocktailColors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )),
       ),
     );
   }

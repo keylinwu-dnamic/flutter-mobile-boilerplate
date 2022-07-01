@@ -88,4 +88,4 @@ flutter:
     - config/
     - assets/
   # add this library back when you need to add images into the project
-#    - assets/images/
+    - assets/images/

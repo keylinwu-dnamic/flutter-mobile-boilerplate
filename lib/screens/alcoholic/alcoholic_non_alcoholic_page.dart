@@ -1,4 +1,5 @@
 import 'package:boilerplate/generated/l10n.dart';
+import 'package:boilerplate/widgets/circular_progress.dart';
 import 'package:boilerplate/widgets/item_cocktail.dart';
 import 'package:boilerplate/widgets/list_cocktail.dart';
 import 'package:flutter/material.dart';
@@ -44,11 +45,7 @@ class _AlcoholicConsumer extends ConsumerWidget {
     final state = ref.watch(alcoholicViewModelProvider);
 
     return state.when(
-      loading: () => const Expanded(
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
-      ),
+      loading: () => const CircularProgress(),
       success: (alcoholicTypeList) {
         final alcoholicItems = alcoholicTypeList
             .map((alcohol) => CocktailItem(name: alcohol.name))

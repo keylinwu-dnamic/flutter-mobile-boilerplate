@@ -1,4 +1,7 @@
+import 'package:boilerplate/classes/extensions/box_shadow.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/styles/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -18,14 +21,31 @@ class _CocktailBottomNavigationState
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: CocktailBottomNavigationType.values
-          .map((type) => _buildBottomNavigationItem(type: type))
-          .toList(),
-      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.purple.shade300,
-      backgroundColor: Colors.amber.shade100,
-      onTap: (index) => onNavigationItemTap(index),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(Sizes.sizeXS),
+          topLeft: Radius.circular(Sizes.sizeXS),
+        ),
+        boxShadow: [
+          BoxShadowExtension.defaultTileShadow,
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(Sizes.sizeXS),
+          topRight: Radius.circular(Sizes.sizeXS),
+        ),
+        child: BottomNavigationBar(
+          items: CocktailBottomNavigationType.values
+              .map((type) => _buildBottomNavigationItem(type: type))
+              .toList(),
+          currentIndex: _selectedIndex,
+          selectedItemColor: CocktailColors.primary,
+          backgroundColor: CocktailColors.white,
+          onTap: (index) => onNavigationItemTap(index),
+        ),
+      ),
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
+import 'package:boilerplate/classes/extensions/box_shadow.dart';
 
 class CocktailItem extends StatelessWidget {
   const CocktailItem({
@@ -20,12 +21,7 @@ class CocktailItem extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(15.0),
         boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 5), // changes position of shadow
-          ),
+          BoxShadowExtension.defaultTileShadow,
         ],
       ),
       child: Row(
@@ -37,7 +33,7 @@ class CocktailItem extends StatelessWidget {
           const SizedBox(
             height: Sizes.sizeXXL,
             child: VerticalDivider(
-              color: CocktailColors.divider,
+              color: CocktailColors.primary,
               thickness: 1,
             ),
           ),

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:boilerplate/constants/assets.dart';
+import 'package:boilerplate/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -49,7 +50,7 @@ class SplashVideoState extends State<SplashVideo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow.shade100,
+      backgroundColor: CocktailColors.background,
       body: SafeArea(
         child: Center(
           child: AspectRatio(
