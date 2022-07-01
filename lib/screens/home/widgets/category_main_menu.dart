@@ -62,7 +62,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
                 Radius.circular(20),
               ),
               boxShadow: [
-                const BoxShadow().defaultTileShadow(),
+                BoxShadowExtension.defaultTileShadow,
               ],
             ),
             child: Padding(

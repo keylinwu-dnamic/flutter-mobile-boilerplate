@@ -21,7 +21,7 @@ class CocktailItem extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(15.0),
         boxShadow: [
-          const BoxShadow().defaultTileShadow(),
+          BoxShadowExtension.defaultTileShadow,
         ],
       ),
       child: Row(

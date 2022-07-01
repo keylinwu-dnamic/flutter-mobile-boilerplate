@@ -28,7 +28,7 @@ class _CocktailBottomNavigationState
           topLeft: Radius.circular(Sizes.sizeXS),
         ),
         boxShadow: [
-          const BoxShadow().defaultTileShadow(),
+          BoxShadowExtension.defaultTileShadow,
         ],
       ),
       child: ClipRRect(
