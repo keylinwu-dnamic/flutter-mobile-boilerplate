@@ -54,7 +54,7 @@ class SplashVideoState extends State<SplashVideo> {
       body: SafeArea(
         child: Center(
           child: AspectRatio(
-            aspectRatio: aspectRatio,
+            aspectRatio: Constants.aspectRatio,
             child: Lottie.asset(Assets.splashLottie),
           ),
         ),
