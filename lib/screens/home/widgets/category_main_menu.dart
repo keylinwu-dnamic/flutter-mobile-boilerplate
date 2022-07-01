@@ -13,12 +13,6 @@ import 'package:boilerplate/styles/cocktail_sizes.dart';
 
 import 'package:boilerplate/widgets/cocktail_avatar.dart';
 
-import 'package:boilerplate/constants/assets.dart';
-import 'package:boilerplate/enums/cocktail_menu.dart';
-import 'package:boilerplate/screens/home/home_provider.dart';
-import 'package:boilerplate/styles/cocktail_color.dart';
-import 'package:boilerplate/styles/cocktail_fonts.dart';
-
 class CategoryMainMenu extends ConsumerStatefulWidget {
   const CategoryMainMenu({Key? key}) : super(key: key);
 

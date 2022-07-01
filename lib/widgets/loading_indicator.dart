@@ -7,10 +7,12 @@ class LoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: CircularProgressIndicator(
-        value: value,
-        semanticsLabel: 'Linear progress indicator',
+    return Expanded(
+      child: Center(
+        child: CircularProgressIndicator(
+          value: value,
+          semanticsLabel: 'Linear progress indicator',
+        ),
       ),
     );
   }

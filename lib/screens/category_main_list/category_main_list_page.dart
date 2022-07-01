@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:boilerplate/enums/cocktail_menu_type.dart';
+import 'package:boilerplate/models/category_main_item.dart';
 
 import 'package:boilerplate/screens/category_main_list/category_main_list_provider.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
@@ -30,10 +31,12 @@ class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage>
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      CocktailMenuType cocktailMenuType =
+          ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
+
       await ref
           .read(categoryMainListViewModelProvider.notifier)
-          .getCategoryMainList(
-              ref.read(homeViewModelProvider.notifier).currentCocktailMenuType);
+          .getCategoryMainList(cocktailMenuType);
     });
   }
 
@@ -72,25 +75,27 @@ class _CategoriesConsumer extends ConsumerWidget {
     final state = ref.watch(categoryMainListViewModelProvider);
 
     return state.when(
-        loading: () => const Expanded(
-              child: Center(
-                child: LoadingIndicator(value: 1),
-              ),
-            ),
+        loading: () => const LoadingIndicator(value: 1),
         success: (list) {
-          CocktailMenuType cocktailMenuType =
-              ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
-
-          final categoriesItems = list
-              .map(
-                (item) => CocktailItem(
-                  name: item.name,
-                  image: cocktailMenuType.image,
-                ),
-              )
-              .toList();
+          List<CocktailItem> categoriesItems = _getListCocktailItems(ref, list);
           return CocktailList(list: categoriesItems);
         },
         failure: (error) => Text(error));
+  }
+
+  List<CocktailItem> _getListCocktailItems(
+      WidgetRef ref, List<CategoryMainItem> list) {
+    CocktailMenuType cocktailMenuType =
+        ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
+
+    final categoriesItems = list
+        .map(
+          (item) => CocktailItem(
+            name: item.name,
+            image: cocktailMenuType.image,
+          ),
+        )
+        .toList();
+    return categoriesItems;
   }
 }
