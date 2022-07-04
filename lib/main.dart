@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'classes/theme/cocktail_theme.dart';
-import 'classes/locale/locale_configuration.dart';
+import 'package:boilerplate/classes/theme/cocktail_theme.dart';
+import 'package:boilerplate/classes/locale/locale_configuration.dart';
 
-import 'router/guards/auth_guard.dart';
-import 'router/router.gr.dart';
+import 'package:boilerplate/router/router.gr.dart';
+import 'package:boilerplate/router/guards/auth_guard.dart';
 
 class App extends ConsumerStatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -48,15 +48,16 @@ class AppState extends ConsumerState<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-        // ignore: todo
-        // TODO: Real application name on OS task manager
-        title: 'Mobile Boilerplate',
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
-        localizationsDelegates: LocaleConfiguration.localizationsDelegates,
-        supportedLocales: LocaleConfiguration.supportedLocales,
-        locale: _appLocale,
-        debugShowCheckedModeBanner: false,
-        theme: CocktailTheme.lightTheme);
+      // ignore: todo
+      // TODO: Real application name on OS task manager
+      title: 'Mobile Boilerplate',
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      localizationsDelegates: LocaleConfiguration.localizationsDelegates,
+      supportedLocales: LocaleConfiguration.supportedLocales,
+      locale: _appLocale,
+      debugShowCheckedModeBanner: false,
+      theme: CocktailTheme.lightTheme,
+    );
   }
 }
