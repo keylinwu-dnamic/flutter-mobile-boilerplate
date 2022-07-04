@@ -1,5 +1,8 @@
-import 'package:boilerplate/generated/l10n.dart';
+import 'package:boilerplate/router/router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
+
+import 'package:boilerplate/generated/l10n.dart';
 
 enum CocktailBottomNavigationType {
   home,
@@ -23,11 +26,22 @@ extension CocktailBottomNavigationTypeExtension
   Icon get icon {
     switch (this) {
       case CocktailBottomNavigationType.home:
-        return const Icon(Icons.home);
+        return const Icon(Icons.home_outlined);
       case CocktailBottomNavigationType.search:
-        return const Icon(Icons.search);
+        return const Icon(Icons.search_outlined);
       case CocktailBottomNavigationType.about:
-        return const Icon(Icons.bolt);
+        return const Icon(Icons.supervised_user_circle);
+    }
+  }
+
+  PageRouteInfo get path {
+    switch (this) {
+      case CocktailBottomNavigationType.home:
+        return const HomeRoute();
+      case CocktailBottomNavigationType.search:
+        return const SearchRoute();
+      case CocktailBottomNavigationType.about:
+        return const AboutRoute();
     }
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import '../../generated/l10n.dart';
+import 'package:boilerplate/generated/l10n.dart';
 
 class LocaleConfiguration {
   static final supportedLocales = AppStrings.delegate.supportedLocales;

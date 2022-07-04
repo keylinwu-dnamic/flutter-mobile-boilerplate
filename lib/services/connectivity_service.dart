@@ -2,8 +2,9 @@ import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:boilerplate/constants/constants.dart';
 import 'package:connectivity/connectivity.dart';
+
+import 'package:boilerplate/constants/constants.dart';
 
 enum ConnectivityStatus { cellular, wifi, offline }
 

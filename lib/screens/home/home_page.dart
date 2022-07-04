@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
-// import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
+import 'package:boilerplate/widgets/bottom_navigation.dart';
+
+import 'package:boilerplate/widgets/loading_indicator.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,8 +17,6 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-
-  final mainScreens = [const CategoryMainMenu()];
 
   @override
   void initState() {
@@ -47,6 +47,7 @@ class _HomePageState extends ConsumerState<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildAccordingToState(),
+      bottomNavigationBar: const CocktailBottomNavigation(),
     );
   }
 
@@ -54,7 +55,7 @@ class _HomePageState extends ConsumerState<HomePage>
     return ref.watch(
       homeViewModelProvider.select(
         (viewModel) => viewModel.when(
-          loading: () => _buildLoader(),
+          loading: () => LoadingIndicator(value: animationController?.value),
           success: (currentNavigationIndex) => _buildNavigationWidget(
             currentNavigationIndex,
           ),
@@ -65,15 +66,6 @@ class _HomePageState extends ConsumerState<HomePage>
   }
 
   Widget _buildNavigationWidget(int withIndex) {
-    return mainScreens[withIndex];
-  }
-
-  Widget _buildLoader() {
-    return Center(
-      child: CircularProgressIndicator(
-        value: animationController?.value,
-        semanticsLabel: 'Linear progress indicator',
-      ),
-    );
+    return const CategoryMainMenu();
   }
 }

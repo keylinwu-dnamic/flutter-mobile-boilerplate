@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:auto_route/auto_route.dart';
 
-import 'package:boilerplate/constants/assets.dart';
-import 'package:boilerplate/enums/cocktail_menu.dart';
+import 'package:boilerplate/enums/cocktail_menu_type.dart';
+import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
-import 'package:boilerplate/styles/cocktail_color.dart';
+
+import 'package:boilerplate/styles/cocktail_decoration.dart';
 import 'package:boilerplate/styles/cocktail_fonts.dart';
+import 'package:boilerplate/styles/cocktail_spacing.dart';
+import 'package:boilerplate/styles/cocktail_sizes.dart';
+
+import 'package:boilerplate/widgets/cocktail_avatar.dart';
 
 class CategoryMainMenu extends ConsumerStatefulWidget {
   const CategoryMainMenu({Key? key}) : super(key: key);
@@ -15,6 +21,14 @@ class CategoryMainMenu extends ConsumerStatefulWidget {
 }
 
 class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
+  static const double topPositionMainMenu = 356;
+
+  void continueToMainList(CocktailMenuType cocktailMenu) {
+    ref.read(homeViewModelProvider.notifier).currentCocktailMenuType =
+        cocktailMenu;
+    context.router.push(const CategoryMainListRoute());
+  }
+
   @override
   Widget build(BuildContext context) {
     final gridTile = ref
@@ -30,25 +44,17 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
 
   Container _mainTitle() {
     return Container(
-      height: 440,
-      width: 428,
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(Assets.cocktailsBackgroundApp),
-              fit: BoxFit.fill,
-              opacity: 0.6),
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(90),
-              bottomRight: Radius.circular(90)),
-          color: CocktailColors.primary),
+      height: CocktailSizes.heightMainTitle,
+      width: CocktailSizes.widthMainTitle,
+      decoration: CocktailDecoration.mainTitleDecoration,
       child: Center(
           child: SizedBox(
-        width: 280,
+        width: CocktailSizes.sizeMainTitle,
         child: Text(
           ref.read(homeViewModelProvider.notifier).title.toUpperCase(),
           maxLines: 2,
           textAlign: TextAlign.center,
-          style: CocktailsFonts.headTitle,
+          style: CocktailFonts.headTitle,
         ),
       )),
     );
@@ -56,63 +62,37 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
 
   Padding _mainMenu(List<Widget> gridTile) {
     return Padding(
-      padding: const EdgeInsets.only(top: 356),
+      padding: const EdgeInsets.only(top: topPositionMainMenu),
       child: Center(
           child: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(20),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
+        crossAxisSpacing: CocktailSpacing.spacingXS,
+        mainAxisSpacing: CocktailSpacing.spacingXS,
         crossAxisCount: 2,
         children: gridTile,
       )),
     );
   }
 
-  Widget _buildGridTile({required CocktailMenu cocktailMenu}) {
+  Widget _buildGridTile({required CocktailMenuType cocktailMenu}) {
     return GestureDetector(
-      onTap: () {
-        // ignore: avoid_print
-        //Enum value print
-        print(cocktailMenu);
-      },
+      onTap: () => continueToMainList(cocktailMenu),
       child: GridTile(
         child: Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: CocktailColors.white,
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 0,
-                blurRadius: 10,
-                offset: const Offset(5, 5), // changes position of shadow
-              ),
-            ],
-          ),
+          padding: const EdgeInsets.all(CocktailSpacing.spacingXS),
+          decoration: CocktailDecoration.gridTileDecoration,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _avatarMenu(image: cocktailMenu.image),
+              CocktailAvatar(
+                image: cocktailMenu.image,
+                size: CocktailSizes.sizeAvatarMenu,
+                spacing: CocktailSpacing.spacingXS,
+              ),
               _titleMenu(title: cocktailMenu.name)
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Container _avatarMenu({required AssetImage image}) {
-    return Container(
-      height: 115,
-      width: 115,
-      decoration: const BoxDecoration(
-          color: CocktailColors.backgroundColor, shape: BoxShape.circle),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CircleAvatar(
-          backgroundImage: image,
         ),
       ),
     );
@@ -124,7 +104,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           title,
-          style: CocktailsFonts.menuTitle,
+          style: CocktailFonts.menuTitle,
         ),
       ),
     );
