@@ -11,8 +11,8 @@ class Fonts {
 
   static const tileTitile = TextStyle(
     fontFamily: 'Lato',
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: CocktailColors.black,
-    fontSize: Sizes.sizeMD,
+    fontSize: Sizes.sizeSM,
   );
 }

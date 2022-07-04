@@ -1,3 +1,4 @@
+import 'package:boilerplate/constants/assets.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/fonts.dart';
 import 'package:boilerplate/styles/size.dart';
@@ -9,9 +10,19 @@ class CocktailItem extends StatelessWidget {
   const CocktailItem({
     Key? key,
     required this.name,
+    this.isTypeOfGlass = false,
   }) : super(key: key);
 
   final String name;
+  final bool? isTypeOfGlass;
+
+  String getImage() {
+    if (isTypeOfGlass!) {
+      return Assets.glass;
+    } else {
+      return Assets.categories;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +49,10 @@ class CocktailItem extends StatelessWidget {
             color: Colors.white,
           ),
           child: Row(
-            mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
-                Icons.local_bar_outlined,
-                size: Sizes.sizeXXL,
+              Image.asset(
+                getImage(),
+                width: Sizes.sizeXXL,
               ),
               const Padding(
                 padding:
