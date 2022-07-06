@@ -14,15 +14,9 @@ class CocktailItem extends StatelessWidget {
   }) : super(key: key);
 
   final String name;
-  final bool? isTypeOfGlass;
+  final bool isTypeOfGlass;
 
-  String getImage() {
-    if (isTypeOfGlass!) {
-      return Assets.glass;
-    } else {
-      return Assets.categories;
-    }
-  }
+  String get image => isTypeOfGlass ? Assets.glass : Assets.categories;
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +45,14 @@ class CocktailItem extends StatelessWidget {
           child: Row(
             children: [
               Image.asset(
-                getImage(),
+                image,
                 width: Sizes.sizeXXL,
               ),
               const Padding(
-                padding:
-                    EdgeInsets.only(left: Sizes.sizeSM, right: Sizes.sizeSM),
+                padding: EdgeInsets.only(
+                  left: Spacing.spacingSM,
+                  right: Spacing.spacingSM,
+                ),
                 child: SizedBox(
                   height: Sizes.sizeXXL,
                   child: VerticalDivider(
