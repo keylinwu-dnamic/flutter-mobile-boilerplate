@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/constants/assets.dart';
 import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -40,13 +41,13 @@ extension CocktailMenuExtension on CocktailMenu {
   String get image {
     switch (this) {
       case CocktailMenu.categories:
-        return 'assets/images/categories.png';
+        return Assets.categories;
       case CocktailMenu.ingredient:
-        return 'assets/images/ingredients.png';
+        return Assets.ingredients;
       case CocktailMenu.typeOfGlass:
-        return 'assets/images/typeOfGlass.png';
+        return Assets.typeOfGlass;
       case CocktailMenu.alcoholic:
-        return 'assets/images/alcoholicOrNot.png';
+        return Assets.alcoholic;
     }
   }
 }

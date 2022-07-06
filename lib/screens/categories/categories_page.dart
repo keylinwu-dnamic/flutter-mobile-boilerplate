@@ -1,4 +1,5 @@
 import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/widgets/app_bar_custom.dart';
 import 'package:boilerplate/widgets/circular_progress.dart';
 import 'package:boilerplate/widgets/item_cocktail.dart';
 import 'package:boilerplate/widgets/list_cocktail.dart';
@@ -27,8 +28,8 @@ class _CategoriesPageState extends ConsumerState<CategoriesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CocktailColors.background,
-      appBar: AppBar(
-        title: Text(AppStrings.current.categories),
+      appBar: AppBarCustom(
+        title: AppStrings.current.categories,
       ),
       body: Column(
         children: [

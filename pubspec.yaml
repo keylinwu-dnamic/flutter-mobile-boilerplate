@@ -87,5 +87,9 @@ flutter:
   assets:
     - config/
     - assets/
-  # add this library back when you need to add images into the project
     - assets/images/
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Regular.ttf

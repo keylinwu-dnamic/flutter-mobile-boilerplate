@@ -1,3 +1,4 @@
+import 'package:boilerplate/constants/assets.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
 import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
@@ -62,7 +63,7 @@ class _HomePageState extends ConsumerState<HomePage>
       height: Sizes.backgroundImageSize,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/background.png'),
+          image: AssetImage(Assets.backgroundImage),
           fit: BoxFit.fitWidth,
           alignment: FractionalOffset.topCenter,
           colorFilter: ColorFilter.mode(
@@ -76,7 +77,7 @@ class _HomePageState extends ConsumerState<HomePage>
         children: [
           Container(
             margin: const EdgeInsets.all(Spacing.spacingXXL),
-            child: Image.asset('assets/images/title.png'),
+            child: Image.asset(Assets.title),
           ),
           _buildAccordingToState(),
         ],

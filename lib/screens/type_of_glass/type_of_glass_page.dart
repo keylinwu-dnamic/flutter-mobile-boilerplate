@@ -1,5 +1,6 @@
 import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/screens/type_of_glass/type_of_glass_provider.dart';
+import 'package:boilerplate/widgets/app_bar_custom.dart';
 import 'package:boilerplate/widgets/circular_progress.dart';
 import 'package:boilerplate/widgets/item_cocktail.dart';
 import 'package:boilerplate/widgets/list_cocktail.dart';
@@ -25,8 +26,8 @@ class _TypeOfGlassPageState extends ConsumerState<TypeOfGlassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppStrings.current.typeOfGlass),
+      appBar: AppBarCustom(
+        title: AppStrings.current.typeOfGlass,
       ),
       body: Column(
         children: [
@@ -47,7 +48,7 @@ class _TypeOfGlassConsumer extends ConsumerWidget {
         success: (listGlass) {
           final categoriesItems = listGlass
               .map(
-                (glass) => CocktailItem(name: glass.name),
+                (glass) => CocktailItem(name: glass.name, isTypeOfGlass: true),
               )
               .toList();
           return ListCocktail(list: categoriesItems);
