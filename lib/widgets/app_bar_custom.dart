@@ -12,17 +12,16 @@ class AppBarCustom extends StatelessWidget implements PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: CocktailColors.header,
-      iconTheme: const IconThemeData(color: CocktailColors.primary),
-      title: Text(
-        title,
-        style: Fonts.tileTitile,
-      ),
-    );
+    return child;
   }
 
   @override
-  // TODO: implement child
-  Widget get child => throw UnimplementedError();
+  Widget get child => AppBar(
+        backgroundColor: CocktailColors.header,
+        iconTheme: const IconThemeData(color: CocktailColors.primary),
+        title: Text(
+          title,
+          style: Fonts.tileTitile,
+        ),
+      );
 }
