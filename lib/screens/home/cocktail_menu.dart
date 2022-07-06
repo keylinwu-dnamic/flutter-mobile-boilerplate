@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:boilerplate/constants/assets.dart';
+import 'package:boilerplate/constants/constants.dart';
 import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/generated/l10n.dart';
-import 'package:flutter/material.dart';
 
 enum CocktailMenu {
   categories,
@@ -48,6 +48,19 @@ extension CocktailMenuExtension on CocktailMenu {
         return Assets.typeOfGlass;
       case CocktailMenu.alcoholic:
         return Assets.alcoholic;
+    }
+  }
+
+  String get apiKey {
+    switch (this) {
+      case CocktailMenu.categories:
+        return Constants.endpointCategoryKey;
+      case CocktailMenu.ingredient:
+        return Constants.endpointIngredientKey;
+      case CocktailMenu.typeOfGlass:
+        return Constants.endpointGlassKey;
+      case CocktailMenu.alcoholic:
+        return Constants.endpointAlcoholic;
     }
   }
 }
