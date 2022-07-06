@@ -1,4 +1,9 @@
 import 'package:auto_route/annotations.dart';
+import 'package:boilerplate/screens/cocktails_category/cocktails_categories_page.dart';
+import 'package:boilerplate/screens/cocktails_typeofglass/cocktails_by_typeofglass_page.dart';
+import 'package:boilerplate/screens/cocktails_ingredients/cocktails_by_ingredients_page.dart';
+import 'package:boilerplate/screens/cocktails_alcohol/cocktails_by_alcohol_page.dart';
+import 'package:boilerplate/screens/search/search_page.dart';
 
 import '../screens/home/home_page.dart';
 import '../screens/splash_screen/splash_screen_page.dart';
@@ -16,6 +21,26 @@ import 'guards/auth_guard.dart';
       page: HomePage,
       path: '/home',
       guards: [AuthGuard],
+    ),
+    AutoRoute(
+      page: CocktailsCategoriesPage,
+      path: '/cocktails_category',
+    ),
+    AutoRoute(
+      page: CocktailsByTypeOfGlassPage,
+      path: '/cocktails_typeofglass',
+    ),
+    AutoRoute(
+      page: CocktailsByIngredientsPage,
+      path: '/cocktails_ingredients',
+    ),
+    AutoRoute(
+      page: CocktailsByAlcoholPage,
+      path: '/cocktails_alcohol',
+    ),
+    AutoRoute(
+      page: SearchPage,
+      path: '/search',
     ),
   ],
 )

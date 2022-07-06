@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
+import 'package:boilerplate/styles/fonts.dart';
+import 'package:boilerplate/styles/sizes.dart';
+import 'package:boilerplate/styles/spacings.dart';
 import 'cocktail_bottom_navigation_type.dart';
 
 class CocktailBottomNavigation extends ConsumerStatefulWidget {
@@ -17,15 +20,28 @@ class _CocktailBottomNavigationState
   int _selectedIndex = 0;
 
   @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: CocktailBottomNavigationType.values
-          .map((type) => _buildBottomNavigationItem(type: type))
-          .toList(),
-      currentIndex: _selectedIndex,
-      selectedItemColor: CocktailAppColors.aqua,
-      backgroundColor: CocktailAppColors.white,
-      onTap: (index) => onNavigationItemTap(index),
+  Widget build(BuildContext context)
+  {
+    return Container(
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+              color: CocktailAppColors.black,
+              blurRadius: CocktailAppSizes.homeScreenMenuItemBoxShadowRadius,
+              offset: Offset(CocktailAppSpacings.homeScreenMenuItemBoxShadowOffsetX, CocktailAppSpacings.homeScreenMenuItemBoxShadowOffsetY)
+          )
+        ],
+        borderRadius: BorderRadius.vertical(top: Radius.circular(5))
+      ),
+      child: BottomNavigationBar(
+        items: CocktailBottomNavigationType.values
+            .map((type) => _buildBottomNavigationItem(type: type))
+            .toList(),
+        currentIndex: _selectedIndex,
+        selectedItemColor: CocktailAppColors.aqua,
+        backgroundColor: CocktailAppColors.white,
+        onTap: (index) => onNavigationItemTap(index),
+      )
     );
   }
 

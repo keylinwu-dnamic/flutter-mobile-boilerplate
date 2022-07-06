@@ -50,7 +50,20 @@
     "@alcoholOrNot": {
         "type": "text",
         "source_text": "Alcoholic (or not)"
+    },
+    "cocktailsCategories": "Categories",
+    "@cocktailsCategories": {
+        "type": "text",
+        "source_text": "Categories"
+    },
+    "cocktailsIngredients": "Ingredients",
+    "@cocktailsIngredients": {
+        "type": "text",
+        "source_text": "Ingredients"
+    },
+    "cocktailsTypeOfGlass": "Type of Glass",
+    "@cocktailsTypeOfGlass": {
+        "type": "text",
+        "source_text": "Type of Glass"
     }
 }
-
-
