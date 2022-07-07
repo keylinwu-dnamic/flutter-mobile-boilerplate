@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:boilerplate/classes/entities/category.dart';
 
 class ListCocktail extends StatelessWidget {
-  final List<CocktailItem> list;
+  final List<TextButton> list;
 
   ListCocktail({required this.list});
 

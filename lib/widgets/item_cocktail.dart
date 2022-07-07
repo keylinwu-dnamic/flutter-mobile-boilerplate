@@ -7,21 +7,23 @@ import 'package:flutter/material.dart';
 import 'package:boilerplate/classes/extensions/box_shadow.dart';
 
 class CocktailItem extends StatelessWidget {
-  const CocktailItem({
-    Key? key,
-    required this.name,
-    this.isTypeOfGlass = false,
-  }) : super(key: key);
+  const CocktailItem(
+      {Key? key,
+      required this.name,
+      this.isTypeOfGlass = false,
+      this.cocktailImage})
+      : super(key: key);
 
   final String name;
   final bool isTypeOfGlass;
+  final String? cocktailImage;
 
   String get image => isTypeOfGlass ? Assets.glass : Assets.categories;
+  bool get isCocktail => cocktailImage != null ? true : false;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(Spacing.spacingXS),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadowExtension.defaultTileShadow,
@@ -44,10 +46,15 @@ class CocktailItem extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Image.asset(
-                image,
-                width: Sizes.sizeXXL,
-              ),
+              isCocktail
+                  ? Image.network(
+                      cocktailImage!,
+                      width: Sizes.sizeXXL,
+                    )
+                  : Image.asset(
+                      image,
+                      width: Sizes.sizeXXL,
+                    ),
               const Padding(
                 padding: EdgeInsets.only(
                   left: Spacing.spacingSM,
@@ -61,9 +68,11 @@ class CocktailItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                name,
-                style: Fonts.tileTitile,
+              Flexible(
+                child: Text(
+                  name,
+                  style: Fonts.tileTitile,
+                ),
               ),
             ],
           ),

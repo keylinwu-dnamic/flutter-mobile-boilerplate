@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/constants/constants.dart';
 import 'package:boilerplate/generated/l10n.dart';
+import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/fonts.dart';
 import 'package:boilerplate/styles/size.dart';
@@ -56,7 +59,15 @@ class _AlcoholicConsumer extends ConsumerWidget {
           shrinkWrap: true,
           itemCount: alcoholicTypeList.length,
           itemBuilder: (_, index) {
-            return AlcoholItem(name: alcoholicTypeList[index].name);
+            return TextButton(
+                onPressed: () {
+                  context.router.push(
+                    CocktailsRoute(
+                        apiKey: Constants.endpointAlcoholic,
+                        name: alcoholicTypeList[index].name),
+                  );
+                },
+                child: AlcoholItem(name: alcoholicTypeList[index].name));
           },
         ),
       ),
@@ -76,7 +87,6 @@ class AlcoholItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(Spacing.spacingXS),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadowExtension.defaultTileShadow,
