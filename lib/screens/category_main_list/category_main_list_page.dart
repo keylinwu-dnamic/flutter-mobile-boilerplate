@@ -1,8 +1,9 @@
+import 'package:boilerplate/models/category_main_item.dart';
+import 'package:boilerplate/widgets/custom_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:boilerplate/enums/cocktail_menu_type.dart';
-import 'package:boilerplate/models/category_main_item.dart';
 
 import 'package:boilerplate/screens/category_main_list/category_main_list_provider.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
@@ -21,13 +22,9 @@ class CategoryMainListPage extends ConsumerStatefulWidget {
       _CategoryMainListPageState();
 }
 
-class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage>
-    with TickerProviderStateMixin {
-  AnimationController? animationController;
-
+class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage> {
   @override
   void initState() {
-    _setupController();
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
@@ -38,21 +35,6 @@ class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage>
           .read(categoryMainListViewModelProvider.notifier)
           .getCategoryMainList(cocktailMenuType);
     });
-  }
-
-  void _setupController() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    animationController?.addListener(() => setState(() {}));
-    animationController?.forward();
-  }
-
-  @override
-  void dispose() {
-    animationController?.dispose();
-    super.dispose();
   }
 
   @override
@@ -73,21 +55,17 @@ class _CategoriesConsumer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(categoryMainListViewModelProvider);
-
-    return state.when(
-        loading: () => const LoadingIndicator(value: 1),
-        success: (list) {
-          List<CocktailItem> categoriesItems = _getListCocktailItems(ref, list);
-          return CocktailList(list: categoriesItems);
-        },
-        failure: (error) => Text(error));
-  }
-
-  List<CocktailItem> _getListCocktailItems(
-      WidgetRef ref, List<CategoryMainItem> list) {
     CocktailMenuType cocktailMenuType =
         ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
 
+    return state.when(
+        loading: () => const LoadingIndicator(),
+        success: (list) => _buildSuccessWidget(list, cocktailMenuType),
+        failure: (error) => CustomMessage(message: error));
+  }
+
+  CocktailList _buildSuccessWidget(
+      List<CategoryMainItem> list, CocktailMenuType cocktailMenuType) {
     final categoriesItems = list
         .map(
           (item) => CocktailItem(
@@ -96,6 +74,6 @@ class _CategoriesConsumer extends ConsumerWidget {
           ),
         )
         .toList();
-    return categoriesItems;
+    return CocktailList(list: categoriesItems);
   }
 }

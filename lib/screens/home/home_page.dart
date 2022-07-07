@@ -1,3 +1,4 @@
+import 'package:boilerplate/widgets/custom_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,33 +15,14 @@ class HomePage extends ConsumerStatefulWidget {
   ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends ConsumerState<HomePage>
-    with TickerProviderStateMixin {
-  AnimationController? animationController;
-
+class _HomePageState extends ConsumerState<HomePage> {
   @override
   void initState() {
-    _setupController();
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await ref.read(homeViewModelProvider.notifier).initialize();
     });
-  }
-
-  void _setupController() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 5),
-    );
-    animationController?.addListener(() => setState(() {}));
-    animationController?.forward();
-  }
-
-  @override
-  void dispose() {
-    animationController?.dispose();
-    super.dispose();
   }
 
   @override
@@ -55,17 +37,15 @@ class _HomePageState extends ConsumerState<HomePage>
     return ref.watch(
       homeViewModelProvider.select(
         (viewModel) => viewModel.when(
-          loading: () => LoadingIndicator(value: animationController?.value),
-          success: (currentNavigationIndex) => _buildNavigationWidget(
-            currentNavigationIndex,
-          ),
-          failure: (error) => Text('Error $error'),
+          loading: () => const LoadingIndicator(),
+          success: (_) => _buildSuccessWidget(),
+          failure: (error) => CustomMessage(message: error),
         ),
       ),
     );
   }
 
-  Widget _buildNavigationWidget(int withIndex) {
+  Widget _buildSuccessWidget() {
     return const CategoryMainMenu();
   }
 }

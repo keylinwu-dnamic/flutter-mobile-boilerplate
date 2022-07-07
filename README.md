@@ -376,3 +376,16 @@ Reviewed set of libraries by category.
 | freezed| immutable state|https://pub.dev/packages/freezed||
 | auto_route_generator| navigation |https://pub.dev/packages/auto_route||
 | flutter_lints | clean code |https://pub.dev/packages/flutter_lints|||
+
+
+# 13) 📱 Class Generator.
+
+This project implements a code generator, to use it follow these instructions:
+
+1.  open terminal
+2.  uses: ```dart .generate.dart [nameClass] [nameService1] [nameService2] [namesService3]```
+3.  first parameter indicate the name of the class, use lowerCamelCase. For example: cocktailDetail
+4.  following parametros can indicate N services, use lowerCamelCase. For example: cocktailService connectivityService
+5.  a unique class name and at least one service name must be indicated.
+6.  example: 
+      ``` dart .generate.dart cocktailDetail  cocktailService connectivityService ```

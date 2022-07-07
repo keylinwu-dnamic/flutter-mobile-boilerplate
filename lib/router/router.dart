@@ -4,6 +4,7 @@ import 'package:boilerplate/router/guards/auth_guard.dart';
 
 import 'package:boilerplate/screens/about/about_page.dart';
 import 'package:boilerplate/screens/category_main_list/category_main_list_page.dart';
+import 'package:boilerplate/screens/cocktail_list/cocktail_list_page.dart';
 import 'package:boilerplate/screens/home/home_page.dart';
 import 'package:boilerplate/screens/search/search_page.dart';
 import 'package:boilerplate/screens/splash_screen/splash_screen_page.dart';
@@ -29,6 +30,7 @@ import 'package:boilerplate/screens/splash_screen/splash_screen_page.dart';
       page: CategoryMainListPage,
       path: '/category-main-list',
     ),
+    AutoRoute(page: CocktailListPage, path: '/cocktail-list')
   ],
 )
 class $AppRouter {}

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:boilerplate/classes/entities/cocktail.dart';
+import 'package:boilerplate/enums/cocktail_menu_type.dart';
+
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/screens/cocktail_list/cocktail_list_provider.dart';
 
@@ -8,6 +11,7 @@ import 'package:boilerplate/widgets/bottom_navigation.dart';
 import 'package:boilerplate/widgets/cocktail_item.dart';
 import 'package:boilerplate/widgets/cocktail_list.dart';
 import 'package:boilerplate/widgets/custom_app_bar.dart';
+import 'package:boilerplate/widgets/custom_message.dart';
 import 'package:boilerplate/widgets/loading_indicator.dart';
 
 class CocktailListPage extends ConsumerStatefulWidget {
@@ -21,35 +25,18 @@ class CocktailListPage extends ConsumerStatefulWidget {
       _CocktailListPageState();
 }
 
-class _CocktailListPageState extends ConsumerState<CocktailListPage>
-    with TickerProviderStateMixin {
-  AnimationController? animationController;
-
+class _CocktailListPageState extends ConsumerState<CocktailListPage> {
   @override
   void initState() {
-    _setupController();
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await ref.read(cocktailListViewModelProvider.notifier).getCocktailsList(
-          ref.read(homeViewModelProvider.notifier).currentCocktailMenuType,
-          widget.categoryItem);
+      CocktailMenuType cocktailMenuType =
+          ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
+      await ref
+          .read(cocktailListViewModelProvider.notifier)
+          .getCocktailsList(cocktailMenuType, widget.categoryItem);
     });
-  }
-
-  void _setupController() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    animationController?.addListener(() => setState(() {}));
-    animationController?.forward();
-  }
-
-  @override
-  void dispose() {
-    animationController?.dispose();
-    super.dispose();
   }
 
   @override
@@ -70,24 +57,26 @@ class _CocktailConsumer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(cocktailListViewModelProvider);
+    CocktailMenuType cocktailMenuType =
+        ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
 
     return state.when(
-        loading: () => const Expanded(
-              child: Center(
-                child: LoadingIndicator(value: 1),
-              ),
-            ),
-        success: (list) {
-          final cocktailItems = list
-              .map(
-                (item) => CocktailItem(
-                  name: item.name,
-                  image: AssetImage(item.image),
-                ),
-              )
-              .toList();
-          return CocktailList(list: cocktailItems);
-        },
-        failure: (error) => Text(error));
+        loading: () => const LoadingIndicator(),
+        success: (list) => _buildSuccessWidget(list, cocktailMenuType),
+        failure: (error) => CustomMessage(message: error));
+  }
+
+  CocktailList _buildSuccessWidget(
+      List<Cocktail> list, CocktailMenuType cocktailMenuType) {
+    final cocktailItems = list
+        .map(
+          (item) => CocktailItem(
+            name: item.name,
+            image: cocktailMenuType.image,
+            imageExt: item.image,
+          ),
+        )
+        .toList();
+    return CocktailList(list: cocktailItems);
   }
 }
