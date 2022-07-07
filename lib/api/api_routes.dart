@@ -8,18 +8,22 @@ class ApiRoutes {
     Adapters(name: 'thecocktaildb', url: 'api/json/v1/1')
   ];
 
-  static String geApiRouteEndpoints(CocktailMenuType cocktailMenuType) {
-    switch (cocktailMenuType) {
-      case CocktailMenuType.alcoholic:
-        return '$domain/${adapters[0].url}/list.php?a=list';
-      case CocktailMenuType.categories:
-        return '$domain/${adapters[0].url}/list.php?c=list';
-      case CocktailMenuType.ingredient:
-        return '$domain/${adapters[0].url}/list.php?i=list';
-      case CocktailMenuType.typeOfGlass:
-        return '$domain/${adapters[0].url}/list.php?g=list';
-      case CocktailMenuType.none:
-        return '';
-    }
+  static String geApiEndpointsForList(CocktailMenuType cocktailMenuType) {
+    return '$domain/${adapters[0].url}/list.php?${cocktailMenuType.id}=list';
+  }
+
+  static String geApiEndpointsForFilter(
+      CocktailMenuType cocktailMenuType, String filter) {
+    return '$domain/${adapters[0].url}/filter.php?${cocktailMenuType.id}=$filter';
+  }
+
+  static String geApiEndpointsForLookup(
+      CocktailMenuType cocktailMenuType, String id) {
+    return '$domain/${adapters[0].url}/lookup.php?i=$id';
+  }
+
+  static String geApiEndpointsForName(
+      CocktailMenuType cocktailMenuType, String name) {
+    return '$domain/${adapters[0].url}/search.php?s=$name';
   }
 }

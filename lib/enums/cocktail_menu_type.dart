@@ -47,4 +47,19 @@ extension CocktailMenuTypeExtension on CocktailMenuType {
         return false;
     }
   }
+
+  String get id {
+    switch (this) {
+      case CocktailMenuType.categories:
+        return 'c';
+      case CocktailMenuType.typeOfGlass:
+        return 'g';
+      case CocktailMenuType.ingredient:
+        return 'i';
+      case CocktailMenuType.alcoholic:
+        return 'a';
+      default:
+        return '';
+    }
+  }
 }

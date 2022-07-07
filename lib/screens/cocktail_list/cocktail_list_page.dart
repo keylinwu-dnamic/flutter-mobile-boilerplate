@@ -1,28 +1,31 @@
-import 'package:boilerplate/models/category_main_item.dart';
-import 'package:boilerplate/widgets/custom_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:boilerplate/classes/entities/cocktail.dart';
 import 'package:boilerplate/enums/cocktail_menu_type.dart';
 
-import 'package:boilerplate/screens/category_main_list/category_main_list_provider.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
+import 'package:boilerplate/screens/cocktail_list/cocktail_list_provider.dart';
 
 import 'package:boilerplate/widgets/bottom_navigation.dart';
 import 'package:boilerplate/widgets/cocktail_item.dart';
 import 'package:boilerplate/widgets/cocktail_list.dart';
 import 'package:boilerplate/widgets/custom_app_bar.dart';
+import 'package:boilerplate/widgets/custom_message.dart';
 import 'package:boilerplate/widgets/loading_indicator.dart';
 
-class CategoryMainListPage extends ConsumerStatefulWidget {
-  const CategoryMainListPage({Key? key}) : super(key: key);
+class CocktailListPage extends ConsumerStatefulWidget {
+  final String categoryItem;
+
+  const CocktailListPage({Key? key, required this.categoryItem})
+      : super(key: key);
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _CategoryMainListPageState();
+      _CocktailListPageState();
 }
 
-class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage> {
+class _CocktailListPageState extends ConsumerState<CocktailListPage> {
   @override
   void initState() {
     super.initState();
@@ -30,10 +33,9 @@ class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       CocktailMenuType cocktailMenuType =
           ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
-
       await ref
-          .read(categoryMainListViewModelProvider.notifier)
-          .getCategoryMainList(cocktailMenuType);
+          .read(cocktailListViewModelProvider.notifier)
+          .getCocktailsList(cocktailMenuType, widget.categoryItem);
     });
   }
 
@@ -43,7 +45,7 @@ class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage> {
       appBar: const CocktailCustomAppBar(),
       body: Column(
         children: [
-          _CategoriesConsumer(),
+          _CocktailConsumer(),
         ],
       ),
       bottomNavigationBar: const CocktailBottomNavigation(),
@@ -51,10 +53,10 @@ class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage> {
   }
 }
 
-class _CategoriesConsumer extends ConsumerWidget {
+class _CocktailConsumer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(categoryMainListViewModelProvider);
+    final state = ref.watch(cocktailListViewModelProvider);
     CocktailMenuType cocktailMenuType =
         ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
 
@@ -65,15 +67,16 @@ class _CategoriesConsumer extends ConsumerWidget {
   }
 
   CocktailList _buildSuccessWidget(
-      List<CategoryMainItem> list, CocktailMenuType cocktailMenuType) {
-    final categoriesItems = list
+      List<Cocktail> list, CocktailMenuType cocktailMenuType) {
+    final cocktailItems = list
         .map(
           (item) => CocktailItem(
             name: item.name,
             image: cocktailMenuType.image,
+            imageExt: item.image,
           ),
         )
         .toList();
-    return CocktailList(list: categoriesItems);
+    return CocktailList(list: cocktailItems);
   }
 }

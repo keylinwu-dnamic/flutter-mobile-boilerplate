@@ -20,6 +20,17 @@ version: 1.0.0+6
 environment:
   sdk: '>=2.17.0 <3.0.0'
 
+# Definition of executable scripts in the project, they have a dependency on the global package slidy. 
+# Use slidy run 'script name'
+scripts:
+  dev: 'flutter run --flavor dev -t lib/flavors/main_dev.dart'
+  stag: 'flutter run --flavor stag -t lib/flavors/main_stag.dart'
+  preprod: 'flutter run --flavor preprod -t lib/flavors/main_preprod.dart'
+  prod: 'flutter run --flavor prod -t lib/flavors/main_prod.dart'
+
+  build: 'flutter pub run build_runner build --delete-conflicting-outputs'
+  watch: 'flutter pub run build_runner watch build --delete-conflicting-outputs'
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,

@@ -15,11 +15,6 @@ class CocktailBottomNavigation extends ConsumerStatefulWidget {
 
 class _CocktailBottomNavigationState
     extends ConsumerState<CocktailBottomNavigation> {
-  void _goToTapNavigation(int index) {
-    ref.read(homeViewModelProvider.notifier).currentNavigationIndex = index;
-    context.router.push(CocktailBottomNavigationType.values[index].path);
-  }
-
   @override
   Widget build(BuildContext context) {
     int selectedIndex =
@@ -30,7 +25,10 @@ class _CocktailBottomNavigationState
           .map((type) => _buildBottomNavigationItem(type: type))
           .toList(),
       currentIndex: selectedIndex,
-      onTap: (index) => _goToTapNavigation(index),
+      onTap: (index) {
+        ref.read(homeViewModelProvider.notifier).currentNavigationIndex = index;
+        context.router.push(CocktailBottomNavigationType.values[index].path);
+      },
     );
   }
 
