@@ -9,9 +9,11 @@ part of 'cocktail.dart';
 Cocktail _$CocktailFromJson(Map<String, dynamic> json) => Cocktail(
       name: json['strDrink'] as String,
       image: json['strDrinkThumb'] as String,
+      id: json['idDrink'] as String,
     );
 
 Map<String, dynamic> _$CocktailToJson(Cocktail instance) => <String, dynamic>{
       'strDrink': instance.name,
       'strDrinkThumb': instance.image,
+      'idDrink': instance.id,
     };

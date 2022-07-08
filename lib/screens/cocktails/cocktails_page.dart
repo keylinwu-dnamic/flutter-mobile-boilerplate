@@ -57,6 +57,7 @@ class _CocktailsConsumer extends ConsumerWidget {
         final cocktailItems = cocktails
             .map(
               (cocktail) => GestureDetector(
+                onTap: () {},
                 child: CocktailItem(
                   name: cocktail.name,
                   cocktailImage: cocktail.image,
