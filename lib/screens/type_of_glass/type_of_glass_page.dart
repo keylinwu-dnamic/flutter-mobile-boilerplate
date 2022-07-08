@@ -42,6 +42,12 @@ class _TypeOfGlassPageState extends ConsumerState<TypeOfGlassPage> {
 }
 
 class _TypeOfGlassConsumer extends ConsumerWidget {
+  void _onTapGlass(BuildContext context, String name) {
+    context.router.push(
+      CocktailsRoute(apiKey: Constants.endpointGlassKey, name: name),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(typeOfGlassViewModelProvider);
@@ -51,16 +57,14 @@ class _TypeOfGlassConsumer extends ConsumerWidget {
         success: (listGlass) {
           final categoriesItems = listGlass
               .map(
-                (glass) => TextButton(
-                  onPressed: () {
-                    context.router.push(
-                      CocktailsRoute(
-                        apiKey: Constants.endpointGlassKey,
-                        name: glass.name,
-                      ),
-                    );
+                (glass) => GestureDetector(
+                  onTap: () {
+                    _onTapGlass(context, glass.name);
                   },
-                  child: CocktailItem(name: glass.name, isTypeOfGlass: true),
+                  child: CocktailItem(
+                    name: glass.name,
+                    isTypeOfGlass: true,
+                  ),
                 ),
               )
               .toList();

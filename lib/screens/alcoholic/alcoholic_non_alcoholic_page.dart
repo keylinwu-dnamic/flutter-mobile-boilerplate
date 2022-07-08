@@ -47,6 +47,15 @@ class _AlcoholicNonAlcoholicPageState
 }
 
 class _AlcoholicConsumer extends ConsumerWidget {
+  void _onAlcoholicTap(BuildContext context, name) {
+    context.router.push(
+      CocktailsRoute(
+        apiKey: Constants.endpointAlcoholic,
+        name: name,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(alcoholicViewModelProvider);
@@ -59,15 +68,17 @@ class _AlcoholicConsumer extends ConsumerWidget {
           shrinkWrap: true,
           itemCount: alcoholicTypeList.length,
           itemBuilder: (_, index) {
-            return TextButton(
-                onPressed: () {
-                  context.router.push(
-                    CocktailsRoute(
-                        apiKey: Constants.endpointAlcoholic,
-                        name: alcoholicTypeList[index].name),
-                  );
-                },
-                child: AlcoholItem(name: alcoholicTypeList[index].name));
+            return GestureDetector(
+              onTap: () {
+                _onAlcoholicTap(
+                  context,
+                  alcoholicTypeList[index].name,
+                );
+              },
+              child: AlcoholItem(
+                name: alcoholicTypeList[index].name,
+              ),
+            );
           },
         ),
       ),
@@ -87,6 +98,7 @@ class AlcoholItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.all(Sizes.sizeXS),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadowExtension.defaultTileShadow,

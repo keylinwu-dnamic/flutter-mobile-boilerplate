@@ -45,6 +45,15 @@ class _IngredientsPageState extends ConsumerState<IngredientsPage> {
 }
 
 class _IngredientsConsumer extends ConsumerWidget {
+  void _onIngredientTap(BuildContext context, String name) {
+    context.router.push(
+      CocktailsRoute(
+        apiKey: Constants.endpointIngredientKey,
+        name: name,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(ingredientsViewModelProvider);
@@ -54,15 +63,13 @@ class _IngredientsConsumer extends ConsumerWidget {
       success: (ingredients) {
         final ingredientsItems = ingredients
             .map(
-              (ingredient) => TextButton(
-                onPressed: () {
-                  context.router.push(
-                    CocktailsRoute(
-                        apiKey: Constants.endpointIngredientKey,
-                        name: ingredient.name),
-                  );
+              (ingredient) => GestureDetector(
+                onTap: () {
+                  _onIngredientTap(context, ingredient.name);
                 },
-                child: CocktailItem(name: ingredient.name),
+                child: CocktailItem(
+                  name: ingredient.name,
+                ),
               ),
             )
             .toList();

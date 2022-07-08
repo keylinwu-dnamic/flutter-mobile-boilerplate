@@ -24,6 +24,7 @@ class CocktailItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.all(Sizes.sizeXS),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadowExtension.defaultTileShadow,

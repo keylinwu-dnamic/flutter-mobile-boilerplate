@@ -45,6 +45,15 @@ class _CategoriesPageState extends ConsumerState<CategoriesPage> {
 }
 
 class _CategoriesConsumer extends ConsumerWidget {
+  void _onCategoryTap(BuildContext context, String name) {
+    context.router.push(
+      CocktailsRoute(
+        apiKey: Constants.endpointCategoryKey,
+        name: name,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(categoriesViewModelProvider);
@@ -54,13 +63,9 @@ class _CategoriesConsumer extends ConsumerWidget {
         success: (categories) {
           final categoriesItems = categories
               .map(
-                (category) => TextButton(
-                  onPressed: () {
-                    context.router.push(
-                      CocktailsRoute(
-                          apiKey: Constants.endpointCategoryKey,
-                          name: category.name),
-                    );
+                (category) => GestureDetector(
+                  onTap: () {
+                    _onCategoryTap(context, category.name);
                   },
                   child: CocktailItem(name: category.name),
                 ),
