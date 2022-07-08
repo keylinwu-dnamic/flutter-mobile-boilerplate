@@ -38,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeScreenTitle":
             MessageLookupByLibrary.simpleMessage("COCKTAILS APP"),
         "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
+        "loadingText": MessageLookupByLibrary.simpleMessage("Loading..."),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "typeOfGlass": MessageLookupByLibrary.simpleMessage("Type of glass"),
         "welcome": MessageLookupByLibrary.simpleMessage(

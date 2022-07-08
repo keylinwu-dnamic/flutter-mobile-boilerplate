@@ -179,6 +179,16 @@ class AppStrings {
       args: [],
     );
   }
+
+  /// `Loading...`
+  String get loadingText {
+    return Intl.message(
+      'Loading...',
+      name: 'loadingText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppStrings> {

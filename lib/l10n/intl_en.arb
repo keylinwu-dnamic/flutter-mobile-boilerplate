@@ -65,5 +65,10 @@
     "@cocktailsTypeOfGlass": {
         "type": "text",
         "source_text": "Type of Glass"
+    },
+    "loadingText": "Loading...",
+    "@loadingText": {
+        "type": "text",
+        "source_text": "Loading..."
     }
 }

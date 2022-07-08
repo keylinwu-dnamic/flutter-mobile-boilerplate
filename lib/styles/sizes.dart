@@ -12,4 +12,12 @@ class CocktailAppSizes
   static const homeScreenMenuItemBoxShadowRadius = 30.0;
 
   static const homeScreenImageBottomRadius = 90.0;
+
+  static const listItemHeight = 100.0;
+
+  static const listItemCircleSize = 70.0;
+
+  static const listItemSeparatorHeight = 70.0;
+
+  static const listItemSeparatorThickness = 0.5;
 }
