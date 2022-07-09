@@ -1,30 +1,34 @@
-import 'package:boilerplate/styles/cocktail_shadow.dart';
 import 'package:flutter/material.dart';
 
 import 'package:boilerplate/constants/assets.dart';
+
 import 'package:boilerplate/styles/cocktail_color.dart';
+import 'package:boilerplate/styles/cocktail_radius.dart';
+import 'package:boilerplate/styles/cocktail_shadow.dart';
 
 class CocktailDecoration {
-  static const mainTitleDecoration = BoxDecoration(
-      image: DecorationImage(
+  static final mainTitleDecoration = BoxDecoration(
+      image: const DecorationImage(
           image: AssetImage(Assets.cocktailsBackgroundApp),
           fit: BoxFit.fill,
           opacity: 0.6),
-      borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(90), bottomRight: Radius.circular(90)),
+      borderRadius: CocktailRadius.getOnlyBottomBorder(),
       color: CocktailColors.primary);
 
   static final gridTileDecoration = BoxDecoration(
     color: CocktailColors.white,
-    borderRadius: const BorderRadius.all(Radius.circular(20)),
+    borderRadius: CocktailRadius.getAllBorder(),
     boxShadow: CocktailShadow.gridTileShadow,
   );
 
   static const avatarMenuDecoration = BoxDecoration(
       color: CocktailColors.backgroundColor, shape: BoxShape.circle);
 
-  static const borderItemListDecoration = BoxDecoration(
+  static final borderItemListDecoration = BoxDecoration(
       color: CocktailColors.backgroundColor,
-      borderRadius: BorderRadius.only(
-          topRight: Radius.circular(20), bottomRight: Radius.circular(20)));
+      borderRadius: CocktailRadius.getOnlyTopBorder());
+
+  static final avatarAppBarDecoration = BoxDecoration(
+      borderRadius: CocktailRadius.getOnlyBottomBorder(),
+      color: CocktailColors.backgroundColor);
 }

@@ -10,6 +10,7 @@ import 'package:boilerplate/enums/cocktail_menu_type.dart';
 import 'package:boilerplate/classes/entities/alcoholic.dart';
 import 'package:boilerplate/classes/entities/category.dart';
 import 'package:boilerplate/classes/entities/cocktail.dart';
+import 'package:boilerplate/classes/entities/cocktail_detail.dart';
 import 'package:boilerplate/classes/entities/glass.dart';
 import 'package:boilerplate/classes/entities/ingredient.dart';
 
@@ -22,6 +23,7 @@ abstract class DataRepositoryInterface {
   Future<List<Alcoholic>> getCocktailsAlcoholicOrNot();
   Future<List<Cocktail>> getCocktails(
       CocktailMenuType cocktailMenuType, String filter);
+  Future<CocktailDetail> getCocktailDetail(String id);
 }
 
 class DataRepository implements DataRepositoryInterface {
@@ -105,6 +107,22 @@ class DataRepository implements DataRepositoryInterface {
           .map((drink) => Cocktail.fromJson(drink))
           .toList();
       return drinks;
+    } catch (e) {
+      log(e.toString());
+      return Future.error(e);
+    }
+  }
+
+  @override
+  Future<CocktailDetail> getCocktailDetail(String id) async {
+    try {
+      final result = await _networkService.getData(
+        path: ApiRoutes.geApiEndpointsForLookup(id),
+      );
+      List<CocktailDetail> drinks = (result['drinks'] as List)
+          .map((drink) => CocktailDetail.fromJson(drink))
+          .toList();
+      return drinks.first;
     } catch (e) {
       log(e.toString());
       return Future.error(e);

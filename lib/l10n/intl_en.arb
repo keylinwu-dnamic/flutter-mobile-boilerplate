@@ -40,5 +40,10 @@
   "@alcoholOrNot": {
     "type": "text",
     "source_text": "Alcohol or not?"
+  },
+  "cocktailList": "Cocktails List",
+  "@cocktailList": {
+    "type": "text",
+    "source_text": "Cocktails List"
   }
 }

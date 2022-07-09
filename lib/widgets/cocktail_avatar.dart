@@ -6,14 +6,14 @@ class CocktailAvatar extends StatelessWidget {
   final AssetImage image;
   final double size;
   final double spacing;
-  final String? imageExt;
+  final String? imageExtension;
 
   const CocktailAvatar({
     Key? key,
     required this.image,
     required this.size,
     required this.spacing,
-    this.imageExt,
+    this.imageExtension,
   }) : super(key: key);
 
   @override
@@ -21,16 +21,17 @@ class CocktailAvatar extends StatelessWidget {
     return Container(
       height: size,
       width: size,
-      decoration:
-          (imageExt == null) ? CocktailDecoration.avatarMenuDecoration : null,
+      decoration: (imageExtension == null)
+          ? CocktailDecoration.avatarMenuDecoration
+          : null,
       child: Padding(
         padding: EdgeInsets.all(spacing),
-        child: (imageExt == null)
+        child: (imageExtension == null)
             ? CircleAvatar(
                 backgroundImage: image,
               )
             : FadeInImage(
-                image: NetworkImage(imageExt!),
+                image: NetworkImage(imageExtension!),
                 placeholder: image,
                 fit: BoxFit.cover),
       ),

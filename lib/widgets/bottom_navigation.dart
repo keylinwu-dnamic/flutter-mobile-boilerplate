@@ -21,20 +21,21 @@ class _CocktailBottomNavigationState
         ref.read(homeViewModelProvider.notifier).currentNavigationIndex;
 
     return BottomNavigationBar(
-      items: CocktailBottomNavigationType.values
-          .map((type) => _buildBottomNavigationItem(type: type))
-          .toList(),
-      currentIndex: selectedIndex,
-      onTap: (index) {
-        ref.read(homeViewModelProvider.notifier).currentNavigationIndex = index;
-        context.router.push(CocktailBottomNavigationType.values[index].path);
-      },
-    );
+        items: CocktailBottomNavigationType.values
+            .map((type) => _buildBottomNavigationItem(type: type))
+            .toList(),
+        currentIndex: selectedIndex,
+        onTap: (index) => _goToPage(index));
   }
 
   BottomNavigationBarItem _buildBottomNavigationItem({
     required CocktailBottomNavigationType type,
   }) {
     return BottomNavigationBarItem(icon: type.icon, label: type.label);
+  }
+
+  void _goToPage(index) {
+    ref.read(homeViewModelProvider.notifier).currentNavigationIndex = index;
+    context.router.push(CocktailBottomNavigationType.values[index].path);
   }
 }

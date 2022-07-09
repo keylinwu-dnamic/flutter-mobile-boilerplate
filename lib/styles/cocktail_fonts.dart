@@ -37,4 +37,29 @@ class CocktailFonts {
       fontWeight: FontWeight.w700,
       fontSize: 20,
       color: CocktailColors.menuTitleColor);
+
+  static const cocktailTitle = TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: 32,
+      color: CocktailColors.menuTitleColor);
+
+  static const cocktailDetailLabel = TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      color: CocktailColors.menuTitleColor);
+
+  static const cocktailDetailValue = TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 12,
+      color: CocktailColors.menuTitleColor);
+
+  static const cocktailDetailIngredientValue = TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 12,
+      color: CocktailColors.menuTitleColor);
+
+  static const cocktailDetailMeasureValue = TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 10,
+      color: CocktailColors.menuTitleColor);
 }

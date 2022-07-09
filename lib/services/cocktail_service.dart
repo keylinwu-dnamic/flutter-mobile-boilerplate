@@ -1,6 +1,7 @@
 import 'package:boilerplate/classes/entities/alcoholic.dart';
 import 'package:boilerplate/classes/entities/category.dart';
 import 'package:boilerplate/classes/entities/cocktail.dart';
+import 'package:boilerplate/classes/entities/cocktail_detail.dart';
 import 'package:boilerplate/classes/entities/glass.dart';
 import 'package:boilerplate/classes/entities/ingredient.dart';
 
@@ -15,6 +16,7 @@ abstract class CocktailServiceInterface {
   Future<List<Alcoholic>> getAlcoholic();
   Future<List<Cocktail>> getCocktails(
       CocktailMenuType cocktailMenuType, String filter);
+  Future<CocktailDetail> getCocktailDetail(String id);
 }
 
 class CocktailService implements CocktailServiceInterface {
@@ -46,5 +48,10 @@ class CocktailService implements CocktailServiceInterface {
   Future<List<Cocktail>> getCocktails(
       CocktailMenuType cocktailMenuType, String filter) {
     return _dataRepository.getCocktails(cocktailMenuType, filter);
+  }
+
+  @override
+  Future<CocktailDetail> getCocktailDetail(String id) {
+    return _dataRepository.getCocktailDetail(id);
   }
 }

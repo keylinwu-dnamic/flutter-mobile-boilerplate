@@ -129,6 +129,16 @@ class AppStrings {
       args: [],
     );
   }
+
+  /// `Cocktails List`
+  String get cocktailList {
+    return Intl.message(
+      'Cocktails List',
+      name: 'cocktailList',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppStrings> {

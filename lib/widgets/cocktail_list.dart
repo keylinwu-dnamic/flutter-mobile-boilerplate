@@ -9,14 +9,14 @@ class CocktailList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: ListView.builder(
+    return ListView.builder(
       itemBuilder: (_, index) {
         return list[index];
       },
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: list.length,
-    ));
+    );
   }
 }

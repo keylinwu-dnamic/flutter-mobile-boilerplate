@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "alcoholOrNot": MessageLookupByLibrary.simpleMessage("Alcohol or not?"),
         "category": MessageLookupByLibrary.simpleMessage("Category"),
+        "cocktailList": MessageLookupByLibrary.simpleMessage("Cocktails List"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
