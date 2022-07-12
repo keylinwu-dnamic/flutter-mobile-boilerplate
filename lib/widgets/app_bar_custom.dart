@@ -21,7 +21,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSize {
         iconTheme: const IconThemeData(color: CocktailColors.primary),
         title: Text(
           title,
-          style: Fonts.tileTitile,
+          style: Fonts.tileTitle,
         ),
       );
 }

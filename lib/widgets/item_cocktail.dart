@@ -48,9 +48,10 @@ class CocktailItem extends StatelessWidget {
           child: Row(
             children: [
               isCocktail
-                  ? Image.network(
-                      cocktailImage!,
-                      width: Sizes.sizeXXL,
+                  ? CircleAvatar(
+                      radius: 25.0,
+                      backgroundImage: NetworkImage(cocktailImage!),
+                      backgroundColor: CocktailColors.white,
                     )
                   : Image.asset(
                       image,
@@ -72,7 +73,7 @@ class CocktailItem extends StatelessWidget {
               Flexible(
                 child: Text(
                   name,
-                  style: Fonts.tileTitile,
+                  style: Fonts.tileTitle,
                 ),
               ),
             ],

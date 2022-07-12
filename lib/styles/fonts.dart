@@ -9,10 +9,17 @@ class Fonts {
     fontSize: Sizes.sizeSM,
   );
 
-  static const tileTitile = TextStyle(
+  static const tileTitle = TextStyle(
     fontFamily: 'Lato',
     fontWeight: FontWeight.w700,
     color: CocktailColors.black,
     fontSize: Sizes.sizeSM,
+  );
+
+  static const detailTitle = TextStyle(
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: CocktailColors.black,
+    fontSize: Sizes.sizeMD,
   );
 }

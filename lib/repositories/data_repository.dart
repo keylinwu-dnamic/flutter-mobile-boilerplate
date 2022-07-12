@@ -5,6 +5,7 @@ import 'dart:developer';
 import 'package:boilerplate/classes/entities/alcohol.dart';
 import 'package:boilerplate/classes/entities/category.dart';
 import 'package:boilerplate/classes/entities/cocktail.dart';
+import 'package:boilerplate/classes/entities/cocktailIngredient.dart';
 import 'package:boilerplate/classes/entities/glass.dart';
 import 'package:boilerplate/classes/entities/ingredient.dart';
 import 'package:boilerplate/services/network_service.dart';
@@ -15,6 +16,7 @@ abstract class DataRepositoryInterface {
   Future<List<Ingredient>> getCocktailsIngredients();
   Future<List<Alcohol>> getAlcohol();
   Future<List<Cocktail>> getCocktails(String apiKey, String name);
+  Future<Cocktail> getCocktailDetail(String id);
 }
 
 class DataRepository implements DataRepositoryInterface {
@@ -102,6 +104,38 @@ class DataRepository implements DataRepositoryInterface {
       return Future.error(e);
     }
   }
+
+  @override
+  Future<Cocktail> getCocktailDetail(String id) async {
+    try {
+      final result = await _networkService.getData(
+        path: APIPathConstant.cocktailDetailEndpoint(id),
+      );
+
+      final List<CocktailIngredient> ingredients = [];
+
+      List<Cocktail> cocktail = (result['drinks'] as List).map((cocktail) {
+        for (int i = 1; i <= 15; i++) {
+          if (cocktail['strIngredient$i'] != null) {
+            final CocktailIngredient ingredient = CocktailIngredient(
+                name: cocktail['strIngredient$i'],
+                measure: cocktail['strMeasure$i']);
+
+            ingredients.add(ingredient);
+          }
+        }
+
+        return Cocktail.fromJson(cocktail);
+      }).toList();
+
+      cocktail[0].ingredients = ingredients;
+
+      return cocktail[0];
+    } catch (e) {
+      log(e.toString());
+      return Future.error(e);
+    }
+  }
 }
 
 class APIPathConstant {
@@ -115,4 +149,6 @@ class APIPathConstant {
       'https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list';
   static String cocktailsEndpoint(String apiKey, String name) =>
       'https://www.thecocktaildb.com/api/json/v1/1/filter.php?$apiKey=$name';
+  static String cocktailDetailEndpoint(String id) =>
+      'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=$id';
 }
