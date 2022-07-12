@@ -17,13 +17,11 @@ class ApiRoutes {
     return '$domain/${adapters[0].url}/filter.php?${cocktailMenuType.id}=$filter';
   }
 
-  static String geApiEndpointsForLookup(
-      CocktailMenuType cocktailMenuType, String id) {
+  static String geApiEndpointsForLookup(String id) {
     return '$domain/${adapters[0].url}/lookup.php?i=$id';
   }
 
-  static String geApiEndpointsForName(
-      CocktailMenuType cocktailMenuType, String name) {
+  static String geApiEndpointsForName(String name) {
     return '$domain/${adapters[0].url}/search.php?s=$name';
   }
 }

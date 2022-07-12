@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
+import 'package:boilerplate/classes/entities/cocktail.dart';
 import 'package:boilerplate/constants/constants.dart';
 import 'package:boilerplate/router/router.gr.dart';
 
@@ -15,18 +16,22 @@ import 'package:boilerplate/widgets/cocktail_avatar.dart';
 class CocktailItem extends StatelessWidget {
   final String name;
   final AssetImage image;
-  final String? imageExt;
+  final Cocktail? cocktail;
 
   const CocktailItem(
-      {Key? key, required this.name, required this.image, this.imageExt})
+      {Key? key, required this.name, required this.image, this.cocktail})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router
-            .push(CocktailListRoute(categoryItem: name.replaceAll(' ', '_')));
+        if (cocktail == null) {
+          context.router
+              .push(CocktailListRoute(categoryItem: name.replaceAll(' ', '_')));
+        } else {
+          context.router.push(CocktailDetailRoute(cocktail: cocktail!));
+        }
       },
       child: Container(
         margin: const EdgeInsets.all(CocktailSpacing.spacingXS),
@@ -46,7 +51,7 @@ class CocktailItem extends StatelessWidget {
         image: image,
         size: CocktailSizes.sizeAvatarList,
         spacing: CocktailSpacing.spacingXXS,
-        imageExt: imageExt,
+        imageExtension: cocktail?.image,
       ),
     );
   }

@@ -1,9 +1,8 @@
-import 'package:boilerplate/models/category_main_item.dart';
-import 'package:boilerplate/widgets/custom_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:boilerplate/enums/cocktail_menu_type.dart';
+import 'package:boilerplate/models/category_main_item.dart';
 
 import 'package:boilerplate/screens/category_main_list/category_main_list_provider.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
@@ -11,7 +10,8 @@ import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/widgets/bottom_navigation.dart';
 import 'package:boilerplate/widgets/cocktail_item.dart';
 import 'package:boilerplate/widgets/cocktail_list.dart';
-import 'package:boilerplate/widgets/custom_app_bar.dart';
+import 'package:boilerplate/widgets/custom_message.dart';
+import 'package:boilerplate/widgets/custom_sliver_app_bar.dart';
 import 'package:boilerplate/widgets/loading_indicator.dart';
 
 class CategoryMainListPage extends ConsumerStatefulWidget {
@@ -39,11 +39,19 @@ class _CategoryMainListPageState extends ConsumerState<CategoryMainListPage> {
 
   @override
   Widget build(BuildContext context) {
+    CocktailMenuType cocktailMenuType =
+        ref.read(homeViewModelProvider.notifier).currentCocktailMenuType;
+
     return Scaffold(
-      appBar: const CocktailCustomAppBar(),
-      body: Column(
-        children: [
-          _CategoriesConsumer(),
+      body: CustomScrollView(
+        slivers: [
+          CustomSliverAppBar(title: cocktailMenuType.name),
+          SliverList(
+              delegate: SliverChildListDelegate([
+            SingleChildScrollView(
+              child: Column(children: [_CategoriesConsumer()]),
+            )
+          ]))
         ],
       ),
       bottomNavigationBar: const CocktailBottomNavigation(),
