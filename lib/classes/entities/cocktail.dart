@@ -10,7 +10,10 @@ class Cocktail {
   @JsonKey(name: 'strDrinkThumb')
   final String image;
 
-  Cocktail({required this.name, required this.image});
+  @JsonKey(name: 'idDrink')
+  final String id;
+
+  Cocktail({required this.name, required this.image, required this.id});
 
   factory Cocktail.fromJson(Map<String, dynamic> json) =>
       _$CocktailFromJson(json);

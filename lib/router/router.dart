@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:boilerplate/screens/alcoholic/alcoholic_non_alcoholic_page.dart';
+import 'package:boilerplate/screens/cocktails/cocktails_page.dart';
 import 'package:boilerplate/screens/ingredients/ingredients_page.dart';
 import 'package:boilerplate/screens/type_of_glass/type_of_glass_page.dart';
 
@@ -36,6 +37,10 @@ import 'guards/auth_guard.dart';
     MaterialRoute(
       page: TypeOfGlassPage,
       path: '/typeOfGlass',
+    ),
+    MaterialRoute(
+      page: CocktailsPage,
+      path: '/cocktails',
     )
   ],
 )

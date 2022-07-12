@@ -1,3 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/constants/constants.dart';
+import 'package:boilerplate/router/router.gr.dart';
+import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/widgets/app_bar_custom.dart';
 import 'package:boilerplate/widgets/circular_progress.dart';
@@ -41,6 +45,15 @@ class _CategoriesPageState extends ConsumerState<CategoriesPage> {
 }
 
 class _CategoriesConsumer extends ConsumerWidget {
+  void _onCategoryTap(BuildContext context, String name) {
+    context.router.push(
+      CocktailsRoute(
+        apiKey: Constants.endpointCategoryKey,
+        name: name,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(categoriesViewModelProvider);
@@ -50,7 +63,12 @@ class _CategoriesConsumer extends ConsumerWidget {
         success: (categories) {
           final categoriesItems = categories
               .map(
-                (category) => CocktailItem(name: category.name),
+                (category) => GestureDetector(
+                  onTap: () {
+                    _onCategoryTap(context, category.name);
+                  },
+                  child: CocktailItem(name: category.name),
+                ),
               )
               .toList();
           return ListCocktail(list: categoriesItems);

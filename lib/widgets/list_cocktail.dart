@@ -1,9 +1,7 @@
-import 'package:boilerplate/widgets/item_cocktail.dart';
 import 'package:flutter/material.dart';
-import 'package:boilerplate/classes/entities/category.dart';
 
 class ListCocktail extends StatelessWidget {
-  final List<CocktailItem> list;
+  final List<Widget> list;
 
   ListCocktail({required this.list});
 

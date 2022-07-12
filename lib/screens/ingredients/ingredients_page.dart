@@ -1,3 +1,6 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/constants/constants.dart';
+import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/ingredients/ingredients_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/widgets/app_bar_custom.dart';
@@ -42,6 +45,15 @@ class _IngredientsPageState extends ConsumerState<IngredientsPage> {
 }
 
 class _IngredientsConsumer extends ConsumerWidget {
+  void _onIngredientTap(BuildContext context, String name) {
+    context.router.push(
+      CocktailsRoute(
+        apiKey: Constants.endpointIngredientKey,
+        name: name,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(ingredientsViewModelProvider);
@@ -51,7 +63,14 @@ class _IngredientsConsumer extends ConsumerWidget {
       success: (ingredients) {
         final ingredientsItems = ingredients
             .map(
-              (ingredient) => CocktailItem(name: ingredient.name),
+              (ingredient) => GestureDetector(
+                onTap: () {
+                  _onIngredientTap(context, ingredient.name);
+                },
+                child: CocktailItem(
+                  name: ingredient.name,
+                ),
+              ),
             )
             .toList();
         return ListCocktail(list: ingredientsItems);

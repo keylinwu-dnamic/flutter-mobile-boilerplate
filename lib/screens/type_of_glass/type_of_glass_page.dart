@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/constants/constants.dart';
 import 'package:boilerplate/generated/l10n.dart';
+import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/type_of_glass/type_of_glass_provider.dart';
 import 'package:boilerplate/widgets/app_bar_custom.dart';
 import 'package:boilerplate/widgets/circular_progress.dart';
@@ -39,6 +42,12 @@ class _TypeOfGlassPageState extends ConsumerState<TypeOfGlassPage> {
 }
 
 class _TypeOfGlassConsumer extends ConsumerWidget {
+  void _onTapGlass(BuildContext context, String name) {
+    context.router.push(
+      CocktailsRoute(apiKey: Constants.endpointGlassKey, name: name),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(typeOfGlassViewModelProvider);
@@ -48,7 +57,15 @@ class _TypeOfGlassConsumer extends ConsumerWidget {
         success: (listGlass) {
           final categoriesItems = listGlass
               .map(
-                (glass) => CocktailItem(name: glass.name, isTypeOfGlass: true),
+                (glass) => GestureDetector(
+                  onTap: () {
+                    _onTapGlass(context, glass.name);
+                  },
+                  child: CocktailItem(
+                    name: glass.name,
+                    isTypeOfGlass: true,
+                  ),
+                ),
               )
               .toList();
           return ListCocktail(list: categoriesItems);
