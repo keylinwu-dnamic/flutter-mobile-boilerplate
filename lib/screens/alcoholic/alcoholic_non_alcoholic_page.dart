@@ -122,7 +122,7 @@ class AlcoholItem extends StatelessWidget {
             child: Center(
               child: Text(
                 name,
-                style: Fonts.tileTitile,
+                style: Fonts.tileTitle,
               ),
             )),
       ),

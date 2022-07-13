@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/cocktails/cocktails_provider.dart';
+import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/widgets/app_bar_custom.dart';
 import 'package:boilerplate/widgets/circular_progress.dart';
 import 'package:boilerplate/widgets/item_cocktail.dart';
@@ -36,6 +39,7 @@ class _CocktailsPageState extends ConsumerState<CocktailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CocktailColors.background,
       appBar: const AppBarCustom(title: 'Cocktails'),
       body: Column(
         children: [
@@ -57,7 +61,11 @@ class _CocktailsConsumer extends ConsumerWidget {
         final cocktailItems = cocktails
             .map(
               (cocktail) => GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  context.router.push(
+                    CocktailDetailRoute(id: cocktail.id, name: cocktail.name),
+                  );
+                },
                 child: CocktailItem(
                   name: cocktail.name,
                   cocktailImage: cocktail.image,

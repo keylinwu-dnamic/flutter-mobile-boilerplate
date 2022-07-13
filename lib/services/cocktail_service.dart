@@ -11,6 +11,7 @@ abstract class CocktailServiceInterface {
   Future<List<Ingredient>> getIngredients();
   Future<List<Alcohol>> getAlcoholic();
   Future<List<Cocktail>> getCocktails(String apiKey, String name);
+  Future<Cocktail> getCocktailDetail(String id);
 }
 
 class CocktailService implements CocktailServiceInterface {
@@ -41,5 +42,10 @@ class CocktailService implements CocktailServiceInterface {
   @override
   Future<List<Cocktail>> getCocktails(String apiKey, String name) {
     return _dataRepository.getCocktails(apiKey, name);
+  }
+
+  @override
+  Future<Cocktail> getCocktailDetail(String id) {
+    return _dataRepository.getCocktailDetail(id);
   }
 }
