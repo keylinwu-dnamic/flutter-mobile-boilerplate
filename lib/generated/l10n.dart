@@ -149,6 +149,46 @@ class AppStrings {
       args: [],
     );
   }
+
+  /// `Categories`
+  String get cocktailsCategories {
+    return Intl.message(
+      'Categories',
+      name: 'cocktailsCategories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients`
+  String get cocktailsIngredients {
+    return Intl.message(
+      'Ingredients',
+      name: 'cocktailsIngredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type of Glass`
+  String get cocktailsTypeOfGlass {
+    return Intl.message(
+      'Type of Glass',
+      name: 'cocktailsTypeOfGlass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading...`
+  String get loadingText {
+    return Intl.message(
+      'Loading...',
+      name: 'loadingText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppStrings> {

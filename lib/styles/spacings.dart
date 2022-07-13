@@ -16,4 +16,15 @@ class CocktailAppSpacings
 
   static const homeScreenMenuItemBoxShadowOffsetX = 0.0;
   static const homeScreenMenuItemBoxShadowOffsetY = 0.0;
+
+  static const listItemMarginSM = 20.0;
+
+  static const listItemRightPaddingSM = 20.0;
+
+  static const listItemCircleContainerLeftPaddingSM = 25.0;
+  static const listItemCircleContainerRightPaddingSM = 20.0;
+
+  static const listItemCirclePaddingSM = 3.0;
+
+  static const listItemTextPaddingSM = 20.0;
 }

@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:boilerplate/constants/assets.dart';
 import 'package:boilerplate/generated/l10n.dart';
+import 'package:boilerplate/router/router.gr.dart';
 
 enum CocktailAppHomeMenuItems
 {
@@ -9,8 +11,7 @@ enum CocktailAppHomeMenuItems
   alcoholic
 }
 
-extension HomeItemsExtension
-  on CocktailAppHomeMenuItems
+extension HomeItemsExtension on CocktailAppHomeMenuItems
 {
   String get name
   {
@@ -45,6 +46,24 @@ extension HomeItemsExtension
 
       case CocktailAppHomeMenuItems.alcoholic:
         return Assets.homeScreenTileAlcoholOrNot;
+    }
+  }
+
+  PageRouteInfo get route
+  {
+    switch (this)
+    {
+      case CocktailAppHomeMenuItems.category:
+        return const CategoriesListRoute();
+
+      case CocktailAppHomeMenuItems.typeOfGlass:
+        return const TypesOfGlassesListRoute();
+
+      case CocktailAppHomeMenuItems.ingredient:
+        return const IngredientsListRoute();
+
+      case CocktailAppHomeMenuItems.alcoholic:
+        return const AlcoholicsOrNotListRoute();
     }
   }
 }

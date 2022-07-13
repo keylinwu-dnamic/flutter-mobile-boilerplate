@@ -3,6 +3,13 @@ import 'package:boilerplate/styles/colors.dart';
 
 class CocktailAppFonts
 {
+  static const appBarTitle = TextStyle(
+    color: CocktailAppColors.gray,
+    fontFamily: 'Arial',
+    fontSize: 16.0,
+    fontWeight: FontWeight.w500,
+  );
+
   static const homeTitle = TextStyle(
     color: CocktailAppColors.white,
     fontFamily: 'Arial',
@@ -37,5 +44,12 @@ class CocktailAppFonts
     fontFamily: 'Arial',
     fontSize: 16.0,
     fontWeight: FontWeight.w500,
+  );
+
+  static const messageText = TextStyle(
+    color: CocktailAppColors.black,
+    fontFamily: 'Arial',
+    fontSize: 20.0,
+    fontWeight: FontWeight.w400,
   );
 }

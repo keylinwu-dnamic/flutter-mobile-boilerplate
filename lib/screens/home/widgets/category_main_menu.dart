@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:boilerplate/constants/assets.dart';
 import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/screens/home/cocktail_app_home_menu_items.dart';
@@ -75,41 +76,51 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu>
 
   Widget _buildHomeScreenMenuItems({required CocktailAppHomeMenuItems cocktailAppHomeMenuItem})
   {
-    return GridTile(
-      child: Container(
-        decoration: BoxDecoration(
-          color: CocktailAppColors.white,
-          boxShadow: [
-            BoxShadow(
-              color: CocktailAppColors.black.withOpacity(0.2),
-              blurRadius: CocktailAppSizes.homeScreenMenuItemBoxShadowRadius,
-              offset: const Offset(CocktailAppSpacings.homeScreenMenuItemBoxShadowOffsetX, CocktailAppSpacings.homeScreenMenuItemBoxShadowOffsetY)
-            )
-          ],
-          borderRadius: const BorderRadius.all(Radius.circular(CocktailAppSizes.homeScreenMenuItemBoxRadius))
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:
-          [
-            Container(
-              height: CocktailAppSizes.homeScreenMenuItemCircleSize,
-              width: CocktailAppSizes.homeScreenMenuItemCircleSize,
-              decoration: const BoxDecoration(shape: BoxShape.circle, color: CocktailAppColors.mint),
-              child: Padding(
-                padding: const EdgeInsets.all(CocktailAppSpacings.homeScreenMenuItemImagePaddingSM),
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(cocktailAppHomeMenuItem.imageFileName),
+    void routeToMenuItemPage()
+    {
+      context.router.push(cocktailAppHomeMenuItem.route);
+    }
+    return GestureDetector(
+      onTap: ()
+      {
+        routeToMenuItemPage();
+      },
+      child: GridTile(
+        child: Container(
+          decoration: BoxDecoration(
+            color: CocktailAppColors.white,
+            boxShadow: [
+              BoxShadow(
+                color: CocktailAppColors.black.withOpacity(0.2),
+                blurRadius: CocktailAppSizes.homeScreenMenuItemBoxShadowRadius,
+                offset: const Offset(CocktailAppSpacings.homeScreenMenuItemBoxShadowOffsetX, CocktailAppSpacings.homeScreenMenuItemBoxShadowOffsetY)
+              )
+            ],
+            borderRadius: const BorderRadius.all(Radius.circular(CocktailAppSizes.homeScreenMenuItemBoxRadius))
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:
+            [
+              Container(
+                height: CocktailAppSizes.homeScreenMenuItemCircleSize,
+                width: CocktailAppSizes.homeScreenMenuItemCircleSize,
+                decoration: const BoxDecoration(shape: BoxShape.circle, color: CocktailAppColors.mint),
+                child: Padding(
+                  padding: const EdgeInsets.all(CocktailAppSpacings.homeScreenMenuItemImagePaddingSM),
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage(cocktailAppHomeMenuItem.imageFileName),
+                  ),
                 ),
               ),
-            ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: CocktailAppSpacings.homeScreenMenuItemTextPaddingSM),
-                child: Text(cocktailAppHomeMenuItem.name, style: CocktailAppFonts.menuItemLabel, textAlign: TextAlign.center),
-              ),
-            )
-          ],
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: CocktailAppSpacings.homeScreenMenuItemTextPaddingSM),
+                  child: Text(cocktailAppHomeMenuItem.name, style: CocktailAppFonts.menuItemLabel, textAlign: TextAlign.center),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

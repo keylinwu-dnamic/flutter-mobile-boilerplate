@@ -26,12 +26,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "alcoholOrNot":
             MessageLookupByLibrary.simpleMessage("Alcoholic (or not)"),
         "category": MessageLookupByLibrary.simpleMessage("Category"),
+        "cocktailsCategories":
+            MessageLookupByLibrary.simpleMessage("Categories"),
+        "cocktailsIngredients":
+            MessageLookupByLibrary.simpleMessage("Ingredients"),
+        "cocktailsTypeOfGlass":
+            MessageLookupByLibrary.simpleMessage("Type of Glass"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "homeScreenText":
             MessageLookupByLibrary.simpleMessage("Be your own Bartender..."),
         "homeScreenTitle":
             MessageLookupByLibrary.simpleMessage("COCKTAILS APP"),
         "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
+        "loadingText": MessageLookupByLibrary.simpleMessage("Loading..."),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "typeOfGlass": MessageLookupByLibrary.simpleMessage("Type of glass"),
         "welcome": MessageLookupByLibrary.simpleMessage(
