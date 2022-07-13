@@ -54,16 +54,16 @@ extension HomeItemsExtension on CocktailAppHomeMenuItems
     switch (this)
     {
       case CocktailAppHomeMenuItems.category:
-        return const CocktailsCategoriesRoute();
+        return const CategoriesListRoute();
 
       case CocktailAppHomeMenuItems.typeOfGlass:
-        return const CocktailsByTypeOfGlassRoute();
+        return const TypesOfGlassesListRoute();
 
       case CocktailAppHomeMenuItems.ingredient:
-        return const CocktailsByIngredientsRoute();
+        return const IngredientsListRoute();
 
       case CocktailAppHomeMenuItems.alcoholic:
-        return const CocktailsByAlcoholRoute();
+        return const AlcoholicsOrNotListRoute();
     }
   }
 }

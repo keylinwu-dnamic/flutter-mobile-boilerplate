@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'cocktails_by_category_state.dart';
+part of 'categories_list_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CocktailsByCategoryState {
+mixin _$CategoriesListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
@@ -40,83 +40,82 @@ mixin _$CocktailsByCategoryState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CocktailsByCategoryStateLoading value) loading,
-    required TResult Function(_CocktailsByCategoryStateSuccess value) success,
-    required TResult Function(_CocktailsByCategoryStateFailure value) failure,
+    required TResult Function(_CategoriesListStateLoading value) loading,
+    required TResult Function(_CategoriesListStateSuccess value) success,
+    required TResult Function(_CategoriesListStateFailure value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailsByCategoryStateLoading value)? loading,
-    TResult Function(_CocktailsByCategoryStateSuccess value)? success,
-    TResult Function(_CocktailsByCategoryStateFailure value)? failure,
+    TResult Function(_CategoriesListStateLoading value)? loading,
+    TResult Function(_CategoriesListStateSuccess value)? success,
+    TResult Function(_CategoriesListStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CocktailsByCategoryStateLoading value)? loading,
-    TResult Function(_CocktailsByCategoryStateSuccess value)? success,
-    TResult Function(_CocktailsByCategoryStateFailure value)? failure,
+    TResult Function(_CategoriesListStateLoading value)? loading,
+    TResult Function(_CategoriesListStateSuccess value)? success,
+    TResult Function(_CategoriesListStateFailure value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CocktailsByCategoryStateCopyWith<$Res> {
-  factory $CocktailsByCategoryStateCopyWith(CocktailsByCategoryState value,
-          $Res Function(CocktailsByCategoryState) then) =
-      _$CocktailsByCategoryStateCopyWithImpl<$Res>;
+abstract class $CategoriesListStateCopyWith<$Res> {
+  factory $CategoriesListStateCopyWith(
+          CategoriesListState value, $Res Function(CategoriesListState) then) =
+      _$CategoriesListStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CocktailsByCategoryStateCopyWithImpl<$Res>
-    implements $CocktailsByCategoryStateCopyWith<$Res> {
-  _$CocktailsByCategoryStateCopyWithImpl(this._value, this._then);
+class _$CategoriesListStateCopyWithImpl<$Res>
+    implements $CategoriesListStateCopyWith<$Res> {
+  _$CategoriesListStateCopyWithImpl(this._value, this._then);
 
-  final CocktailsByCategoryState _value;
+  final CategoriesListState _value;
   // ignore: unused_field
-  final $Res Function(CocktailsByCategoryState) _then;
+  final $Res Function(CategoriesListState) _then;
 }
 
 /// @nodoc
-abstract class _$$_CocktailsByCategoryStateLoadingCopyWith<$Res> {
-  factory _$$_CocktailsByCategoryStateLoadingCopyWith(
-          _$_CocktailsByCategoryStateLoading value,
-          $Res Function(_$_CocktailsByCategoryStateLoading) then) =
-      __$$_CocktailsByCategoryStateLoadingCopyWithImpl<$Res>;
+abstract class _$$_CategoriesListStateLoadingCopyWith<$Res> {
+  factory _$$_CategoriesListStateLoadingCopyWith(
+          _$_CategoriesListStateLoading value,
+          $Res Function(_$_CategoriesListStateLoading) then) =
+      __$$_CategoriesListStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CocktailsByCategoryStateLoadingCopyWithImpl<$Res>
-    extends _$CocktailsByCategoryStateCopyWithImpl<$Res>
-    implements _$$_CocktailsByCategoryStateLoadingCopyWith<$Res> {
-  __$$_CocktailsByCategoryStateLoadingCopyWithImpl(
-      _$_CocktailsByCategoryStateLoading _value,
-      $Res Function(_$_CocktailsByCategoryStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_CocktailsByCategoryStateLoading));
+class __$$_CategoriesListStateLoadingCopyWithImpl<$Res>
+    extends _$CategoriesListStateCopyWithImpl<$Res>
+    implements _$$_CategoriesListStateLoadingCopyWith<$Res> {
+  __$$_CategoriesListStateLoadingCopyWithImpl(
+      _$_CategoriesListStateLoading _value,
+      $Res Function(_$_CategoriesListStateLoading) _then)
+      : super(_value, (v) => _then(v as _$_CategoriesListStateLoading));
 
   @override
-  _$_CocktailsByCategoryStateLoading get _value =>
-      super._value as _$_CocktailsByCategoryStateLoading;
+  _$_CategoriesListStateLoading get _value =>
+      super._value as _$_CategoriesListStateLoading;
 }
 
 /// @nodoc
 
-class _$_CocktailsByCategoryStateLoading
-    implements _CocktailsByCategoryStateLoading {
-  const _$_CocktailsByCategoryStateLoading();
+class _$_CategoriesListStateLoading implements _CategoriesListStateLoading {
+  const _$_CategoriesListStateLoading();
 
   @override
   String toString() {
-    return 'CocktailsByCategoryState.loading()';
+    return 'CategoriesListState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CocktailsByCategoryStateLoading);
+            other is _$_CategoriesListStateLoading);
   }
 
   @override
@@ -159,9 +158,9 @@ class _$_CocktailsByCategoryStateLoading
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CocktailsByCategoryStateLoading value) loading,
-    required TResult Function(_CocktailsByCategoryStateSuccess value) success,
-    required TResult Function(_CocktailsByCategoryStateFailure value) failure,
+    required TResult Function(_CategoriesListStateLoading value) loading,
+    required TResult Function(_CategoriesListStateSuccess value) success,
+    required TResult Function(_CategoriesListStateFailure value) failure,
   }) {
     return loading(this);
   }
@@ -169,9 +168,9 @@ class _$_CocktailsByCategoryStateLoading
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailsByCategoryStateLoading value)? loading,
-    TResult Function(_CocktailsByCategoryStateSuccess value)? success,
-    TResult Function(_CocktailsByCategoryStateFailure value)? failure,
+    TResult Function(_CategoriesListStateLoading value)? loading,
+    TResult Function(_CategoriesListStateSuccess value)? success,
+    TResult Function(_CategoriesListStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -179,9 +178,9 @@ class _$_CocktailsByCategoryStateLoading
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CocktailsByCategoryStateLoading value)? loading,
-    TResult Function(_CocktailsByCategoryStateSuccess value)? success,
-    TResult Function(_CocktailsByCategoryStateFailure value)? failure,
+    TResult Function(_CategoriesListStateLoading value)? loading,
+    TResult Function(_CategoriesListStateSuccess value)? success,
+    TResult Function(_CategoriesListStateFailure value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -191,39 +190,37 @@ class _$_CocktailsByCategoryStateLoading
   }
 }
 
-abstract class _CocktailsByCategoryStateLoading
-    implements CocktailsByCategoryState {
-  const factory _CocktailsByCategoryStateLoading() =
-      _$_CocktailsByCategoryStateLoading;
+abstract class _CategoriesListStateLoading implements CategoriesListState {
+  const factory _CategoriesListStateLoading() = _$_CategoriesListStateLoading;
 }
 
 /// @nodoc
-abstract class _$$_CocktailsByCategoryStateSuccessCopyWith<$Res> {
-  factory _$$_CocktailsByCategoryStateSuccessCopyWith(
-          _$_CocktailsByCategoryStateSuccess value,
-          $Res Function(_$_CocktailsByCategoryStateSuccess) then) =
-      __$$_CocktailsByCategoryStateSuccessCopyWithImpl<$Res>;
+abstract class _$$_CategoriesListStateSuccessCopyWith<$Res> {
+  factory _$$_CategoriesListStateSuccessCopyWith(
+          _$_CategoriesListStateSuccess value,
+          $Res Function(_$_CategoriesListStateSuccess) then) =
+      __$$_CategoriesListStateSuccessCopyWithImpl<$Res>;
   $Res call({List<Category> categories});
 }
 
 /// @nodoc
-class __$$_CocktailsByCategoryStateSuccessCopyWithImpl<$Res>
-    extends _$CocktailsByCategoryStateCopyWithImpl<$Res>
-    implements _$$_CocktailsByCategoryStateSuccessCopyWith<$Res> {
-  __$$_CocktailsByCategoryStateSuccessCopyWithImpl(
-      _$_CocktailsByCategoryStateSuccess _value,
-      $Res Function(_$_CocktailsByCategoryStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_CocktailsByCategoryStateSuccess));
+class __$$_CategoriesListStateSuccessCopyWithImpl<$Res>
+    extends _$CategoriesListStateCopyWithImpl<$Res>
+    implements _$$_CategoriesListStateSuccessCopyWith<$Res> {
+  __$$_CategoriesListStateSuccessCopyWithImpl(
+      _$_CategoriesListStateSuccess _value,
+      $Res Function(_$_CategoriesListStateSuccess) _then)
+      : super(_value, (v) => _then(v as _$_CategoriesListStateSuccess));
 
   @override
-  _$_CocktailsByCategoryStateSuccess get _value =>
-      super._value as _$_CocktailsByCategoryStateSuccess;
+  _$_CategoriesListStateSuccess get _value =>
+      super._value as _$_CategoriesListStateSuccess;
 
   @override
   $Res call({
     Object? categories = freezed,
   }) {
-    return _then(_$_CocktailsByCategoryStateSuccess(
+    return _then(_$_CategoriesListStateSuccess(
       categories: categories == freezed
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
@@ -234,9 +231,8 @@ class __$$_CocktailsByCategoryStateSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CocktailsByCategoryStateSuccess
-    implements _CocktailsByCategoryStateSuccess {
-  const _$_CocktailsByCategoryStateSuccess(
+class _$_CategoriesListStateSuccess implements _CategoriesListStateSuccess {
+  const _$_CategoriesListStateSuccess(
       {required final List<Category> categories})
       : _categories = categories;
 
@@ -249,14 +245,14 @@ class _$_CocktailsByCategoryStateSuccess
 
   @override
   String toString() {
-    return 'CocktailsByCategoryState.success(categories: $categories)';
+    return 'CategoriesListState.success(categories: $categories)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CocktailsByCategoryStateSuccess &&
+            other is _$_CategoriesListStateSuccess &&
             const DeepCollectionEquality()
                 .equals(other._categories, _categories));
   }
@@ -267,10 +263,9 @@ class _$_CocktailsByCategoryStateSuccess
 
   @JsonKey(ignore: true)
   @override
-  _$$_CocktailsByCategoryStateSuccessCopyWith<
-          _$_CocktailsByCategoryStateSuccess>
-      get copyWith => __$$_CocktailsByCategoryStateSuccessCopyWithImpl<
-          _$_CocktailsByCategoryStateSuccess>(this, _$identity);
+  _$$_CategoriesListStateSuccessCopyWith<_$_CategoriesListStateSuccess>
+      get copyWith => __$$_CategoriesListStateSuccessCopyWithImpl<
+          _$_CategoriesListStateSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -309,9 +304,9 @@ class _$_CocktailsByCategoryStateSuccess
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CocktailsByCategoryStateLoading value) loading,
-    required TResult Function(_CocktailsByCategoryStateSuccess value) success,
-    required TResult Function(_CocktailsByCategoryStateFailure value) failure,
+    required TResult Function(_CategoriesListStateLoading value) loading,
+    required TResult Function(_CategoriesListStateSuccess value) success,
+    required TResult Function(_CategoriesListStateFailure value) failure,
   }) {
     return success(this);
   }
@@ -319,9 +314,9 @@ class _$_CocktailsByCategoryStateSuccess
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailsByCategoryStateLoading value)? loading,
-    TResult Function(_CocktailsByCategoryStateSuccess value)? success,
-    TResult Function(_CocktailsByCategoryStateFailure value)? failure,
+    TResult Function(_CategoriesListStateLoading value)? loading,
+    TResult Function(_CategoriesListStateSuccess value)? success,
+    TResult Function(_CategoriesListStateFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -329,9 +324,9 @@ class _$_CocktailsByCategoryStateSuccess
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CocktailsByCategoryStateLoading value)? loading,
-    TResult Function(_CocktailsByCategoryStateSuccess value)? success,
-    TResult Function(_CocktailsByCategoryStateFailure value)? failure,
+    TResult Function(_CategoriesListStateLoading value)? loading,
+    TResult Function(_CategoriesListStateSuccess value)? success,
+    TResult Function(_CategoriesListStateFailure value)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -341,46 +336,44 @@ class _$_CocktailsByCategoryStateSuccess
   }
 }
 
-abstract class _CocktailsByCategoryStateSuccess
-    implements CocktailsByCategoryState {
-  const factory _CocktailsByCategoryStateSuccess(
+abstract class _CategoriesListStateSuccess implements CategoriesListState {
+  const factory _CategoriesListStateSuccess(
           {required final List<Category> categories}) =
-      _$_CocktailsByCategoryStateSuccess;
+      _$_CategoriesListStateSuccess;
 
   List<Category> get categories => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$_CocktailsByCategoryStateSuccessCopyWith<
-          _$_CocktailsByCategoryStateSuccess>
+  _$$_CategoriesListStateSuccessCopyWith<_$_CategoriesListStateSuccess>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CocktailsByCategoryStateFailureCopyWith<$Res> {
-  factory _$$_CocktailsByCategoryStateFailureCopyWith(
-          _$_CocktailsByCategoryStateFailure value,
-          $Res Function(_$_CocktailsByCategoryStateFailure) then) =
-      __$$_CocktailsByCategoryStateFailureCopyWithImpl<$Res>;
+abstract class _$$_CategoriesListStateFailureCopyWith<$Res> {
+  factory _$$_CategoriesListStateFailureCopyWith(
+          _$_CategoriesListStateFailure value,
+          $Res Function(_$_CategoriesListStateFailure) then) =
+      __$$_CategoriesListStateFailureCopyWithImpl<$Res>;
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$_CocktailsByCategoryStateFailureCopyWithImpl<$Res>
-    extends _$CocktailsByCategoryStateCopyWithImpl<$Res>
-    implements _$$_CocktailsByCategoryStateFailureCopyWith<$Res> {
-  __$$_CocktailsByCategoryStateFailureCopyWithImpl(
-      _$_CocktailsByCategoryStateFailure _value,
-      $Res Function(_$_CocktailsByCategoryStateFailure) _then)
-      : super(_value, (v) => _then(v as _$_CocktailsByCategoryStateFailure));
+class __$$_CategoriesListStateFailureCopyWithImpl<$Res>
+    extends _$CategoriesListStateCopyWithImpl<$Res>
+    implements _$$_CategoriesListStateFailureCopyWith<$Res> {
+  __$$_CategoriesListStateFailureCopyWithImpl(
+      _$_CategoriesListStateFailure _value,
+      $Res Function(_$_CategoriesListStateFailure) _then)
+      : super(_value, (v) => _then(v as _$_CategoriesListStateFailure));
 
   @override
-  _$_CocktailsByCategoryStateFailure get _value =>
-      super._value as _$_CocktailsByCategoryStateFailure;
+  _$_CategoriesListStateFailure get _value =>
+      super._value as _$_CategoriesListStateFailure;
 
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(_$_CocktailsByCategoryStateFailure(
+    return _then(_$_CategoriesListStateFailure(
       error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -391,23 +384,22 @@ class __$$_CocktailsByCategoryStateFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CocktailsByCategoryStateFailure
-    implements _CocktailsByCategoryStateFailure {
-  const _$_CocktailsByCategoryStateFailure(this.error);
+class _$_CategoriesListStateFailure implements _CategoriesListStateFailure {
+  const _$_CategoriesListStateFailure(this.error);
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'CocktailsByCategoryState.failure(error: $error)';
+    return 'CategoriesListState.failure(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CocktailsByCategoryStateFailure &&
+            other is _$_CategoriesListStateFailure &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -417,10 +409,9 @@ class _$_CocktailsByCategoryStateFailure
 
   @JsonKey(ignore: true)
   @override
-  _$$_CocktailsByCategoryStateFailureCopyWith<
-          _$_CocktailsByCategoryStateFailure>
-      get copyWith => __$$_CocktailsByCategoryStateFailureCopyWithImpl<
-          _$_CocktailsByCategoryStateFailure>(this, _$identity);
+  _$$_CategoriesListStateFailureCopyWith<_$_CategoriesListStateFailure>
+      get copyWith => __$$_CategoriesListStateFailureCopyWithImpl<
+          _$_CategoriesListStateFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -459,9 +450,9 @@ class _$_CocktailsByCategoryStateFailure
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CocktailsByCategoryStateLoading value) loading,
-    required TResult Function(_CocktailsByCategoryStateSuccess value) success,
-    required TResult Function(_CocktailsByCategoryStateFailure value) failure,
+    required TResult Function(_CategoriesListStateLoading value) loading,
+    required TResult Function(_CategoriesListStateSuccess value) success,
+    required TResult Function(_CategoriesListStateFailure value) failure,
   }) {
     return failure(this);
   }
@@ -469,9 +460,9 @@ class _$_CocktailsByCategoryStateFailure
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailsByCategoryStateLoading value)? loading,
-    TResult Function(_CocktailsByCategoryStateSuccess value)? success,
-    TResult Function(_CocktailsByCategoryStateFailure value)? failure,
+    TResult Function(_CategoriesListStateLoading value)? loading,
+    TResult Function(_CategoriesListStateSuccess value)? success,
+    TResult Function(_CategoriesListStateFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -479,9 +470,9 @@ class _$_CocktailsByCategoryStateFailure
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CocktailsByCategoryStateLoading value)? loading,
-    TResult Function(_CocktailsByCategoryStateSuccess value)? success,
-    TResult Function(_CocktailsByCategoryStateFailure value)? failure,
+    TResult Function(_CategoriesListStateLoading value)? loading,
+    TResult Function(_CategoriesListStateSuccess value)? success,
+    TResult Function(_CategoriesListStateFailure value)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -491,14 +482,12 @@ class _$_CocktailsByCategoryStateFailure
   }
 }
 
-abstract class _CocktailsByCategoryStateFailure
-    implements CocktailsByCategoryState {
-  const factory _CocktailsByCategoryStateFailure(final String error) =
-      _$_CocktailsByCategoryStateFailure;
+abstract class _CategoriesListStateFailure implements CategoriesListState {
+  const factory _CategoriesListStateFailure(final String error) =
+      _$_CategoriesListStateFailure;
 
   String get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$_CocktailsByCategoryStateFailureCopyWith<
-          _$_CocktailsByCategoryStateFailure>
+  _$$_CategoriesListStateFailureCopyWith<_$_CategoriesListStateFailure>
       get copyWith => throw _privateConstructorUsedError;
 }

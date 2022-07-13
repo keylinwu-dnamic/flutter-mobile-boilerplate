@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
-import 'package:boilerplate/screens/cocktails_category/cocktails_categories_page.dart';
+import 'package:boilerplate/screens/cocktails_category/categories_list_page.dart';
+import 'package:boilerplate/screens/cocktails_list_page/cocktails_list_page.dart';
 import 'package:boilerplate/screens/cocktails_typeofglass/cocktails_by_typeofglass_page.dart';
 import 'package:boilerplate/screens/cocktails_ingredients/cocktails_by_ingredients_page.dart';
 import 'package:boilerplate/screens/cocktails_alcohol/cocktails_by_alcohol_page.dart';
@@ -23,25 +24,29 @@ import 'guards/auth_guard.dart';
       guards: [AuthGuard],
     ),
     AutoRoute(
-      page: CocktailsCategoriesPage,
+      page: CategoriesListPage,
       path: '/cocktails_category',
     ),
     AutoRoute(
-      page: CocktailsByTypeOfGlassPage,
+      page: TypesOfGlassesListPage,
       path: '/cocktails_typeofglass',
     ),
     AutoRoute(
-      page: CocktailsByIngredientsPage,
+      page: IngredientsListPage,
       path: '/cocktails_ingredients',
     ),
     AutoRoute(
-      page: CocktailsByAlcoholPage,
+      page: AlcoholicsOrNotListPage,
       path: '/cocktails_alcohol',
+    ),
+    AutoRoute(
+      page: CocktailsListPage,
+      path: '/cocktails_list_page',
     ),
     AutoRoute(
       page: SearchPage,
       path: '/search',
-    ),
-  ],
+    )
+  ]
 )
 class $AppRouter {}
