@@ -40,7 +40,28 @@
     "@typeOfGlass": {
         "type": "text",
         "source_text": "Type of glass"
+    },
+    "tag": "Tag",
+    "@tag": {
+        "type": "text",
+        "source_text": "Tag"
+    },
+    "category": "Category",
+    "@category": {
+        "type": "text",
+        "source_text": "Category"
+    },
+    "instructions": "Instructions",
+    "@instructions": {
+        "type": "text",
+        "source_text": "Instructions"
+    },
+    "noIngredients": "Not ingredients found",
+    "@noIngredients": {
+        "type": "text",
+        "source_text": "Not ingredients found"
     }
 }
+
 
 

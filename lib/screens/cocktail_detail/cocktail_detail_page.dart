@@ -1,4 +1,5 @@
 import 'package:boilerplate/classes/entities/cocktail.dart';
+import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/fonts.dart';
 import 'package:boilerplate/styles/size.dart';
@@ -99,14 +100,17 @@ class _DetailConsumer extends ConsumerWidget {
               ),
               child: Column(
                 children: [
-                  _CocktailInfo(title: 'Tag', definition: cocktail.tag),
                   _CocktailInfo(
-                      title: 'Category', definition: cocktail.category),
+                      title: AppStrings.current.tag, definition: cocktail.tag),
                   _CocktailInfo(
-                      title: 'Type of Glass', definition: cocktail.glass),
+                      title: AppStrings.current.category,
+                      definition: cocktail.category),
+                  _CocktailInfo(
+                      title: AppStrings.current.typeOfGlass,
+                      definition: cocktail.glass),
                   _IngredientsInfo(cocktail),
                   _CocktailInfo(
-                      title: 'Instructions',
+                      title: AppStrings.current.instructions,
                       definition: cocktail.instructions,
                       hasDivider: false),
                 ],
@@ -158,32 +162,45 @@ class _DetailConsumer extends ConsumerWidget {
   }
 
   Column _IngredientsInfo(Cocktail cocktail) {
-    return Column(
-      children: [
-        ...cocktail.ingredients!.map(
-          (ingredient) => Row(
+    bool hasIngredients = cocktail.ingredients != null ? true : false;
+    return hasIngredients
+        ? Column(
             children: [
-              Container(
-                margin: const EdgeInsets.only(
-                  top: Spacing.spacingXS,
-                  bottom: Spacing.spacingXS,
-                ),
-                width: Sizes.sizeXXXXL,
-                child: Text(
-                  ingredient.name,
-                  style: Fonts.tileTitle,
+              ...cocktail.ingredients!.map(
+                (ingredient) => Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(
+                        top: Spacing.spacingXS,
+                        bottom: Spacing.spacingXS,
+                      ),
+                      width: Sizes.sizeXXXXL,
+                      child: Text(
+                        ingredient.name,
+                        style: Fonts.tileTitle,
+                      ),
+                    ),
+                    Container(
+                        margin: const EdgeInsets.only(top: Spacing.spacingXS),
+                        child: Text('> ${ingredient.measure}'))
+                  ],
                 ),
               ),
-              Container(
-                  margin: const EdgeInsets.only(top: Spacing.spacingXS),
-                  child: Text('> ${ingredient.measure}'))
+              const Divider(
+                color: CocktailColors.primary,
+              ),
             ],
-          ),
-        ),
-        const Divider(
-          color: CocktailColors.primary,
-        ),
-      ],
-    );
+          )
+        : Column(
+            children: [
+              Text(
+                AppStrings.current.noIngredients,
+                style: Fonts.detailTitle,
+              ),
+              const Divider(
+                color: CocktailColors.primary,
+              ),
+            ],
+          );
   }
 }
