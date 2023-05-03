@@ -4,8 +4,12 @@ import 'package:boilerplate/screens/cocktail_detail/state/cocktail_detail_state.
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final cocktailDetailViewModelProvider =
-    StateNotifierProvider<CocktailDetailViewModel, CocktailDetailState>((ref) {
-  final service = ref.read(cocktailServiceProvider);
-  return CocktailDetailViewModel(const CocktailDetailState.loading(),
-      cocktailService: service);
-});
+    StateNotifierProvider<CocktailDetailViewModel, CocktailDetailState>(
+  (ref) {
+    final service = ref.read(cocktailServiceProvider);
+    return CocktailDetailViewModel(
+      const CocktailDetailState.loading(),
+      cocktailService: service,
+    );
+  },
+);

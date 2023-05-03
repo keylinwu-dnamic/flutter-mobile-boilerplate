@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boilerplate/constants/constants.dart';
+import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/ingredients/ingredients_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
@@ -8,9 +8,7 @@ import 'package:boilerplate/widgets/circular_progress.dart';
 import 'package:boilerplate/widgets/item_cocktail.dart';
 import 'package:boilerplate/widgets/list_cocktail.dart';
 import 'package:flutter/material.dart';
-import 'package:boilerplate/generated/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:boilerplate/styles/fonts.dart';
 
 class IngredientsPage extends ConsumerStatefulWidget {
   const IngredientsPage({Key? key}) : super(key: key);
@@ -48,8 +46,7 @@ class _IngredientsConsumer extends ConsumerWidget {
   void _onIngredientTap(BuildContext context, String name) {
     context.router.push(
       CocktailsRoute(
-        apiKey: Constants.endpointIngredientKey,
-        name: name,
+        category: name,
       ),
     );
   }

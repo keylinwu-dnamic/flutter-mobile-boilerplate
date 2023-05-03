@@ -1,5 +1,6 @@
 import 'dart:core';
-import '../../../classes/entities/cocktail.dart';
+
+import 'package:boilerplate/models/cocktail.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'cocktails_state.freezed.dart';

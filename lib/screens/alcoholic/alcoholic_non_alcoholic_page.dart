@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boilerplate/constants/constants.dart';
+import 'package:boilerplate/extensions/box_shadow.dart';
 import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/styles/colors.dart';
@@ -8,9 +8,9 @@ import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:boilerplate/widgets/app_bar_custom.dart';
 import 'package:boilerplate/widgets/circular_progress.dart';
-import 'package:boilerplate/classes/extensions/box_shadow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import './alcoholic_provider.dart';
 
 class AlcoholicNonAlcoholicPage extends ConsumerStatefulWidget {
@@ -50,8 +50,7 @@ class _AlcoholicConsumer extends ConsumerWidget {
   void _onAlcoholicTap(BuildContext context, name) {
     context.router.push(
       CocktailsRoute(
-        apiKey: Constants.endpointAlcoholic,
-        name: name,
+        category: name,
       ),
     );
   }

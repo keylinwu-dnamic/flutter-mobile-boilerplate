@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:boilerplate/classes/entities/glass.dart';
+import 'package:boilerplate/models/glass.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'type_of_glass_state.freezed.dart';

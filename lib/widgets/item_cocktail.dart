@@ -1,18 +1,18 @@
 import 'package:boilerplate/constants/assets.dart';
+import 'package:boilerplate/extensions/box_shadow.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/fonts.dart';
 import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
-import 'package:boilerplate/classes/extensions/box_shadow.dart';
 
 class CocktailItem extends StatelessWidget {
-  const CocktailItem(
-      {Key? key,
-      required this.name,
-      this.isTypeOfGlass = false,
-      this.cocktailImage})
-      : super(key: key);
+  const CocktailItem({
+    Key? key,
+    required this.name,
+    this.isTypeOfGlass = false,
+    this.cocktailImage,
+  }) : super(key: key);
 
   final String name;
   final bool isTypeOfGlass;

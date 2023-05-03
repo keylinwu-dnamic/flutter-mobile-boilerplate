@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'cocktailIngredient.g.dart';
+part 'cocktail_ingredient.g.dart';
 
 @JsonSerializable()
 class CocktailIngredient {

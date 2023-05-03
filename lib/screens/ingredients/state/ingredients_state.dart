@@ -1,5 +1,6 @@
 import 'dart:core';
-import '../../../classes/entities/ingredient.dart';
+
+import 'package:boilerplate/models/ingredient.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'ingredients_state.freezed.dart';

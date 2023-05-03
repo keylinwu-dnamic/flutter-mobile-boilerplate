@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'alcoholic_state.dart';
 
@@ -25,9 +25,9 @@ mixin _$AlcoholicState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Alcohol> alcoholicTypeList)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Alcohol> alcoholicTypeList)? success,
+    TResult? Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$AlcoholicState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AlcoholicStateLoading value)? loading,
-    TResult Function(_AlcoholicStateSuccess value)? success,
-    TResult Function(_AlcoholicStateFailure value)? failure,
+    TResult? Function(_AlcoholicStateLoading value)? loading,
+    TResult? Function(_AlcoholicStateSuccess value)? success,
+    TResult? Function(_AlcoholicStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$AlcoholicState {
 abstract class $AlcoholicStateCopyWith<$Res> {
   factory $AlcoholicStateCopyWith(
           AlcoholicState value, $Res Function(AlcoholicState) then) =
-      _$AlcoholicStateCopyWithImpl<$Res>;
+      _$AlcoholicStateCopyWithImpl<$Res, AlcoholicState>;
 }
 
 /// @nodoc
-class _$AlcoholicStateCopyWithImpl<$Res>
+class _$AlcoholicStateCopyWithImpl<$Res, $Val extends AlcoholicState>
     implements $AlcoholicStateCopyWith<$Res> {
   _$AlcoholicStateCopyWithImpl(this._value, this._then);
 
-  final AlcoholicState _value;
   // ignore: unused_field
-  final $Res Function(AlcoholicState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -88,15 +89,11 @@ abstract class _$$_AlcoholicStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AlcoholicStateLoadingCopyWithImpl<$Res>
-    extends _$AlcoholicStateCopyWithImpl<$Res>
+    extends _$AlcoholicStateCopyWithImpl<$Res, _$_AlcoholicStateLoading>
     implements _$$_AlcoholicStateLoadingCopyWith<$Res> {
   __$$_AlcoholicStateLoadingCopyWithImpl(_$_AlcoholicStateLoading _value,
       $Res Function(_$_AlcoholicStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_AlcoholicStateLoading));
-
-  @override
-  _$_AlcoholicStateLoading get _value =>
-      super._value as _$_AlcoholicStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -131,9 +128,9 @@ class _$_AlcoholicStateLoading implements _AlcoholicStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Alcohol> alcoholicTypeList)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Alcohol> alcoholicTypeList)? success,
+    TResult? Function(String error)? failure,
   }) {
     return loading?.call();
   }
@@ -165,9 +162,9 @@ class _$_AlcoholicStateLoading implements _AlcoholicStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AlcoholicStateLoading value)? loading,
-    TResult Function(_AlcoholicStateSuccess value)? success,
-    TResult Function(_AlcoholicStateFailure value)? failure,
+    TResult? Function(_AlcoholicStateLoading value)? loading,
+    TResult? Function(_AlcoholicStateSuccess value)? success,
+    TResult? Function(_AlcoholicStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -196,27 +193,25 @@ abstract class _$$_AlcoholicStateSuccessCopyWith<$Res> {
   factory _$$_AlcoholicStateSuccessCopyWith(_$_AlcoholicStateSuccess value,
           $Res Function(_$_AlcoholicStateSuccess) then) =
       __$$_AlcoholicStateSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Alcohol> alcoholicTypeList});
 }
 
 /// @nodoc
 class __$$_AlcoholicStateSuccessCopyWithImpl<$Res>
-    extends _$AlcoholicStateCopyWithImpl<$Res>
+    extends _$AlcoholicStateCopyWithImpl<$Res, _$_AlcoholicStateSuccess>
     implements _$$_AlcoholicStateSuccessCopyWith<$Res> {
   __$$_AlcoholicStateSuccessCopyWithImpl(_$_AlcoholicStateSuccess _value,
       $Res Function(_$_AlcoholicStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_AlcoholicStateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_AlcoholicStateSuccess get _value =>
-      super._value as _$_AlcoholicStateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? alcoholicTypeList = freezed,
+    Object? alcoholicTypeList = null,
   }) {
     return _then(_$_AlcoholicStateSuccess(
-      alcoholicTypeList: alcoholicTypeList == freezed
+      alcoholicTypeList: null == alcoholicTypeList
           ? _value._alcoholicTypeList
           : alcoholicTypeList // ignore: cast_nullable_to_non_nullable
               as List<Alcohol>,
@@ -234,6 +229,8 @@ class _$_AlcoholicStateSuccess implements _AlcoholicStateSuccess {
   final List<Alcohol> _alcoholicTypeList;
   @override
   List<Alcohol> get alcoholicTypeList {
+    if (_alcoholicTypeList is EqualUnmodifiableListView)
+      return _alcoholicTypeList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_alcoholicTypeList);
   }
@@ -258,6 +255,7 @@ class _$_AlcoholicStateSuccess implements _AlcoholicStateSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AlcoholicStateSuccessCopyWith<_$_AlcoholicStateSuccess> get copyWith =>
       __$$_AlcoholicStateSuccessCopyWithImpl<_$_AlcoholicStateSuccess>(
           this, _$identity);
@@ -275,9 +273,9 @@ class _$_AlcoholicStateSuccess implements _AlcoholicStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Alcohol> alcoholicTypeList)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Alcohol> alcoholicTypeList)? success,
+    TResult? Function(String error)? failure,
   }) {
     return success?.call(alcoholicTypeList);
   }
@@ -309,9 +307,9 @@ class _$_AlcoholicStateSuccess implements _AlcoholicStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AlcoholicStateLoading value)? loading,
-    TResult Function(_AlcoholicStateSuccess value)? success,
-    TResult Function(_AlcoholicStateFailure value)? failure,
+    TResult? Function(_AlcoholicStateLoading value)? loading,
+    TResult? Function(_AlcoholicStateSuccess value)? success,
+    TResult? Function(_AlcoholicStateFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -336,7 +334,7 @@ abstract class _AlcoholicStateSuccess implements AlcoholicState {
           {required final List<Alcohol> alcoholicTypeList}) =
       _$_AlcoholicStateSuccess;
 
-  List<Alcohol> get alcoholicTypeList => throw _privateConstructorUsedError;
+  List<Alcohol> get alcoholicTypeList;
   @JsonKey(ignore: true)
   _$$_AlcoholicStateSuccessCopyWith<_$_AlcoholicStateSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -347,27 +345,25 @@ abstract class _$$_AlcoholicStateFailureCopyWith<$Res> {
   factory _$$_AlcoholicStateFailureCopyWith(_$_AlcoholicStateFailure value,
           $Res Function(_$_AlcoholicStateFailure) then) =
       __$$_AlcoholicStateFailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
 class __$$_AlcoholicStateFailureCopyWithImpl<$Res>
-    extends _$AlcoholicStateCopyWithImpl<$Res>
+    extends _$AlcoholicStateCopyWithImpl<$Res, _$_AlcoholicStateFailure>
     implements _$$_AlcoholicStateFailureCopyWith<$Res> {
   __$$_AlcoholicStateFailureCopyWithImpl(_$_AlcoholicStateFailure _value,
       $Res Function(_$_AlcoholicStateFailure) _then)
-      : super(_value, (v) => _then(v as _$_AlcoholicStateFailure));
+      : super(_value, _then);
 
-  @override
-  _$_AlcoholicStateFailure get _value =>
-      super._value as _$_AlcoholicStateFailure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_AlcoholicStateFailure(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -393,15 +389,15 @@ class _$_AlcoholicStateFailure implements _AlcoholicStateFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AlcoholicStateFailure &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AlcoholicStateFailureCopyWith<_$_AlcoholicStateFailure> get copyWith =>
       __$$_AlcoholicStateFailureCopyWithImpl<_$_AlcoholicStateFailure>(
           this, _$identity);
@@ -419,9 +415,9 @@ class _$_AlcoholicStateFailure implements _AlcoholicStateFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Alcohol> alcoholicTypeList)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Alcohol> alcoholicTypeList)? success,
+    TResult? Function(String error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -453,9 +449,9 @@ class _$_AlcoholicStateFailure implements _AlcoholicStateFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AlcoholicStateLoading value)? loading,
-    TResult Function(_AlcoholicStateSuccess value)? success,
-    TResult Function(_AlcoholicStateFailure value)? failure,
+    TResult? Function(_AlcoholicStateLoading value)? loading,
+    TResult? Function(_AlcoholicStateSuccess value)? success,
+    TResult? Function(_AlcoholicStateFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -479,7 +475,7 @@ abstract class _AlcoholicStateFailure implements AlcoholicState {
   const factory _AlcoholicStateFailure(final String error) =
       _$_AlcoholicStateFailure;
 
-  String get error => throw _privateConstructorUsedError;
+  String get error;
   @JsonKey(ignore: true)
   _$$_AlcoholicStateFailureCopyWith<_$_AlcoholicStateFailure> get copyWith =>
       throw _privateConstructorUsedError;

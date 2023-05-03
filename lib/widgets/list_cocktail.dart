@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ListCocktail extends StatelessWidget {
   final List<Widget> list;
 
-  ListCocktail({required this.list});
+  const ListCocktail({super.key, required this.list});
 
   @override
   Widget build(BuildContext context) {

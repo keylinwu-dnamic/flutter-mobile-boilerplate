@@ -1,4 +1,4 @@
-import 'package:boilerplate/classes/extensions/box_shadow.dart';
+import 'package:boilerplate/extensions/box_shadow.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/size.dart';

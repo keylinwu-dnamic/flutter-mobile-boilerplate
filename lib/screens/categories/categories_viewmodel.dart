@@ -1,6 +1,6 @@
 import 'package:boilerplate/screens/categories/states/categories_state.dart';
+import 'package:boilerplate/services/cocktail_services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:boilerplate/services/cocktail_service.dart';
 
 class CategoriesViewModel extends StateNotifier<CategoriesState> {
   final CocktailServiceInterface cocktailService;

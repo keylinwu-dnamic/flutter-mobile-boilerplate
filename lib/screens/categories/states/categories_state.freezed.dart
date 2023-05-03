@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'categories_state.dart';
 
@@ -25,9 +25,9 @@ mixin _$CategoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Category> categories)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Category> categories)? success,
+    TResult? Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$CategoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CategoriesStateLoading value)? loading,
-    TResult Function(_CategoriesStateSuccess value)? success,
-    TResult Function(_CategoriesStateFailure value)? failure,
+    TResult? Function(_CategoriesStateLoading value)? loading,
+    TResult? Function(_CategoriesStateSuccess value)? success,
+    TResult? Function(_CategoriesStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$CategoriesState {
 abstract class $CategoriesStateCopyWith<$Res> {
   factory $CategoriesStateCopyWith(
           CategoriesState value, $Res Function(CategoriesState) then) =
-      _$CategoriesStateCopyWithImpl<$Res>;
+      _$CategoriesStateCopyWithImpl<$Res, CategoriesState>;
 }
 
 /// @nodoc
-class _$CategoriesStateCopyWithImpl<$Res>
+class _$CategoriesStateCopyWithImpl<$Res, $Val extends CategoriesState>
     implements $CategoriesStateCopyWith<$Res> {
   _$CategoriesStateCopyWithImpl(this._value, this._then);
 
-  final CategoriesState _value;
   // ignore: unused_field
-  final $Res Function(CategoriesState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -88,15 +89,11 @@ abstract class _$$_CategoriesStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CategoriesStateLoadingCopyWithImpl<$Res>
-    extends _$CategoriesStateCopyWithImpl<$Res>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$_CategoriesStateLoading>
     implements _$$_CategoriesStateLoadingCopyWith<$Res> {
   __$$_CategoriesStateLoadingCopyWithImpl(_$_CategoriesStateLoading _value,
       $Res Function(_$_CategoriesStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_CategoriesStateLoading));
-
-  @override
-  _$_CategoriesStateLoading get _value =>
-      super._value as _$_CategoriesStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -132,9 +129,9 @@ class _$_CategoriesStateLoading implements _CategoriesStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Category> categories)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Category> categories)? success,
+    TResult? Function(String error)? failure,
   }) {
     return loading?.call();
   }
@@ -166,9 +163,9 @@ class _$_CategoriesStateLoading implements _CategoriesStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CategoriesStateLoading value)? loading,
-    TResult Function(_CategoriesStateSuccess value)? success,
-    TResult Function(_CategoriesStateFailure value)? failure,
+    TResult? Function(_CategoriesStateLoading value)? loading,
+    TResult? Function(_CategoriesStateSuccess value)? success,
+    TResult? Function(_CategoriesStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -197,27 +194,25 @@ abstract class _$$_CategoriesStateSuccessCopyWith<$Res> {
   factory _$$_CategoriesStateSuccessCopyWith(_$_CategoriesStateSuccess value,
           $Res Function(_$_CategoriesStateSuccess) then) =
       __$$_CategoriesStateSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Category> categories});
 }
 
 /// @nodoc
 class __$$_CategoriesStateSuccessCopyWithImpl<$Res>
-    extends _$CategoriesStateCopyWithImpl<$Res>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$_CategoriesStateSuccess>
     implements _$$_CategoriesStateSuccessCopyWith<$Res> {
   __$$_CategoriesStateSuccessCopyWithImpl(_$_CategoriesStateSuccess _value,
       $Res Function(_$_CategoriesStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_CategoriesStateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_CategoriesStateSuccess get _value =>
-      super._value as _$_CategoriesStateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = freezed,
+    Object? categories = null,
   }) {
     return _then(_$_CategoriesStateSuccess(
-      categories: categories == freezed
+      categories: null == categories
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<Category>,
@@ -234,6 +229,7 @@ class _$_CategoriesStateSuccess implements _CategoriesStateSuccess {
   final List<Category> _categories;
   @override
   List<Category> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_categories);
   }
@@ -258,6 +254,7 @@ class _$_CategoriesStateSuccess implements _CategoriesStateSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CategoriesStateSuccessCopyWith<_$_CategoriesStateSuccess> get copyWith =>
       __$$_CategoriesStateSuccessCopyWithImpl<_$_CategoriesStateSuccess>(
           this, _$identity);
@@ -275,9 +272,9 @@ class _$_CategoriesStateSuccess implements _CategoriesStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Category> categories)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Category> categories)? success,
+    TResult? Function(String error)? failure,
   }) {
     return success?.call(categories);
   }
@@ -309,9 +306,9 @@ class _$_CategoriesStateSuccess implements _CategoriesStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CategoriesStateLoading value)? loading,
-    TResult Function(_CategoriesStateSuccess value)? success,
-    TResult Function(_CategoriesStateFailure value)? failure,
+    TResult? Function(_CategoriesStateLoading value)? loading,
+    TResult? Function(_CategoriesStateSuccess value)? success,
+    TResult? Function(_CategoriesStateFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -335,7 +332,7 @@ abstract class _CategoriesStateSuccess implements CategoriesState {
   const factory _CategoriesStateSuccess(
       {required final List<Category> categories}) = _$_CategoriesStateSuccess;
 
-  List<Category> get categories => throw _privateConstructorUsedError;
+  List<Category> get categories;
   @JsonKey(ignore: true)
   _$$_CategoriesStateSuccessCopyWith<_$_CategoriesStateSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -346,27 +343,25 @@ abstract class _$$_CategoriesStateFailureCopyWith<$Res> {
   factory _$$_CategoriesStateFailureCopyWith(_$_CategoriesStateFailure value,
           $Res Function(_$_CategoriesStateFailure) then) =
       __$$_CategoriesStateFailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
 class __$$_CategoriesStateFailureCopyWithImpl<$Res>
-    extends _$CategoriesStateCopyWithImpl<$Res>
+    extends _$CategoriesStateCopyWithImpl<$Res, _$_CategoriesStateFailure>
     implements _$$_CategoriesStateFailureCopyWith<$Res> {
   __$$_CategoriesStateFailureCopyWithImpl(_$_CategoriesStateFailure _value,
       $Res Function(_$_CategoriesStateFailure) _then)
-      : super(_value, (v) => _then(v as _$_CategoriesStateFailure));
+      : super(_value, _then);
 
-  @override
-  _$_CategoriesStateFailure get _value =>
-      super._value as _$_CategoriesStateFailure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_CategoriesStateFailure(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -392,15 +387,15 @@ class _$_CategoriesStateFailure implements _CategoriesStateFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CategoriesStateFailure &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CategoriesStateFailureCopyWith<_$_CategoriesStateFailure> get copyWith =>
       __$$_CategoriesStateFailureCopyWithImpl<_$_CategoriesStateFailure>(
           this, _$identity);
@@ -418,9 +413,9 @@ class _$_CategoriesStateFailure implements _CategoriesStateFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Category> categories)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Category> categories)? success,
+    TResult? Function(String error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -452,9 +447,9 @@ class _$_CategoriesStateFailure implements _CategoriesStateFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CategoriesStateLoading value)? loading,
-    TResult Function(_CategoriesStateSuccess value)? success,
-    TResult Function(_CategoriesStateFailure value)? failure,
+    TResult? Function(_CategoriesStateLoading value)? loading,
+    TResult? Function(_CategoriesStateSuccess value)? success,
+    TResult? Function(_CategoriesStateFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -478,7 +473,7 @@ abstract class _CategoriesStateFailure implements CategoriesState {
   const factory _CategoriesStateFailure(final String error) =
       _$_CategoriesStateFailure;
 
-  String get error => throw _privateConstructorUsedError;
+  String get error;
   @JsonKey(ignore: true)
   _$$_CategoriesStateFailureCopyWith<_$_CategoriesStateFailure> get copyWith =>
       throw _privateConstructorUsedError;

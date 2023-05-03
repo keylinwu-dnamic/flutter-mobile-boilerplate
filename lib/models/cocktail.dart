@@ -1,5 +1,4 @@
-import 'package:boilerplate/classes/entities/cocktailIngredient.dart';
-import 'package:boilerplate/classes/entities/ingredient.dart';
+import 'package:boilerplate/models/cocktail_ingredient.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'cocktail.g.dart';

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'home_state.dart';
 
@@ -25,9 +25,9 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(int currentNavigationIndex)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(int currentNavigationIndex)? success,
+    TResult? Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_HomeStateLoading value)? loading,
-    TResult Function(_HomeStateSuccess value)? success,
-    TResult Function(_HomeStateFailure value)? failure,
+    TResult? Function(_HomeStateLoading value)? loading,
+    TResult? Function(_HomeStateSuccess value)? success,
+    TResult? Function(_HomeStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,16 +65,18 @@ mixin _$HomeState {
 /// @nodoc
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res>;
+      _$HomeStateCopyWithImpl<$Res, HomeState>;
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
+class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
+    implements $HomeStateCopyWith<$Res> {
   _$HomeStateCopyWithImpl(this._value, this._then);
 
-  final HomeState _value;
   // ignore: unused_field
-  final $Res Function(HomeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -86,14 +88,11 @@ abstract class _$$_HomeStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_HomeStateLoadingCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_HomeStateLoading>
     implements _$$_HomeStateLoadingCopyWith<$Res> {
   __$$_HomeStateLoadingCopyWithImpl(
       _$_HomeStateLoading _value, $Res Function(_$_HomeStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_HomeStateLoading));
-
-  @override
-  _$_HomeStateLoading get _value => super._value as _$_HomeStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -128,9 +127,9 @@ class _$_HomeStateLoading implements _HomeStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(int currentNavigationIndex)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(int currentNavigationIndex)? success,
+    TResult? Function(String error)? failure,
   }) {
     return loading?.call();
   }
@@ -162,9 +161,9 @@ class _$_HomeStateLoading implements _HomeStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_HomeStateLoading value)? loading,
-    TResult Function(_HomeStateSuccess value)? success,
-    TResult Function(_HomeStateFailure value)? failure,
+    TResult? Function(_HomeStateLoading value)? loading,
+    TResult? Function(_HomeStateSuccess value)? success,
+    TResult? Function(_HomeStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -193,26 +192,25 @@ abstract class _$$_HomeStateSuccessCopyWith<$Res> {
   factory _$$_HomeStateSuccessCopyWith(
           _$_HomeStateSuccess value, $Res Function(_$_HomeStateSuccess) then) =
       __$$_HomeStateSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int currentNavigationIndex});
 }
 
 /// @nodoc
 class __$$_HomeStateSuccessCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_HomeStateSuccess>
     implements _$$_HomeStateSuccessCopyWith<$Res> {
   __$$_HomeStateSuccessCopyWithImpl(
       _$_HomeStateSuccess _value, $Res Function(_$_HomeStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_HomeStateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_HomeStateSuccess get _value => super._value as _$_HomeStateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentNavigationIndex = freezed,
+    Object? currentNavigationIndex = null,
   }) {
     return _then(_$_HomeStateSuccess(
-      currentNavigationIndex: currentNavigationIndex == freezed
+      currentNavigationIndex: null == currentNavigationIndex
           ? _value.currentNavigationIndex
           : currentNavigationIndex // ignore: cast_nullable_to_non_nullable
               as int,
@@ -238,16 +236,16 @@ class _$_HomeStateSuccess implements _HomeStateSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeStateSuccess &&
-            const DeepCollectionEquality()
-                .equals(other.currentNavigationIndex, currentNavigationIndex));
+            (identical(other.currentNavigationIndex, currentNavigationIndex) ||
+                other.currentNavigationIndex == currentNavigationIndex));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(currentNavigationIndex));
+  int get hashCode => Object.hash(runtimeType, currentNavigationIndex);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HomeStateSuccessCopyWith<_$_HomeStateSuccess> get copyWith =>
       __$$_HomeStateSuccessCopyWithImpl<_$_HomeStateSuccess>(this, _$identity);
 
@@ -264,9 +262,9 @@ class _$_HomeStateSuccess implements _HomeStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(int currentNavigationIndex)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(int currentNavigationIndex)? success,
+    TResult? Function(String error)? failure,
   }) {
     return success?.call(currentNavigationIndex);
   }
@@ -298,9 +296,9 @@ class _$_HomeStateSuccess implements _HomeStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_HomeStateLoading value)? loading,
-    TResult Function(_HomeStateSuccess value)? success,
-    TResult Function(_HomeStateFailure value)? failure,
+    TResult? Function(_HomeStateLoading value)? loading,
+    TResult? Function(_HomeStateSuccess value)? success,
+    TResult? Function(_HomeStateFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -324,7 +322,7 @@ abstract class _HomeStateSuccess implements HomeState {
   const factory _HomeStateSuccess({required final int currentNavigationIndex}) =
       _$_HomeStateSuccess;
 
-  int get currentNavigationIndex => throw _privateConstructorUsedError;
+  int get currentNavigationIndex;
   @JsonKey(ignore: true)
   _$$_HomeStateSuccessCopyWith<_$_HomeStateSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -335,26 +333,25 @@ abstract class _$$_HomeStateFailureCopyWith<$Res> {
   factory _$$_HomeStateFailureCopyWith(
           _$_HomeStateFailure value, $Res Function(_$_HomeStateFailure) then) =
       __$$_HomeStateFailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
 class __$$_HomeStateFailureCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_HomeStateFailure>
     implements _$$_HomeStateFailureCopyWith<$Res> {
   __$$_HomeStateFailureCopyWithImpl(
       _$_HomeStateFailure _value, $Res Function(_$_HomeStateFailure) _then)
-      : super(_value, (v) => _then(v as _$_HomeStateFailure));
+      : super(_value, _then);
 
-  @override
-  _$_HomeStateFailure get _value => super._value as _$_HomeStateFailure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_HomeStateFailure(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -380,15 +377,15 @@ class _$_HomeStateFailure implements _HomeStateFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeStateFailure &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HomeStateFailureCopyWith<_$_HomeStateFailure> get copyWith =>
       __$$_HomeStateFailureCopyWithImpl<_$_HomeStateFailure>(this, _$identity);
 
@@ -405,9 +402,9 @@ class _$_HomeStateFailure implements _HomeStateFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(int currentNavigationIndex)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(int currentNavigationIndex)? success,
+    TResult? Function(String error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -439,9 +436,9 @@ class _$_HomeStateFailure implements _HomeStateFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_HomeStateLoading value)? loading,
-    TResult Function(_HomeStateSuccess value)? success,
-    TResult Function(_HomeStateFailure value)? failure,
+    TResult? Function(_HomeStateLoading value)? loading,
+    TResult? Function(_HomeStateSuccess value)? success,
+    TResult? Function(_HomeStateFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -464,7 +461,7 @@ class _$_HomeStateFailure implements _HomeStateFailure {
 abstract class _HomeStateFailure implements HomeState {
   const factory _HomeStateFailure(final String error) = _$_HomeStateFailure;
 
-  String get error => throw _privateConstructorUsedError;
+  String get error;
   @JsonKey(ignore: true)
   _$$_HomeStateFailureCopyWith<_$_HomeStateFailure> get copyWith =>
       throw _privateConstructorUsedError;

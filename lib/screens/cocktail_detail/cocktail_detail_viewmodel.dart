@@ -1,6 +1,6 @@
 import 'package:boilerplate/screens/cocktail_detail/state/cocktail_detail_state.dart';
+import 'package:boilerplate/services/cocktail_services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:boilerplate/services/cocktail_service.dart';
 
 class CocktailDetailViewModel extends StateNotifier<CocktailDetailState> {
   final CocktailServiceInterface cocktailService;

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ingredients_state.dart';
 
@@ -25,9 +25,9 @@ mixin _$IngredientsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Ingredient> ingredients)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Ingredient> ingredients)? success,
+    TResult? Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$IngredientsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IngredientsStateLoading value)? loading,
-    TResult Function(_IngredientsStateSuccess value)? success,
-    TResult Function(_IngredientsStateFailure value)? failure,
+    TResult? Function(_IngredientsStateLoading value)? loading,
+    TResult? Function(_IngredientsStateSuccess value)? success,
+    TResult? Function(_IngredientsStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$IngredientsState {
 abstract class $IngredientsStateCopyWith<$Res> {
   factory $IngredientsStateCopyWith(
           IngredientsState value, $Res Function(IngredientsState) then) =
-      _$IngredientsStateCopyWithImpl<$Res>;
+      _$IngredientsStateCopyWithImpl<$Res, IngredientsState>;
 }
 
 /// @nodoc
-class _$IngredientsStateCopyWithImpl<$Res>
+class _$IngredientsStateCopyWithImpl<$Res, $Val extends IngredientsState>
     implements $IngredientsStateCopyWith<$Res> {
   _$IngredientsStateCopyWithImpl(this._value, this._then);
 
-  final IngredientsState _value;
   // ignore: unused_field
-  final $Res Function(IngredientsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -88,15 +89,11 @@ abstract class _$$_IngredientsStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_IngredientsStateLoadingCopyWithImpl<$Res>
-    extends _$IngredientsStateCopyWithImpl<$Res>
+    extends _$IngredientsStateCopyWithImpl<$Res, _$_IngredientsStateLoading>
     implements _$$_IngredientsStateLoadingCopyWith<$Res> {
   __$$_IngredientsStateLoadingCopyWithImpl(_$_IngredientsStateLoading _value,
       $Res Function(_$_IngredientsStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_IngredientsStateLoading));
-
-  @override
-  _$_IngredientsStateLoading get _value =>
-      super._value as _$_IngredientsStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -132,9 +129,9 @@ class _$_IngredientsStateLoading implements _IngredientsStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Ingredient> ingredients)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Ingredient> ingredients)? success,
+    TResult? Function(String error)? failure,
   }) {
     return loading?.call();
   }
@@ -166,9 +163,9 @@ class _$_IngredientsStateLoading implements _IngredientsStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IngredientsStateLoading value)? loading,
-    TResult Function(_IngredientsStateSuccess value)? success,
-    TResult Function(_IngredientsStateFailure value)? failure,
+    TResult? Function(_IngredientsStateLoading value)? loading,
+    TResult? Function(_IngredientsStateSuccess value)? success,
+    TResult? Function(_IngredientsStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -197,27 +194,25 @@ abstract class _$$_IngredientsStateSuccessCopyWith<$Res> {
   factory _$$_IngredientsStateSuccessCopyWith(_$_IngredientsStateSuccess value,
           $Res Function(_$_IngredientsStateSuccess) then) =
       __$$_IngredientsStateSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Ingredient> ingredients});
 }
 
 /// @nodoc
 class __$$_IngredientsStateSuccessCopyWithImpl<$Res>
-    extends _$IngredientsStateCopyWithImpl<$Res>
+    extends _$IngredientsStateCopyWithImpl<$Res, _$_IngredientsStateSuccess>
     implements _$$_IngredientsStateSuccessCopyWith<$Res> {
   __$$_IngredientsStateSuccessCopyWithImpl(_$_IngredientsStateSuccess _value,
       $Res Function(_$_IngredientsStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_IngredientsStateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_IngredientsStateSuccess get _value =>
-      super._value as _$_IngredientsStateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ingredients = freezed,
+    Object? ingredients = null,
   }) {
     return _then(_$_IngredientsStateSuccess(
-      ingredients: ingredients == freezed
+      ingredients: null == ingredients
           ? _value._ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
               as List<Ingredient>,
@@ -235,6 +230,7 @@ class _$_IngredientsStateSuccess implements _IngredientsStateSuccess {
   final List<Ingredient> _ingredients;
   @override
   List<Ingredient> get ingredients {
+    if (_ingredients is EqualUnmodifiableListView) return _ingredients;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_ingredients);
   }
@@ -259,6 +255,7 @@ class _$_IngredientsStateSuccess implements _IngredientsStateSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_IngredientsStateSuccessCopyWith<_$_IngredientsStateSuccess>
       get copyWith =>
           __$$_IngredientsStateSuccessCopyWithImpl<_$_IngredientsStateSuccess>(
@@ -277,9 +274,9 @@ class _$_IngredientsStateSuccess implements _IngredientsStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Ingredient> ingredients)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Ingredient> ingredients)? success,
+    TResult? Function(String error)? failure,
   }) {
     return success?.call(ingredients);
   }
@@ -311,9 +308,9 @@ class _$_IngredientsStateSuccess implements _IngredientsStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IngredientsStateLoading value)? loading,
-    TResult Function(_IngredientsStateSuccess value)? success,
-    TResult Function(_IngredientsStateFailure value)? failure,
+    TResult? Function(_IngredientsStateLoading value)? loading,
+    TResult? Function(_IngredientsStateSuccess value)? success,
+    TResult? Function(_IngredientsStateFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -338,7 +335,7 @@ abstract class _IngredientsStateSuccess implements IngredientsState {
           {required final List<Ingredient> ingredients}) =
       _$_IngredientsStateSuccess;
 
-  List<Ingredient> get ingredients => throw _privateConstructorUsedError;
+  List<Ingredient> get ingredients;
   @JsonKey(ignore: true)
   _$$_IngredientsStateSuccessCopyWith<_$_IngredientsStateSuccess>
       get copyWith => throw _privateConstructorUsedError;
@@ -349,27 +346,25 @@ abstract class _$$_IngredientsStateFailureCopyWith<$Res> {
   factory _$$_IngredientsStateFailureCopyWith(_$_IngredientsStateFailure value,
           $Res Function(_$_IngredientsStateFailure) then) =
       __$$_IngredientsStateFailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
 class __$$_IngredientsStateFailureCopyWithImpl<$Res>
-    extends _$IngredientsStateCopyWithImpl<$Res>
+    extends _$IngredientsStateCopyWithImpl<$Res, _$_IngredientsStateFailure>
     implements _$$_IngredientsStateFailureCopyWith<$Res> {
   __$$_IngredientsStateFailureCopyWithImpl(_$_IngredientsStateFailure _value,
       $Res Function(_$_IngredientsStateFailure) _then)
-      : super(_value, (v) => _then(v as _$_IngredientsStateFailure));
+      : super(_value, _then);
 
-  @override
-  _$_IngredientsStateFailure get _value =>
-      super._value as _$_IngredientsStateFailure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_IngredientsStateFailure(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -395,15 +390,15 @@ class _$_IngredientsStateFailure implements _IngredientsStateFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IngredientsStateFailure &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_IngredientsStateFailureCopyWith<_$_IngredientsStateFailure>
       get copyWith =>
           __$$_IngredientsStateFailureCopyWithImpl<_$_IngredientsStateFailure>(
@@ -422,9 +417,9 @@ class _$_IngredientsStateFailure implements _IngredientsStateFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Ingredient> ingredients)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Ingredient> ingredients)? success,
+    TResult? Function(String error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -456,9 +451,9 @@ class _$_IngredientsStateFailure implements _IngredientsStateFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IngredientsStateLoading value)? loading,
-    TResult Function(_IngredientsStateSuccess value)? success,
-    TResult Function(_IngredientsStateFailure value)? failure,
+    TResult? Function(_IngredientsStateLoading value)? loading,
+    TResult? Function(_IngredientsStateSuccess value)? success,
+    TResult? Function(_IngredientsStateFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -482,7 +477,7 @@ abstract class _IngredientsStateFailure implements IngredientsState {
   const factory _IngredientsStateFailure(final String error) =
       _$_IngredientsStateFailure;
 
-  String get error => throw _privateConstructorUsedError;
+  String get error;
   @JsonKey(ignore: true)
   _$$_IngredientsStateFailureCopyWith<_$_IngredientsStateFailure>
       get copyWith => throw _privateConstructorUsedError;

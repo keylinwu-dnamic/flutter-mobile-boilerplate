@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:boilerplate/classes/entities/alcohol.dart';
+import 'package:boilerplate/models/alcohol.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'alcoholic_state.freezed.dart';

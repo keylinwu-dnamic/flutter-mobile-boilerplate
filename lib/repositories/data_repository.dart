@@ -2,24 +2,22 @@
 
 import 'dart:developer';
 
-import 'package:boilerplate/classes/entities/alcohol.dart';
-import 'package:boilerplate/classes/entities/category.dart';
-import 'package:boilerplate/classes/entities/cocktail.dart';
-import 'package:boilerplate/classes/entities/cocktailIngredient.dart';
-import 'package:boilerplate/classes/entities/glass.dart';
-import 'package:boilerplate/classes/entities/ingredient.dart';
+import 'package:boilerplate/models/alcohol.dart';
+import 'package:boilerplate/models/category.dart';
+import 'package:boilerplate/models/cocktail.dart';
+import 'package:boilerplate/models/cocktail_ingredient.dart';
+import 'package:boilerplate/models/glass.dart';
+import 'package:boilerplate/models/ingredient.dart';
+import 'package:boilerplate/constants/constants.dart';
 import 'package:boilerplate/services/network_service.dart';
 
-abstract class DataRepositoryInterface {
+abstract class CocktailRepositoryInterface {
   Future<List<Category>> getCocktailsCategories();
-  Future<List<Glass>> getCocktailsGlasses();
-  Future<List<Ingredient>> getCocktailsIngredients();
-  Future<List<Alcohol>> getAlcohol();
-  Future<List<Cocktail>> getCocktails(String apiKey, String name);
+  Future<List<Cocktail>> getCocktails(String name);
   Future<Cocktail> getCocktailDetail(String id);
 }
 
-class DataRepository implements DataRepositoryInterface {
+class DataRepository implements CocktailRepositoryInterface {
   final NetworkService _networkService;
   DataRepository(this._networkService);
 
@@ -39,7 +37,6 @@ class DataRepository implements DataRepositoryInterface {
     }
   }
 
-  @override
   Future<List<Ingredient>> getCocktailsIngredients() async {
     try {
       final result = await _networkService.getData(
@@ -57,7 +54,6 @@ class DataRepository implements DataRepositoryInterface {
     }
   }
 
-  @override
   Future<List<Glass>> getCocktailsGlasses() async {
     try {
       final result = await _networkService.getData(
@@ -73,7 +69,6 @@ class DataRepository implements DataRepositoryInterface {
     }
   }
 
-  @override
   Future<List<Alcohol>> getAlcohol() async {
     try {
       final result = await _networkService.getData(
@@ -90,10 +85,11 @@ class DataRepository implements DataRepositoryInterface {
   }
 
   @override
-  Future<List<Cocktail>> getCocktails(String apiKey, String name) async {
+  Future<List<Cocktail>> getCocktails(String name) async {
     try {
       final result = await _networkService.getData(
-        path: APIPathConstant.cocktailsEndpoint(apiKey, name),
+        path: APIPathConstant.cocktailsEndpoint(
+            Constants.endpointCategoryKey, name),
       );
       List<Cocktail> cocktail = (result['drinks'] as List)
           .map((cocktail) => Cocktail.fromJson(cocktail))

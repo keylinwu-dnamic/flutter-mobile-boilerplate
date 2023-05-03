@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+6
+version: 1.0.0
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -35,37 +35,28 @@ dependencies:
   # Internationalization
   intl: ^0.17.0
   # State management
-  flutter_riverpod: ^1.0.4
+  flutter_riverpod: ^2.1.1
   # Immutable classes for state management
-  freezed_annotation: ^2.0.3
+  freezed_annotation: ^2.2.0
   # Navigation routing
-  auto_route: ^4.0.1
-  # Store data in local storage
-  streaming_shared_preferences: ^2.0.0
+  auto_route: ^5.0.4
   # connectivity
-  connectivity: ^3.0.6
-#  connectivity_plus: ^2.3.4
-  # Builders for handling JSON
-  json_serializable: ^6.1.3
+  json_serializable: ^6.5.4
   # Equatable
-  equatable: ^2.0.3
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  #webview
-  webview_flutter: ^3.0.0
+  equatable: ^2.0.5
   #dio
   dio: ^4.0.6
   #dio logger
   pretty_dio_logger: ^1.1.1
   #Lottie player
-  lottie: ^1.3.0
+  lottie: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^2.1.11
-  freezed: ^2.0.3
-  auto_route_generator: ^4.0.0
+  build_runner: ^2.3.2
+  freezed: ^2.3.2
+  auto_route_generator: ^5.0.3
   flutter_lints: ^2.0.1
 
 flutter_intl:
@@ -73,19 +64,11 @@ flutter_intl:
   main_locale: en
   class_name: AppStrings
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - config/
     - assets/
     - assets/images/
 

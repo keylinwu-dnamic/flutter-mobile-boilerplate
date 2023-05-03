@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/models/cocktail.dart';
 import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/cocktails/cocktails_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
@@ -10,72 +11,74 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CocktailsPage extends ConsumerStatefulWidget {
-  const CocktailsPage({Key? key, required this.apiKey, required this.name})
-      : super(key: key);
-  final String apiKey;
-  final String name;
+  const CocktailsPage({Key? key, required this.category}) : super(key: key);
+  final String category;
 
   @override
-  ConsumerState<CocktailsPage> createState() =>
-      _CocktailsPageState(apiKey: apiKey, name: name);
+  ConsumerState<CocktailsPage> createState() => CocktailsPageState();
 }
 
-class _CocktailsPageState extends ConsumerState<CocktailsPage> {
-  _CocktailsPageState({required this.apiKey, required this.name});
-
-  final String apiKey;
-  final String name;
+class CocktailsPageState extends ConsumerState<CocktailsPage> {
+  CocktailsPageState();
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      //Calling ViewModel input
       await ref
           .read(cocktailsViewModelProvider.notifier)
-          .getCocktails(apiKey, name);
+          .getCocktails(widget.category);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CocktailColors.background,
-      appBar: const AppBarCustom(title: 'Cocktails'),
-      body: Column(
-        children: [
-          _CocktailsConsumer(),
-        ],
-      ),
-    );
+        backgroundColor: CocktailColors.background,
+        appBar: AppBarCustom(
+          //Getting ViewModel output
+          title: ref.read(cocktailsViewModelProvider.notifier).appBarTitle,
+        ),
+        body: _buildAccordingToState());
   }
-}
 
-class _CocktailsConsumer extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget _buildAccordingToState() {
     final state = ref.watch(cocktailsViewModelProvider);
 
     return state.when(
       loading: () => const CircularProgress(),
-      success: (cocktails) {
-        final cocktailItems = cocktails
-            .map(
-              (cocktail) => GestureDetector(
-                onTap: () {
-                  context.router.push(
-                    CocktailDetailRoute(id: cocktail.id, name: cocktail.name),
-                  );
-                },
-                child: CocktailItem(
-                  name: cocktail.name,
-                  cocktailImage: cocktail.image,
-                ),
-              ),
-            )
-            .toList();
-        return ListCocktail(list: cocktailItems);
-      },
+      success: (cocktails) => _buildCocktailList(withCocktails: cocktails),
       failure: (error) => Text(error),
+    );
+  }
+
+  Widget _buildCocktailList({required List<Cocktail> withCocktails}) {
+    {
+      final cocktailItems = withCocktails
+          .map((cocktail) => _buildCocktailDetails(cocktail))
+          .toList();
+      return Column(
+        children: [
+          ListCocktail(list: cocktailItems),
+        ],
+      );
+    }
+  }
+
+  Widget _buildCocktailDetails(Cocktail cocktail) {
+    return GestureDetector(
+      onTap: () => goToCocktailDetails(cocktail),
+      child: CocktailItem(
+        name: cocktail.name,
+        cocktailImage: cocktail.image,
+      ),
+    );
+  }
+
+  void goToCocktailDetails(Cocktail cocktail) {
+    context.router.push(
+      CocktailDetailRoute(id: cocktail.id, name: cocktail.name),
     );
   }
 }

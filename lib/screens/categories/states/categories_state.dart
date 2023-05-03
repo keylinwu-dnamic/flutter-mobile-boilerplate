@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:boilerplate/classes/entities/category.dart';
+import 'package:boilerplate/models/category.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'categories_state.freezed.dart';

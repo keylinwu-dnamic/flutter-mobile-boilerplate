@@ -5,10 +5,9 @@ import 'package:boilerplate/screens/cocktails/cocktails_page.dart';
 import 'package:boilerplate/screens/ingredients/ingredients_page.dart';
 import 'package:boilerplate/screens/type_of_glass/type_of_glass_page.dart';
 
-import '../screens/home/home_page.dart';
 import '../screens/categories/categories_page.dart';
+import '../screens/home/home_page.dart';
 import '../screens/splash_screen/splash_screen_page.dart';
-import 'guards/auth_guard.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -21,7 +20,6 @@ import 'guards/auth_guard.dart';
     AutoRoute(
       page: HomePage,
       path: '/home',
-      guards: [AuthGuard],
     ),
     MaterialRoute(
       page: CategoriesPage,

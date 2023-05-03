@@ -1,6 +1,6 @@
 import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/states/home_state.dart';
-import 'package:boilerplate/services/cocktail_service.dart';
+import 'package:boilerplate/services/cocktail_services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeViewModel extends StateNotifier<HomeState> {

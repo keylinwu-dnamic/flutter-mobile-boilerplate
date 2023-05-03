@@ -1,14 +1,14 @@
-import 'package:boilerplate/classes/entities/cocktail.dart';
 import 'package:boilerplate/generated/l10n.dart';
+import 'package:boilerplate/models/cocktail.dart';
+import 'package:boilerplate/screens/cocktail_detail/cocktail_detail_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
 import 'package:boilerplate/styles/fonts.dart';
 import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:boilerplate/widgets/app_bar_custom.dart';
+import 'package:boilerplate/widgets/circular_progress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:boilerplate/screens/cocktail_detail/cocktail_detail_provider.dart';
-import 'package:boilerplate/widgets/circular_progress.dart';
 
 class CocktailDetailPage extends ConsumerStatefulWidget {
   const CocktailDetailPage({Key? key, required this.id, required this.name})
@@ -18,15 +18,11 @@ class CocktailDetailPage extends ConsumerStatefulWidget {
   final String name;
 
   @override
-  ConsumerState<CocktailDetailPage> createState() =>
-      _CocktailDetailPageState(id: id, name: name);
+  ConsumerState<CocktailDetailPage> createState() => _CocktailDetailPageState();
 }
 
 class _CocktailDetailPageState extends ConsumerState<CocktailDetailPage> {
-  _CocktailDetailPageState({required this.id, required this.name});
-
-  final String id;
-  final String name;
+  _CocktailDetailPageState();
 
   @override
   void initState() {
@@ -34,7 +30,7 @@ class _CocktailDetailPageState extends ConsumerState<CocktailDetailPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await ref
           .read(cocktailDetailViewModelProvider.notifier)
-          .getCocktailDetail(id);
+          .getCocktailDetail(widget.id);
     });
   }
 
@@ -42,9 +38,7 @@ class _CocktailDetailPageState extends ConsumerState<CocktailDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CocktailColors.background,
-      appBar: AppBarCustom(
-        title: name,
-      ),
+      appBar: AppBarCustom(title: widget.name),
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.only(
@@ -65,103 +59,77 @@ class _DetailConsumer extends ConsumerWidget {
     return state.when(
       loading: () => const CircularProgress(),
       success: (cocktail) {
-        return (Column(
+        return Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: CocktailColors.secondary,
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(50.0),
-                  bottomLeft: Radius.circular(50.0),
-                ),
-              ),
-              padding: const EdgeInsets.only(bottom: Spacing.spacingXS),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(50.0),
-                  bottomLeft: Radius.circular(50.0),
-                ),
-                child: Image.network(cocktail.image),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(
-                  top: Spacing.spacingXS, bottom: Spacing.spacingMD),
-              child: Text(
-                cocktail.name,
-                style: Fonts.detailTitle,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(
-                left: Spacing.spacingMD,
-                right: Spacing.spacingMD,
-              ),
-              child: Column(
-                children: [
-                  _CocktailInfo(
-                      title: AppStrings.current.tag, definition: cocktail.tag),
-                  _CocktailInfo(
-                      title: AppStrings.current.category,
-                      definition: cocktail.category),
-                  _CocktailInfo(
-                      title: AppStrings.current.typeOfGlass,
-                      definition: cocktail.glass),
-                  _IngredientsInfo(cocktail),
-                  _CocktailInfo(
-                      title: AppStrings.current.instructions,
-                      definition: cocktail.instructions,
-                      hasDivider: false),
-                ],
-              ),
-            )
+            _buildHeaderImage(cocktail.image),
+            _buildTitle(cocktail.category),
+            _buildDetails(cocktail),
           ],
-        ));
+        );
       },
       failure: (error) => Text(error),
     );
   }
 
-  Container _CocktailInfo(
-      {required String title,
-      required String definition,
-      bool hasDivider = true}) {
+  Widget _buildDetails(Cocktail cocktail) {
     return Container(
-      margin: const EdgeInsets.only(top: Spacing.spacingXS),
+      margin: const EdgeInsets.only(
+        left: Spacing.spacingMD,
+        right: Spacing.spacingMD,
+      ),
       child: Column(
         children: [
-          Row(
-            children: [
-              Container(
-                width: Sizes.sizeXXXXL,
-                margin: const EdgeInsets.only(bottom: Spacing.spacingXS),
-                child: Text(
-                  title,
-                  style: Fonts.tileTitle,
-                ),
-              ),
-              Flexible(
-                child: Container(
-                  margin: const EdgeInsets.only(bottom: Spacing.spacingXS),
-                  child: Text(
-                    definition,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          hasDivider
-              ? const Divider(
-                  color: CocktailColors.primary,
-                )
-              : const SizedBox()
+          _CocktailInfo(
+              title: AppStrings.current.tag, definition: cocktail.tag),
+          _CocktailInfo(
+              title: AppStrings.current.category,
+              definition: cocktail.category),
+          _CocktailInfo(
+              title: AppStrings.current.typeOfGlass,
+              definition: cocktail.glass),
+          _buildIngredientsInfo(cocktail),
+          _CocktailInfo(
+              title: AppStrings.current.instructions,
+              definition: cocktail.instructions,
+              hasDivider: false),
         ],
       ),
     );
   }
 
-  Column _IngredientsInfo(Cocktail cocktail) {
+  Widget _buildTitle(String cocktailName) {
+    return Container(
+      margin: const EdgeInsets.only(
+          top: Spacing.spacingXS, bottom: Spacing.spacingMD),
+      child: Text(
+        cocktailName,
+        style: Fonts.detailTitle,
+      ),
+    );
+  }
+
+  Widget _buildHeaderImage(String cocktailImage) {
+    return Container(
+      decoration: const BoxDecoration(
+        color: CocktailColors.secondary,
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(50.0),
+          bottomLeft: Radius.circular(50.0),
+        ),
+      ),
+      padding: const EdgeInsets.only(bottom: Spacing.spacingXS),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          bottomRight: Radius.circular(50.0),
+          bottomLeft: Radius.circular(50.0),
+        ),
+        child: Image.network(cocktailImage),
+      ),
+    );
+  }
+
+  Widget _buildIngredientsInfo(Cocktail cocktail) {
     bool hasIngredients = cocktail.ingredients != null ? true : false;
     return hasIngredients
         ? Column(
@@ -202,5 +170,53 @@ class _DetailConsumer extends ConsumerWidget {
               ),
             ],
           );
+  }
+}
+
+class _CocktailInfo extends StatelessWidget {
+  final String title;
+  final String definition;
+  final bool hasDivider;
+
+  const _CocktailInfo({
+    required this.title,
+    required this.definition,
+    this.hasDivider = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: Spacing.spacingXS),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                width: Sizes.sizeXXXXL,
+                margin: const EdgeInsets.only(bottom: Spacing.spacingXS),
+                child: Text(
+                  title,
+                  style: Fonts.tileTitle,
+                ),
+              ),
+              Flexible(
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: Spacing.spacingXS),
+                  child: Text(
+                    definition,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          hasDivider
+              ? const Divider(
+                  color: CocktailColors.primary,
+                )
+              : const SizedBox()
+        ],
+      ),
+    );
   }
 }

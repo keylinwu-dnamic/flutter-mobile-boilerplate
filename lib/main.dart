@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:boilerplate/locale/locale_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'classes/locale/locale_configuration.dart';
-import 'router/guards/auth_guard.dart';
 import 'router/router.gr.dart';
 
 class App extends ConsumerStatefulWidget {
@@ -24,7 +23,7 @@ class AppState extends ConsumerState<App> {
   void initState() {
     super.initState();
 
-    _appRouter = AppRouter(authGuard: AuthGuard());
+    _appRouter = AppRouter();
 
     _appLocale = LocaleConfiguration.supportedLocales.first;
 

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:boilerplate/extensions/box_shadow.dart';
 import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/styles/colors.dart';
@@ -7,7 +8,6 @@ import 'package:boilerplate/styles/size.dart';
 import 'package:boilerplate/styles/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:boilerplate/classes/extensions/box_shadow.dart';
 
 class CategoryMainMenu extends ConsumerStatefulWidget {
   const CategoryMainMenu({Key? key}) : super(key: key);
@@ -57,42 +57,47 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
           goTo();
         },
         child: Container(
-            decoration: BoxDecoration(
-              color: CocktailColors.white,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(20),
-              ),
-              boxShadow: [
-                BoxShadowExtension.defaultTileShadow,
+          decoration: BoxDecoration(
+            color: CocktailColors.white,
+            borderRadius: const BorderRadius.all(
+              Radius.circular(20),
+            ),
+            boxShadow: [
+              BoxShadowExtension.defaultTileShadow,
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(Sizes.sizeXS),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: Sizes.sizeSM),
+                  decoration: BoxDecoration(
+                    color: CocktailColors.primary,
+                    borderRadius: BorderRadius.circular(Sizes.sizeXXXL),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Image.asset(
+                      info.image,
+                      width: 103.76,
+                      height: 103.76,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    info.name,
+                    textAlign: TextAlign.center,
+                    style: Fonts.menuTitle,
+                  ),
+                ),
               ],
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(Sizes.sizeXS),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(bottom: Sizes.sizeXS),
-                      decoration: BoxDecoration(
-                        color: CocktailColors.primary,
-                        borderRadius: BorderRadius.circular(Sizes.sizeXXXL),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(Sizes.sizeXXS),
-                        child: Image.asset(info.image),
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      info.name,
-                      textAlign: TextAlign.center,
-                      style: Fonts.menuTitle,
-                    ),
-                  ),
-                ],
-              ),
-            )),
+          ),
+        ),
       ),
     );
   }

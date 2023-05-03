@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'type_of_glass_state.dart';
 
@@ -25,9 +25,9 @@ mixin _$TypeOfGlassState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Glass> listGlass)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Glass> listGlass)? success,
+    TResult? Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$TypeOfGlassState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TypeOfGlassStateLoading value)? loading,
-    TResult Function(_TypeOfGlassStateSuccess value)? success,
-    TResult Function(_TypeOfGlassStateFailure value)? failure,
+    TResult? Function(_TypeOfGlassStateLoading value)? loading,
+    TResult? Function(_TypeOfGlassStateSuccess value)? success,
+    TResult? Function(_TypeOfGlassStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$TypeOfGlassState {
 abstract class $TypeOfGlassStateCopyWith<$Res> {
   factory $TypeOfGlassStateCopyWith(
           TypeOfGlassState value, $Res Function(TypeOfGlassState) then) =
-      _$TypeOfGlassStateCopyWithImpl<$Res>;
+      _$TypeOfGlassStateCopyWithImpl<$Res, TypeOfGlassState>;
 }
 
 /// @nodoc
-class _$TypeOfGlassStateCopyWithImpl<$Res>
+class _$TypeOfGlassStateCopyWithImpl<$Res, $Val extends TypeOfGlassState>
     implements $TypeOfGlassStateCopyWith<$Res> {
   _$TypeOfGlassStateCopyWithImpl(this._value, this._then);
 
-  final TypeOfGlassState _value;
   // ignore: unused_field
-  final $Res Function(TypeOfGlassState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -88,15 +89,11 @@ abstract class _$$_TypeOfGlassStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_TypeOfGlassStateLoadingCopyWithImpl<$Res>
-    extends _$TypeOfGlassStateCopyWithImpl<$Res>
+    extends _$TypeOfGlassStateCopyWithImpl<$Res, _$_TypeOfGlassStateLoading>
     implements _$$_TypeOfGlassStateLoadingCopyWith<$Res> {
   __$$_TypeOfGlassStateLoadingCopyWithImpl(_$_TypeOfGlassStateLoading _value,
       $Res Function(_$_TypeOfGlassStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_TypeOfGlassStateLoading));
-
-  @override
-  _$_TypeOfGlassStateLoading get _value =>
-      super._value as _$_TypeOfGlassStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -132,9 +129,9 @@ class _$_TypeOfGlassStateLoading implements _TypeOfGlassStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Glass> listGlass)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Glass> listGlass)? success,
+    TResult? Function(String error)? failure,
   }) {
     return loading?.call();
   }
@@ -166,9 +163,9 @@ class _$_TypeOfGlassStateLoading implements _TypeOfGlassStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TypeOfGlassStateLoading value)? loading,
-    TResult Function(_TypeOfGlassStateSuccess value)? success,
-    TResult Function(_TypeOfGlassStateFailure value)? failure,
+    TResult? Function(_TypeOfGlassStateLoading value)? loading,
+    TResult? Function(_TypeOfGlassStateSuccess value)? success,
+    TResult? Function(_TypeOfGlassStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -197,27 +194,25 @@ abstract class _$$_TypeOfGlassStateSuccessCopyWith<$Res> {
   factory _$$_TypeOfGlassStateSuccessCopyWith(_$_TypeOfGlassStateSuccess value,
           $Res Function(_$_TypeOfGlassStateSuccess) then) =
       __$$_TypeOfGlassStateSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Glass> listGlass});
 }
 
 /// @nodoc
 class __$$_TypeOfGlassStateSuccessCopyWithImpl<$Res>
-    extends _$TypeOfGlassStateCopyWithImpl<$Res>
+    extends _$TypeOfGlassStateCopyWithImpl<$Res, _$_TypeOfGlassStateSuccess>
     implements _$$_TypeOfGlassStateSuccessCopyWith<$Res> {
   __$$_TypeOfGlassStateSuccessCopyWithImpl(_$_TypeOfGlassStateSuccess _value,
       $Res Function(_$_TypeOfGlassStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_TypeOfGlassStateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_TypeOfGlassStateSuccess get _value =>
-      super._value as _$_TypeOfGlassStateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? listGlass = freezed,
+    Object? listGlass = null,
   }) {
     return _then(_$_TypeOfGlassStateSuccess(
-      listGlass: listGlass == freezed
+      listGlass: null == listGlass
           ? _value._listGlass
           : listGlass // ignore: cast_nullable_to_non_nullable
               as List<Glass>,
@@ -234,6 +229,7 @@ class _$_TypeOfGlassStateSuccess implements _TypeOfGlassStateSuccess {
   final List<Glass> _listGlass;
   @override
   List<Glass> get listGlass {
+    if (_listGlass is EqualUnmodifiableListView) return _listGlass;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_listGlass);
   }
@@ -258,6 +254,7 @@ class _$_TypeOfGlassStateSuccess implements _TypeOfGlassStateSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TypeOfGlassStateSuccessCopyWith<_$_TypeOfGlassStateSuccess>
       get copyWith =>
           __$$_TypeOfGlassStateSuccessCopyWithImpl<_$_TypeOfGlassStateSuccess>(
@@ -276,9 +273,9 @@ class _$_TypeOfGlassStateSuccess implements _TypeOfGlassStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Glass> listGlass)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Glass> listGlass)? success,
+    TResult? Function(String error)? failure,
   }) {
     return success?.call(listGlass);
   }
@@ -310,9 +307,9 @@ class _$_TypeOfGlassStateSuccess implements _TypeOfGlassStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TypeOfGlassStateLoading value)? loading,
-    TResult Function(_TypeOfGlassStateSuccess value)? success,
-    TResult Function(_TypeOfGlassStateFailure value)? failure,
+    TResult? Function(_TypeOfGlassStateLoading value)? loading,
+    TResult? Function(_TypeOfGlassStateSuccess value)? success,
+    TResult? Function(_TypeOfGlassStateFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -336,7 +333,7 @@ abstract class _TypeOfGlassStateSuccess implements TypeOfGlassState {
   const factory _TypeOfGlassStateSuccess(
       {required final List<Glass> listGlass}) = _$_TypeOfGlassStateSuccess;
 
-  List<Glass> get listGlass => throw _privateConstructorUsedError;
+  List<Glass> get listGlass;
   @JsonKey(ignore: true)
   _$$_TypeOfGlassStateSuccessCopyWith<_$_TypeOfGlassStateSuccess>
       get copyWith => throw _privateConstructorUsedError;
@@ -347,27 +344,25 @@ abstract class _$$_TypeOfGlassStateFailureCopyWith<$Res> {
   factory _$$_TypeOfGlassStateFailureCopyWith(_$_TypeOfGlassStateFailure value,
           $Res Function(_$_TypeOfGlassStateFailure) then) =
       __$$_TypeOfGlassStateFailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
 class __$$_TypeOfGlassStateFailureCopyWithImpl<$Res>
-    extends _$TypeOfGlassStateCopyWithImpl<$Res>
+    extends _$TypeOfGlassStateCopyWithImpl<$Res, _$_TypeOfGlassStateFailure>
     implements _$$_TypeOfGlassStateFailureCopyWith<$Res> {
   __$$_TypeOfGlassStateFailureCopyWithImpl(_$_TypeOfGlassStateFailure _value,
       $Res Function(_$_TypeOfGlassStateFailure) _then)
-      : super(_value, (v) => _then(v as _$_TypeOfGlassStateFailure));
+      : super(_value, _then);
 
-  @override
-  _$_TypeOfGlassStateFailure get _value =>
-      super._value as _$_TypeOfGlassStateFailure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_TypeOfGlassStateFailure(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -393,15 +388,15 @@ class _$_TypeOfGlassStateFailure implements _TypeOfGlassStateFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TypeOfGlassStateFailure &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TypeOfGlassStateFailureCopyWith<_$_TypeOfGlassStateFailure>
       get copyWith =>
           __$$_TypeOfGlassStateFailureCopyWithImpl<_$_TypeOfGlassStateFailure>(
@@ -420,9 +415,9 @@ class _$_TypeOfGlassStateFailure implements _TypeOfGlassStateFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Glass> listGlass)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Glass> listGlass)? success,
+    TResult? Function(String error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -454,9 +449,9 @@ class _$_TypeOfGlassStateFailure implements _TypeOfGlassStateFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TypeOfGlassStateLoading value)? loading,
-    TResult Function(_TypeOfGlassStateSuccess value)? success,
-    TResult Function(_TypeOfGlassStateFailure value)? failure,
+    TResult? Function(_TypeOfGlassStateLoading value)? loading,
+    TResult? Function(_TypeOfGlassStateSuccess value)? success,
+    TResult? Function(_TypeOfGlassStateFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -480,7 +475,7 @@ abstract class _TypeOfGlassStateFailure implements TypeOfGlassState {
   const factory _TypeOfGlassStateFailure(final String error) =
       _$_TypeOfGlassStateFailure;
 
-  String get error => throw _privateConstructorUsedError;
+  String get error;
   @JsonKey(ignore: true)
   _$$_TypeOfGlassStateFailureCopyWith<_$_TypeOfGlassStateFailure>
       get copyWith => throw _privateConstructorUsedError;

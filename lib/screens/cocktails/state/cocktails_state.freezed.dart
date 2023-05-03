@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'cocktails_state.dart';
 
@@ -25,9 +25,9 @@ mixin _$CocktailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Cocktail> cocktails)? success,
+    TResult? Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$CocktailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailsStateLoading value)? loading,
-    TResult Function(_CocktailsStateSuccess value)? success,
-    TResult Function(_CocktailsStateFailure value)? failure,
+    TResult? Function(_CocktailsStateLoading value)? loading,
+    TResult? Function(_CocktailsStateSuccess value)? success,
+    TResult? Function(_CocktailsStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$CocktailsState {
 abstract class $CocktailsStateCopyWith<$Res> {
   factory $CocktailsStateCopyWith(
           CocktailsState value, $Res Function(CocktailsState) then) =
-      _$CocktailsStateCopyWithImpl<$Res>;
+      _$CocktailsStateCopyWithImpl<$Res, CocktailsState>;
 }
 
 /// @nodoc
-class _$CocktailsStateCopyWithImpl<$Res>
+class _$CocktailsStateCopyWithImpl<$Res, $Val extends CocktailsState>
     implements $CocktailsStateCopyWith<$Res> {
   _$CocktailsStateCopyWithImpl(this._value, this._then);
 
-  final CocktailsState _value;
   // ignore: unused_field
-  final $Res Function(CocktailsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -88,15 +89,11 @@ abstract class _$$_CocktailsStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CocktailsStateLoadingCopyWithImpl<$Res>
-    extends _$CocktailsStateCopyWithImpl<$Res>
+    extends _$CocktailsStateCopyWithImpl<$Res, _$_CocktailsStateLoading>
     implements _$$_CocktailsStateLoadingCopyWith<$Res> {
   __$$_CocktailsStateLoadingCopyWithImpl(_$_CocktailsStateLoading _value,
       $Res Function(_$_CocktailsStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_CocktailsStateLoading));
-
-  @override
-  _$_CocktailsStateLoading get _value =>
-      super._value as _$_CocktailsStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -131,9 +128,9 @@ class _$_CocktailsStateLoading implements _CocktailsStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Cocktail> cocktails)? success,
+    TResult? Function(String error)? failure,
   }) {
     return loading?.call();
   }
@@ -165,9 +162,9 @@ class _$_CocktailsStateLoading implements _CocktailsStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailsStateLoading value)? loading,
-    TResult Function(_CocktailsStateSuccess value)? success,
-    TResult Function(_CocktailsStateFailure value)? failure,
+    TResult? Function(_CocktailsStateLoading value)? loading,
+    TResult? Function(_CocktailsStateSuccess value)? success,
+    TResult? Function(_CocktailsStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -196,27 +193,25 @@ abstract class _$$_CocktailsStateSuccessCopyWith<$Res> {
   factory _$$_CocktailsStateSuccessCopyWith(_$_CocktailsStateSuccess value,
           $Res Function(_$_CocktailsStateSuccess) then) =
       __$$_CocktailsStateSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Cocktail> cocktails});
 }
 
 /// @nodoc
 class __$$_CocktailsStateSuccessCopyWithImpl<$Res>
-    extends _$CocktailsStateCopyWithImpl<$Res>
+    extends _$CocktailsStateCopyWithImpl<$Res, _$_CocktailsStateSuccess>
     implements _$$_CocktailsStateSuccessCopyWith<$Res> {
   __$$_CocktailsStateSuccessCopyWithImpl(_$_CocktailsStateSuccess _value,
       $Res Function(_$_CocktailsStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_CocktailsStateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_CocktailsStateSuccess get _value =>
-      super._value as _$_CocktailsStateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cocktails = freezed,
+    Object? cocktails = null,
   }) {
     return _then(_$_CocktailsStateSuccess(
-      cocktails: cocktails == freezed
+      cocktails: null == cocktails
           ? _value._cocktails
           : cocktails // ignore: cast_nullable_to_non_nullable
               as List<Cocktail>,
@@ -233,6 +228,7 @@ class _$_CocktailsStateSuccess implements _CocktailsStateSuccess {
   final List<Cocktail> _cocktails;
   @override
   List<Cocktail> get cocktails {
+    if (_cocktails is EqualUnmodifiableListView) return _cocktails;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cocktails);
   }
@@ -257,6 +253,7 @@ class _$_CocktailsStateSuccess implements _CocktailsStateSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CocktailsStateSuccessCopyWith<_$_CocktailsStateSuccess> get copyWith =>
       __$$_CocktailsStateSuccessCopyWithImpl<_$_CocktailsStateSuccess>(
           this, _$identity);
@@ -274,9 +271,9 @@ class _$_CocktailsStateSuccess implements _CocktailsStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Cocktail> cocktails)? success,
+    TResult? Function(String error)? failure,
   }) {
     return success?.call(cocktails);
   }
@@ -308,9 +305,9 @@ class _$_CocktailsStateSuccess implements _CocktailsStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailsStateLoading value)? loading,
-    TResult Function(_CocktailsStateSuccess value)? success,
-    TResult Function(_CocktailsStateFailure value)? failure,
+    TResult? Function(_CocktailsStateLoading value)? loading,
+    TResult? Function(_CocktailsStateSuccess value)? success,
+    TResult? Function(_CocktailsStateFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -334,7 +331,7 @@ abstract class _CocktailsStateSuccess implements CocktailsState {
   const factory _CocktailsStateSuccess(
       {required final List<Cocktail> cocktails}) = _$_CocktailsStateSuccess;
 
-  List<Cocktail> get cocktails => throw _privateConstructorUsedError;
+  List<Cocktail> get cocktails;
   @JsonKey(ignore: true)
   _$$_CocktailsStateSuccessCopyWith<_$_CocktailsStateSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -345,27 +342,25 @@ abstract class _$$_CocktailsStateFailureCopyWith<$Res> {
   factory _$$_CocktailsStateFailureCopyWith(_$_CocktailsStateFailure value,
           $Res Function(_$_CocktailsStateFailure) then) =
       __$$_CocktailsStateFailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
 class __$$_CocktailsStateFailureCopyWithImpl<$Res>
-    extends _$CocktailsStateCopyWithImpl<$Res>
+    extends _$CocktailsStateCopyWithImpl<$Res, _$_CocktailsStateFailure>
     implements _$$_CocktailsStateFailureCopyWith<$Res> {
   __$$_CocktailsStateFailureCopyWithImpl(_$_CocktailsStateFailure _value,
       $Res Function(_$_CocktailsStateFailure) _then)
-      : super(_value, (v) => _then(v as _$_CocktailsStateFailure));
+      : super(_value, _then);
 
-  @override
-  _$_CocktailsStateFailure get _value =>
-      super._value as _$_CocktailsStateFailure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_CocktailsStateFailure(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -391,15 +386,15 @@ class _$_CocktailsStateFailure implements _CocktailsStateFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CocktailsStateFailure &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CocktailsStateFailureCopyWith<_$_CocktailsStateFailure> get copyWith =>
       __$$_CocktailsStateFailureCopyWithImpl<_$_CocktailsStateFailure>(
           this, _$identity);
@@ -417,9 +412,9 @@ class _$_CocktailsStateFailure implements _CocktailsStateFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Cocktail> cocktails)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(List<Cocktail> cocktails)? success,
+    TResult? Function(String error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -451,9 +446,9 @@ class _$_CocktailsStateFailure implements _CocktailsStateFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailsStateLoading value)? loading,
-    TResult Function(_CocktailsStateSuccess value)? success,
-    TResult Function(_CocktailsStateFailure value)? failure,
+    TResult? Function(_CocktailsStateLoading value)? loading,
+    TResult? Function(_CocktailsStateSuccess value)? success,
+    TResult? Function(_CocktailsStateFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -477,7 +472,7 @@ abstract class _CocktailsStateFailure implements CocktailsState {
   const factory _CocktailsStateFailure(final String error) =
       _$_CocktailsStateFailure;
 
-  String get error => throw _privateConstructorUsedError;
+  String get error;
   @JsonKey(ignore: true)
   _$$_CocktailsStateFailureCopyWith<_$_CocktailsStateFailure> get copyWith =>
       throw _privateConstructorUsedError;

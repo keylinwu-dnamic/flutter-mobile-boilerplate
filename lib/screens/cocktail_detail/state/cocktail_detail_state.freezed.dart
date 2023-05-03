@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'cocktail_detail_state.dart';
 
@@ -25,9 +25,9 @@ mixin _$CocktailDetailState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(Cocktail cocktail)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(Cocktail cocktail)? success,
+    TResult? Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$CocktailDetailState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailDetailStateLoading value)? loading,
-    TResult Function(_CocktailDetailStateSuccess value)? success,
-    TResult Function(_CocktailDetailStateFailure value)? failure,
+    TResult? Function(_CocktailDetailStateLoading value)? loading,
+    TResult? Function(_CocktailDetailStateSuccess value)? success,
+    TResult? Function(_CocktailDetailStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$CocktailDetailState {
 abstract class $CocktailDetailStateCopyWith<$Res> {
   factory $CocktailDetailStateCopyWith(
           CocktailDetailState value, $Res Function(CocktailDetailState) then) =
-      _$CocktailDetailStateCopyWithImpl<$Res>;
+      _$CocktailDetailStateCopyWithImpl<$Res, CocktailDetailState>;
 }
 
 /// @nodoc
-class _$CocktailDetailStateCopyWithImpl<$Res>
+class _$CocktailDetailStateCopyWithImpl<$Res, $Val extends CocktailDetailState>
     implements $CocktailDetailStateCopyWith<$Res> {
   _$CocktailDetailStateCopyWithImpl(this._value, this._then);
 
-  final CocktailDetailState _value;
   // ignore: unused_field
-  final $Res Function(CocktailDetailState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -89,16 +90,13 @@ abstract class _$$_CocktailDetailStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CocktailDetailStateLoadingCopyWithImpl<$Res>
-    extends _$CocktailDetailStateCopyWithImpl<$Res>
+    extends _$CocktailDetailStateCopyWithImpl<$Res,
+        _$_CocktailDetailStateLoading>
     implements _$$_CocktailDetailStateLoadingCopyWith<$Res> {
   __$$_CocktailDetailStateLoadingCopyWithImpl(
       _$_CocktailDetailStateLoading _value,
       $Res Function(_$_CocktailDetailStateLoading) _then)
-      : super(_value, (v) => _then(v as _$_CocktailDetailStateLoading));
-
-  @override
-  _$_CocktailDetailStateLoading get _value =>
-      super._value as _$_CocktailDetailStateLoading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -134,9 +132,9 @@ class _$_CocktailDetailStateLoading implements _CocktailDetailStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(Cocktail cocktail)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(Cocktail cocktail)? success,
+    TResult? Function(String error)? failure,
   }) {
     return loading?.call();
   }
@@ -168,9 +166,9 @@ class _$_CocktailDetailStateLoading implements _CocktailDetailStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailDetailStateLoading value)? loading,
-    TResult Function(_CocktailDetailStateSuccess value)? success,
-    TResult Function(_CocktailDetailStateFailure value)? failure,
+    TResult? Function(_CocktailDetailStateLoading value)? loading,
+    TResult? Function(_CocktailDetailStateSuccess value)? success,
+    TResult? Function(_CocktailDetailStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -200,28 +198,27 @@ abstract class _$$_CocktailDetailStateSuccessCopyWith<$Res> {
           _$_CocktailDetailStateSuccess value,
           $Res Function(_$_CocktailDetailStateSuccess) then) =
       __$$_CocktailDetailStateSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({Cocktail cocktail});
 }
 
 /// @nodoc
 class __$$_CocktailDetailStateSuccessCopyWithImpl<$Res>
-    extends _$CocktailDetailStateCopyWithImpl<$Res>
+    extends _$CocktailDetailStateCopyWithImpl<$Res,
+        _$_CocktailDetailStateSuccess>
     implements _$$_CocktailDetailStateSuccessCopyWith<$Res> {
   __$$_CocktailDetailStateSuccessCopyWithImpl(
       _$_CocktailDetailStateSuccess _value,
       $Res Function(_$_CocktailDetailStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_CocktailDetailStateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_CocktailDetailStateSuccess get _value =>
-      super._value as _$_CocktailDetailStateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cocktail = freezed,
+    Object? cocktail = null,
   }) {
     return _then(_$_CocktailDetailStateSuccess(
-      cocktail: cocktail == freezed
+      cocktail: null == cocktail
           ? _value.cocktail
           : cocktail // ignore: cast_nullable_to_non_nullable
               as Cocktail,
@@ -247,15 +244,16 @@ class _$_CocktailDetailStateSuccess implements _CocktailDetailStateSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CocktailDetailStateSuccess &&
-            const DeepCollectionEquality().equals(other.cocktail, cocktail));
+            (identical(other.cocktail, cocktail) ||
+                other.cocktail == cocktail));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(cocktail));
+  int get hashCode => Object.hash(runtimeType, cocktail);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CocktailDetailStateSuccessCopyWith<_$_CocktailDetailStateSuccess>
       get copyWith => __$$_CocktailDetailStateSuccessCopyWithImpl<
           _$_CocktailDetailStateSuccess>(this, _$identity);
@@ -273,9 +271,9 @@ class _$_CocktailDetailStateSuccess implements _CocktailDetailStateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(Cocktail cocktail)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(Cocktail cocktail)? success,
+    TResult? Function(String error)? failure,
   }) {
     return success?.call(cocktail);
   }
@@ -307,9 +305,9 @@ class _$_CocktailDetailStateSuccess implements _CocktailDetailStateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailDetailStateLoading value)? loading,
-    TResult Function(_CocktailDetailStateSuccess value)? success,
-    TResult Function(_CocktailDetailStateFailure value)? failure,
+    TResult? Function(_CocktailDetailStateLoading value)? loading,
+    TResult? Function(_CocktailDetailStateSuccess value)? success,
+    TResult? Function(_CocktailDetailStateFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -333,7 +331,7 @@ abstract class _CocktailDetailStateSuccess implements CocktailDetailState {
   const factory _CocktailDetailStateSuccess(
       {required final Cocktail cocktail}) = _$_CocktailDetailStateSuccess;
 
-  Cocktail get cocktail => throw _privateConstructorUsedError;
+  Cocktail get cocktail;
   @JsonKey(ignore: true)
   _$$_CocktailDetailStateSuccessCopyWith<_$_CocktailDetailStateSuccess>
       get copyWith => throw _privateConstructorUsedError;
@@ -345,28 +343,27 @@ abstract class _$$_CocktailDetailStateFailureCopyWith<$Res> {
           _$_CocktailDetailStateFailure value,
           $Res Function(_$_CocktailDetailStateFailure) then) =
       __$$_CocktailDetailStateFailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
 class __$$_CocktailDetailStateFailureCopyWithImpl<$Res>
-    extends _$CocktailDetailStateCopyWithImpl<$Res>
+    extends _$CocktailDetailStateCopyWithImpl<$Res,
+        _$_CocktailDetailStateFailure>
     implements _$$_CocktailDetailStateFailureCopyWith<$Res> {
   __$$_CocktailDetailStateFailureCopyWithImpl(
       _$_CocktailDetailStateFailure _value,
       $Res Function(_$_CocktailDetailStateFailure) _then)
-      : super(_value, (v) => _then(v as _$_CocktailDetailStateFailure));
+      : super(_value, _then);
 
-  @override
-  _$_CocktailDetailStateFailure get _value =>
-      super._value as _$_CocktailDetailStateFailure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_CocktailDetailStateFailure(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -392,15 +389,15 @@ class _$_CocktailDetailStateFailure implements _CocktailDetailStateFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CocktailDetailStateFailure &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CocktailDetailStateFailureCopyWith<_$_CocktailDetailStateFailure>
       get copyWith => __$$_CocktailDetailStateFailureCopyWithImpl<
           _$_CocktailDetailStateFailure>(this, _$identity);
@@ -418,9 +415,9 @@ class _$_CocktailDetailStateFailure implements _CocktailDetailStateFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(Cocktail cocktail)? success,
-    TResult Function(String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(Cocktail cocktail)? success,
+    TResult? Function(String error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -452,9 +449,9 @@ class _$_CocktailDetailStateFailure implements _CocktailDetailStateFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CocktailDetailStateLoading value)? loading,
-    TResult Function(_CocktailDetailStateSuccess value)? success,
-    TResult Function(_CocktailDetailStateFailure value)? failure,
+    TResult? Function(_CocktailDetailStateLoading value)? loading,
+    TResult? Function(_CocktailDetailStateSuccess value)? success,
+    TResult? Function(_CocktailDetailStateFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -478,7 +475,7 @@ abstract class _CocktailDetailStateFailure implements CocktailDetailState {
   const factory _CocktailDetailStateFailure(final String error) =
       _$_CocktailDetailStateFailure;
 
-  String get error => throw _privateConstructorUsedError;
+  String get error;
   @JsonKey(ignore: true)
   _$$_CocktailDetailStateFailureCopyWith<_$_CocktailDetailStateFailure>
       get copyWith => throw _privateConstructorUsedError;

@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:boilerplate/constants/constants.dart';
 import 'package:boilerplate/generated/l10n.dart';
 import 'package:boilerplate/router/router.gr.dart';
 import 'package:boilerplate/screens/type_of_glass/type_of_glass_provider.dart';
@@ -44,7 +43,7 @@ class _TypeOfGlassPageState extends ConsumerState<TypeOfGlassPage> {
 class _TypeOfGlassConsumer extends ConsumerWidget {
   void _onTapGlass(BuildContext context, String name) {
     context.router.push(
-      CocktailsRoute(apiKey: Constants.endpointGlassKey, name: name),
+      CocktailsRoute(category: name),
     );
   }
 
