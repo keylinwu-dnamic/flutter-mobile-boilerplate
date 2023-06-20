@@ -1,9 +1,32 @@
 enum CocktailMenu {
-  categories(name: 'Category'),
-  typeOfGlass(name: 'Type of Glass'),
-  ingredient(name: 'Ingredient'),
-  alcoholic(name: 'Alcoholic/Non Alcoholic');
+  categories(
+    name: 'Category',
+    img: 'assets/category.png',
+    leftColor: false,
+  ),
+  typeOfGlass(
+    name: 'Type of Glass',
+    img: 'assets/glass.png',
+    leftColor: false,
+  ),
+  ingredient(
+    name: 'Ingredient',
+    img: 'assets/ingredients.png',
+    leftColor: false,
+  ),
+  alcoholic(
+    name: 'Alcoholic/Non Alcoholic',
+    img: 'assets/alcohol.png',
+    leftColor: true,
+  );
 
   final String name;
-  const CocktailMenu({required this.name});
+  final String img;
+  final bool leftColor;
+
+  const CocktailMenu({
+    required this.name,
+    required this.img,
+    required this.leftColor,
+  });
 }
