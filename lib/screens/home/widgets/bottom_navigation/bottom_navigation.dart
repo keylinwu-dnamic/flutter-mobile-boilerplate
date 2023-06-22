@@ -48,7 +48,6 @@ class _CocktailBottomNavigationState
 
   void onNavigationItemTap(int index) {
     ref.read(homeViewModelProvider.notifier).currentNavigationIndex = index;
-    // ref.read(cocktailProvider.notifier).state = null;
     setState(() {
       _selectedIndex = index;
     });

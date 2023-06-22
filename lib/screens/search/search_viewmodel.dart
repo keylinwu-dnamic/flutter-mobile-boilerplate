@@ -1,6 +1,3 @@
-import 'package:boilerplate/classes/entities/glass.dart';
-import 'package:boilerplate/repositories/data_repository.dart';
-import 'package:boilerplate/screens/home/cocktail_menu.dart';
 import 'package:boilerplate/screens/search/states/search_state.dart';
 import 'package:boilerplate/services/cocktail_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

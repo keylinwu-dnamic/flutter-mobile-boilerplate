@@ -64,38 +64,29 @@ class _SearchPageState extends ConsumerState<SearchPage>
                       },
                     ),
               backgroundColor: Colors.white,
-              floating: false,
+              floating: true,
               pinned: true,
               expandedHeight: 100,
-              flexibleSpace: FlexibleSpaceBar(
-                title: hideItemsOnView
-                    ? Text(
-                        title,
-                        style: const TextStyle(color: Colors.black),
-                      )
-                    : PreferredSize(
-                        preferredSize: const Size.fromHeight(30),
-                        child: Padding(
-                          padding: const EdgeInsets.all(
-                            10,
-                          ),
-                          child: TextField(
-                            decoration: const InputDecoration(
-                                hintText: 'Search for cocktails'),
-                            onSubmitted: (String value) async {
-                              await ref
-                                  .read(searchViewModelProvider.notifier)
-                                  .search(query: value);
-                              ref.read(queryProvider.notifier).state = value;
-                            },
-                          ),
-                        ),
+              flexibleSpace: hideItemsOnView
+                  ? Text(
+                      title,
+                      style: const TextStyle(color: Colors.black),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.all(
+                        10,
                       ),
-                background: const SizedBox(
-                  height: double.infinity,
-                  width: double.infinity,
-                ),
-              ),
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            hintText: 'Search for cocktails'),
+                        onSubmitted: (String value) async {
+                          await ref
+                              .read(searchViewModelProvider.notifier)
+                              .search(query: value);
+                          ref.read(queryProvider.notifier).state = value;
+                        },
+                      ),
+                    ),
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(

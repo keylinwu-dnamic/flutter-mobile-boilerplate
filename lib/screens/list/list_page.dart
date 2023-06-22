@@ -1,6 +1,4 @@
 import 'package:boilerplate/constants/colors.dart';
-import 'package:boilerplate/screens/home/cocktail_menu.dart';
-import 'package:boilerplate/screens/home/widgets/menu_avatar.dart';
 import 'package:boilerplate/screens/list/list_provider.dart';
 import 'package:boilerplate/screens/list/widgets/generic_card.dart';
 import 'package:boilerplate/screens/search/search_page.dart';

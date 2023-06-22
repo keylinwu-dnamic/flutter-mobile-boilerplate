@@ -33,8 +33,8 @@ class _CocktailPageState extends ConsumerState<CocktailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(AppColors.background),
       body: _buildAccordingToState(),
-      bottomNavigationBar: const CocktailBottomNavigation(),
     );
   }
 
@@ -51,20 +51,34 @@ class _CocktailPageState extends ConsumerState<CocktailPage> {
           success: (data) => CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
-                expandedHeight: 250.0,
+                backgroundColor: const Color(AppColors.green),
+                expandedHeight: 300,
+                leading: FloatingActionButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  backgroundColor: const Color(
+                    AppColors.background,
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Colors.black,
+                  ),
+                ),
                 flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    data.name,
-                    textScaleFactor: 1,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 25,
-                      color: Colors.white,
+                  background: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50),
+                    ),
+                    child: Image.network(
+                      data.img!,
+                      fit: BoxFit.fill,
                     ),
                   ),
-                  background: Image.network(
-                    data.img!,
-                    fit: BoxFit.fill,
+                ),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
                   ),
                 ),
               ),
@@ -72,65 +86,112 @@ class _CocktailPageState extends ConsumerState<CocktailPage> {
                 delegate: SliverChildBuilderDelegate(
                   (_, int index) {
                     final List<Map<String, dynamic>> lines = [
-                      if (data.tags != null)
+                      if (data.tagList.isNotEmpty)
                         {
-                          'title': 'Tags:',
-                          'data': data.tagList.join(','),
+                          'title': 'Tags',
+                          'data': data.tagList.join(', '),
                         },
                       if (data.category != null)
                         {
-                          'title': 'Category:',
+                          'title': 'Category',
                           'data': data.category!,
                         },
                       if (data.glass != null)
                         {
-                          'title': 'Type of glass:',
+                          'title': 'Type of glass',
                           'data': data.glass!,
                         },
                       if (data.ingredients.isNotEmpty)
                         {
-                          'title': 'Ingredients: ',
+                          'title': 'Ingredients',
                           'list': data.ingredients,
                         },
                       if (data.instructions != null)
                         {
-                          'title': 'Instructions: ',
+                          'title': 'Instructions',
                           'data': data.instructions!,
                         },
                     ];
-
                     return Column(
                       children: [
-                        ...lines.map(
-                          (line) => ListTile(
-                            leading: Container(
-                              padding: const EdgeInsets.all(8),
-                              child: Text(
-                                line["title"] as String,
-                                textScaleFactor: 1.1,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ),
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                if (line["data"] != null)
-                                  Text(
-                                    line["data"] as String,
-                                    textScaleFactor: 1,
-                                  ),
-                                if (line["list"] != null)
-                                  ...line["list"].map(
-                                    (e) => Ingredients(
-                                      name: '${e['name']}',
-                                      measure: '${e['measure']}',
-                                    ),
-                                  ),
-                              ],
+                        Padding(
+                          padding: const EdgeInsets.all(32),
+                          child: Text(
+                            data.name,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 32,
                             ),
                           ),
+                        ),
+                        ...lines.map(
+                          (line) {
+                            Widget? content;
+                            Widget title = Expanded(
+                              flex: 1,
+                              child: Text(
+                                line["title"] as String,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            );
+
+                            if (line["data"] != null) {
+                              content = Padding(
+                                padding: const EdgeInsets.only(bottom: 16),
+                                child: Row(
+                                  children: [
+                                    title,
+                                    Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        line["data"] as String,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+
+                            if (line["list"] != null) {
+                              content = Row(
+                                children: [
+                                  title,
+                                  Expanded(
+                                    flex: 2,
+                                    child: Column(
+                                      children: [
+                                        ...line["list"].map(
+                                          (e) => Padding(
+                                            padding: const EdgeInsets.only(
+                                              bottom: 5,
+                                            ),
+                                            child: Ingredient(
+                                              name: '${e['name']}',
+                                              measure: '${e['measure']}',
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }
+                            final divider =
+                                lines.indexOf(line) != lines.length - 1
+                                    ? const Divider(
+                                        color: Color(AppColors.green),
+                                        thickness: 2,
+                                      )
+                                    : null;
+
+                            return ListTile(
+                              title: content,
+                              subtitle: divider,
+                            );
+                          },
                         ),
                       ],
                     );
@@ -147,26 +208,45 @@ class _CocktailPageState extends ConsumerState<CocktailPage> {
   }
 }
 
-class Ingredients extends StatelessWidget {
+class Ingredient extends StatelessWidget {
   final String name;
   final String measure;
-  const Ingredients({super.key, required this.name, required this.measure});
+  const Ingredient({super.key, required this.name, required this.measure});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          '$name${measure != '' ? ':' : ''} ',
-          style: const TextStyle(
-            fontWeight: FontWeight.w500,
+        Expanded(
+          child: RichText(
+            text: TextSpan(
+              children: [
+                const WidgetSpan(
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15,
+                    ),
+                  ),
+                ),
+                TextSpan(
+                  text: '$name${measure != '' ? ':' : ''} ',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
+                ),
+                TextSpan(
+                  text: measure,
+                  style: const TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        Expanded(
-          child: Text(
-            measure,
-          ),
-        )
       ],
     );
   }

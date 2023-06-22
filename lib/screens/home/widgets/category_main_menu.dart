@@ -34,7 +34,7 @@ class _CategoryMainMenuState extends ConsumerState<CategoryMainMenu> {
           slivers: [
             SliverAppBar(
               expandedHeight: 440,
-              backgroundColor: Colors.transparent,
+              backgroundColor: const Color(AppColors.green),
               flexibleSpace: FlexibleSpaceBar(
                 background: ClipRRect(
                   borderRadius: const BorderRadius.only(
