@@ -1,6 +1,7 @@
 import 'package:boilerplate/screens/home/home_provider.dart';
 import 'package:boilerplate/screens/home/widgets/bottom_navigation/bottom_navigation.dart';
 import 'package:boilerplate/screens/home/widgets/category_main_menu.dart';
+import 'package:boilerplate/screens/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -17,7 +18,7 @@ class _HomePageState extends ConsumerState<HomePage>
 
   final mainScreens = [
     const CategoryMainMenu(),
-    const OtherScreen(title: 'Search Screen'),
+    const SearchPage(),
     const OtherScreen(title: 'About Screen'),
   ];
 
@@ -61,7 +62,7 @@ class _HomePageState extends ConsumerState<HomePage>
         ref.read(homeViewModelProvider.notifier).title,
         style: const TextStyle(color: Colors.black54),
       ),
-      backgroundColor: Colors.amber.shade100,
+      backgroundColor: Colors.white,
     );
   }
 
