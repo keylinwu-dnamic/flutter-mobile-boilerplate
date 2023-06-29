@@ -28,7 +28,7 @@ class _SearchPageState extends ConsumerState<SearchPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildBody(),
+      body: SafeArea(child: _buildBody()),
       backgroundColor: const Color(AppColors.background),
     );
   }
@@ -67,11 +67,14 @@ class _SearchPageState extends ConsumerState<SearchPage>
               floating: true,
               pinned: true,
               expandedHeight: 100,
-              flexibleSpace: hideItemsOnView
+              title: hideItemsOnView
                   ? Text(
                       title,
                       style: const TextStyle(color: Colors.black),
                     )
+                  : null,
+              flexibleSpace: hideItemsOnView
+                  ? null
                   : Padding(
                       padding: const EdgeInsets.all(
                         10,
